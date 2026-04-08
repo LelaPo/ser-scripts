@@ -1,2 +1,32 @@
-# ser-scripts
-Working Scripts on Russian language for ScriptedEventsReloaded v16.0 exp2 (by Elektryk Andrzej)
+![Version](https://img.shields.io/badge/Release-v0.16--exp2-57?style=flat-square)
+![License](https://img.shields.io/github/license/LelaPo/ser-scripts?color=148822&style=flat-square)
+![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-blue?style=flat-square)
+
+## Описание
+Репозиторий содержит конфигурационные файлы (.txt) для автоматизации игровых событий. Основной упор сделан на корректную русификацию CASSIE и оптимизацию логических условий для снижения нагрузки на сервер.
+
+## Требования
+* **Plugin:** [ScriptedEventsReloaded](https://github.com/ScriptedEvents/ScriptedEventsReloaded) v16.0-exp2 или выше.
+* **Language:** Russian (для корректного отображения внутриигровых сообщений).
+
+## Установка
+1. Склонируйте репозиторий или скачайте необходимые файлы.
+2. Поместите выбранные `.txt` файлы в директорию плагина:
+   `LabAPI -> configs -> Scripted Events Reloaded`
+3. Выполните команду `serrun <имя скрипта>` в консоли сервера или дождитесь автоматической загрузки при старте раунда.
+
+## Список скриптов
+
+| Файл | Описание логики | Статус |
+| :--- | :--- | :--- |
+| `Spawn3114.txt` | Вероятностная замена (15%) стандартного юнита на SCP-3114 при спавне. | Stable |
+| `CoinFlip.txt` | Система случайных ивентов через механику подбрасывания монеты. | Stable |
+
+## Технические детали
+Все скрипты проходят проверку на:
+* Отсутствие рекурсивных циклов.
+* Корректный синтаксис условий `if {Chance %}`.
+* Тайминги задержек (`wait`) для синхронизации с аудио-оповещениями.
+
+## Лицензия
+Данный проект распространяется под лицензией MIT. Подробности в файле [LICENSE](LICENSE).
