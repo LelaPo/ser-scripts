@@ -1,0 +1,45 @@
+# ============================================================
+# CoinFlip.txt - Scripted Events Reloaded v0.16 (Experimental 2)
+# Событие: FlippedCoin
+#
+# Шансы (каскадная логика):
+#   ~55% - Монета пропадает        (fallthrough)
+#   ~25% - Розовая конфета         (Chance 30% после отсева 5%+10%)
+#   ~10% - Отрубаются руки         (Chance 10% после отсева 5%)
+#    ~5% - 6 чёрных конфет         (Chance 5%)
+#
+# *evCoinItem - ссылка на саму монету (уничтожаем напрямую)
+# wait 2s     - ждём анимацию подбрасывания
+# ============================================================
+
+!-- OnEvent FlippedCoin
+
+@player = @evPlayer
+
+# Ждём анимацию подбрасывания монеты (~2 секунды)
+wait 2s
+
+# --- Ветка 1: 5% --- Джекпот: 6 чёрных конфет ---
+if {Chance 5%}
+    Hint @player 7s "<size=26><color=#1a1a1a>ТЬМА ПРИНЯЛА ЖЕРТВУ</color></size><br><size=18><color=#8B0000>Монета исчезла в темноте...<br>Взамен вы получаете 6 чёрных конфет!</color></size>"
+    GiveCandy @player Black 6
+    stop
+end
+
+# --- Ветка 2: 10% --- Редкий исход: отрубаются руки ---
+if {Chance 10%}
+    Hint @player 8s "<size=26><color=#FF2200>МОНЕТА БЕРЁТ ДАНЬ</color></size><br><size=18>Монета потребовала жертву...<br><color=#FF6600>Ваши руки отрублены!</color></size>"
+    GiveEffect @player SeveredHands
+    stop
+end
+
+# --- Ветка 3: 30% --- Средний исход: розовая конфета ---
+if {Chance 30%}
+    Hint @player 5s "<size=26><color=#FF69B4>СЛАДКАЯ УДАЧА!</color></size><br><size=18>Монета улыбнулась вам...<br>Вы получаете розовую конфету!</size>"
+    GiveCandy @player Pink 1
+    stop
+end
+
+# --- Ветка 4: fallthrough ~55% --- Монета пропадает ---
+Hint @player 4s "<size=26><color=#999999>ПУСТО...</color></size><br><size=18>Монета растворилась в воздухе.<br>Ничего не произошло.</size>"
+AdvDestroyItem *evCoinItem
