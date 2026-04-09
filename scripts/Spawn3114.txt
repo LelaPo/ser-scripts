@@ -1,35 +1,35 @@
 !-- OnEvent RoundStarted
 
-# 1. Обязательная задержка! Ждем 2 секунды, чтобы сервер 100% 
-# закончил спавн всех игроков и выдачу им нужных команд.
+# 1. Задержка для корректного спавна
 wait 2s
 
-# 2. Используем прямую конструкцию шанса
+# 2. Шанс
 if {Chance 15%}
     
-    # 3. Берем 100 случайных игроков, чтобы перемешать список
-    @shuffled = LimitPlayers @all 100
+    # 3. Берем всех текущих SCP
+    @allScps = @scpPlayers
     
-    $spawned = false
+    # 4. Исключаем из них всех, кто является SCP-079
+    # Используем готовую системную переменную @scp079Players
+    @candidates = RemovePlayers @allScps @scp079Players
     
-    # Ищем первого попавшегося SCP в нашем перемешанном списке
-    over @shuffled with @plr
-        if {@plr -> team} is "SCPs"
-            
-            # Заменяем роль на Скелета
-            SetRole @plr Scp3114
-            
-            $spawned = true
-            
-            # Нашли и заменили — прерываем цикл
-            break
-        end
+    # Если на сервере были ТОЛЬКО компьютеры, список станет пустым.
+    # В таком случае берем всех SCP (включая 079), чтобы раунд не остался без скелета.
+    if {AmountOf @candidates} is 0
+        @candidates = @allScps
     end
+
+    # 5. Выбираем одну случайную цель
+    @victim = LimitPlayers @candidates 1
     
-    # 4. Если замена удалась, запускаем анонс
-    if $spawned is true
+    # 6. Если цель найдена — превращаем
+    if {AmountOf @victim} > 0
+        
+        SetRole @victim Scp3114
+        
+        # Анонс
         wait 2s
-        # ИСПОЛЬЗУЕМ jingle ВМЕСТО true!
         Cassie jingle "pitch_0.15 .g4 pitch_0.9 SCP 3 1 1 4 HAS SUCCESSFULLY BREACHED CONTAINMENT" "SCP-3114 успешно нарушил условия содержания."
+        
     end
 end
