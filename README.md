@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/Release-v0.16--exp2-57?style=flat-square)
+![Version](https://img.shields.io/badge/Release-v1.0.0--exp2-57?style=flat-square)
 ![License](https://img.shields.io/github/license/LelaPo/ser-scripts?color=148822&style=flat-square)
 ![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-blue?style=flat-square)
 
@@ -6,7 +6,7 @@
 Репозиторий содержит конфигурационные файлы (.txt) для автоматизации игровых событий. Основной упор сделан на корректную русификацию CASSIE и оптимизацию логических условий для снижения нагрузки на сервер.
 
 ## Требования
-* **Plugin:** [ScriptedEventsReloaded](https://github.com/ScriptedEvents/ScriptedEventsReloaded) v16.0-exp2 или выше.
+* **Plugin:** [ScriptedEventsReloaded](https://github.com/ScriptedEvents/ScriptedEventsReloaded) v1.0.0-exp2
 * **Language:** Russian (для корректного отображения внутриигровых сообщений).
 
 ## Установка
@@ -27,6 +27,7 @@
 * Отсутствие рекурсивных циклов.
 * Корректный синтаксис условий `if {Chance %}`.
 * Тайминги задержек (`wait`) для синхронизации с аудио-оповещениями.
+* Documentation.txt было сгенерировано автоматически при помощи команды serdocs. Этот файл удобен для llm
 
 ## Лицензия
 Данный проект распространяется под лицензией MIT. Подробности в файле [LICENSE](LICENSE).

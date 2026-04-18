@@ -1,45 +1,109 @@
-# ============================================================
-# CoinFlip.txt - Scripted Events Reloaded v0.16 (Experimental 2)
-# Событие: FlippedCoin
-#
-# Шансы (каскадная логика):
-#   ~55% - Монета пропадает        (fallthrough)
-#   ~25% - Розовая конфета         (Chance 30% после отсева 5%+10%)
-#   ~10% - Отрубаются руки         (Chance 10% после отсева 5%)
-#    ~5% - 6 чёрных конфет         (Chance 5%)
-#
-# *evCoinItem - ссылка на саму монету (уничтожаем напрямую)
-# wait 2s     - ждём анимацию подбрасывания
-# ============================================================
-
 !-- OnEvent FlippedCoin
 
-@player = @evPlayer
+# Проверяем, существует ли инициатор события
+if {VarExists @evPlayer} is false
+    stop
+end
 
-# Ждём анимацию подбрасывания монеты (~2 секунды)
+@plr = @evPlayer
+
+# Ждём анимацию подбрасывания (2 секунды)
 wait 2s
 
-# --- Ветка 1: 5% --- Джекпот: 6 чёрных конфет ---
-if {Chance 5%}
-    Hint @player 7s "<size=26><color=#1a1a1a>ТЬМА ПРИНЯЛА ЖЕРТВУ</color></size><br><size=18><color=#8B0000>Монета исчезла в темноте...<br>Взамен вы получаете 6 чёрных конфет!</color></size>"
-    GiveCandy @player Black 6
+# Забираем монету у игрока.
+# Сначала пытаемся использовать ссылку на предмет из события (если плагин её передал)
+if {VarExists *evItem}
+    if {ValidRef *evItem}
+        AdvDestroyItem *evItem
+    end
+else
+    # Надежный фоллбэк - удаляем предмет "Монета" из инвентаря игрока
+    DestroyItem @plr Coin
+end
+
+
+# Генерируем число от 1 до 100 для математически точного распределения шансов
+$roll = RandomNum 1 100 int
+
+
+# --- 6% (1 - 6) --- Чуть менее редкий исход: Телепорт ---
+if $roll <= 6
+    # Кидаем жребий для выбора места (1 - Улица, 2 - Ядерка, 3 - SCP)
+    $destRoll = RandomNum 1 3 int
+    
+    if $destRoll is 1
+        # Вариант 1: Улица (Outside)
+        Hint @plr 6s "<size=26><color=#00FFFF>ВНЕЗАПНЫЙ СКВОЗНЯК</color></size><br><size=18>Монета перенесла вас на поверхность!</size>"
+        *room = GetRoomByName Outside
+        if {ValidRef *room}
+            TPRoom @plr *room
+        end
+        
+    elif $destRoll is 2
+        # Вариант 2: Боеголовка (HczWarhead)
+        Hint @plr 6s "<size=26><color=#FF0000>РАДИАЦИОННЫЙ ФОН</color></size><br><size=18>Монета забросила вас в шахту боеголовки!</size>"
+        *room = GetRoomByName HczWarhead
+        if {ValidRef *room}
+            TPRoom @plr *room
+        end
+        
+    else
+        # Вариант 3: Случайный SCP (кроме 079)
+        @targetScp = @empty
+        
+        if {AmountOf @scpPlayers} > 0
+            # Делаем до 20 попыток найти SCP, который не является компьютером
+            repeat 20
+                @potTarget = LimitPlayers @scpPlayers 1
+                if {AmountOf @potTarget} > 0
+                    if {@potTarget -> role} isnt "Scp079"
+                        @targetScp = @potTarget
+                        break
+                    end
+                end
+            end
+        end
+        
+        # Если подходящий SCP найден
+        if {AmountOf @targetScp} > 0
+            Hint @plr 6s "<size=26><color=#8B0000>ПЛОХАЯ КОМПАНИЯ</color></size><br><size=18>Монета телепортировала вас прямо к объекту!</size>"
+            TPPlayer @plr @targetScp
+        else
+            # Если SCP вообще нет в раунде (или есть только 079), кидаем на улицу
+            Hint @plr 6s "<size=26><color=#00FFFF>ВНЕЗАПНЫЙ СКВОЗНЯК</color></size><br><size=18>Вам повезло, свободных SCP нет! Вы на улице!</size>"
+            *room = GetRoomByName Outside
+            if {ValidRef *room}
+                TPRoom @plr *room
+            end
+        end
+    end
     stop
 end
 
-# --- Ветка 2: 10% --- Редкий исход: отрубаются руки ---
-if {Chance 10%}
-    Hint @player 8s "<size=26><color=#FF2200>МОНЕТА БЕРЁТ ДАНЬ</color></size><br><size=18>Монета потребовала жертву...<br><color=#FF6600>Ваши руки отрублены!</color></size>"
-    GiveEffect @player SeveredHands
+
+# --- 4% (7 - 10) --- Самый редкий джекпот: 6 чёрных конфет ---
+if $roll <= 10
+    Hint @plr 7s "<size=26><color=#1a1a1a>ТЬМА ПРИНЯЛА ЖЕРТВУ</color></size><br><size=18><color=#8B0000>Монета исчезла в темноте...<br>Взамен вы получаете 6 чёрных конфет!</color></size>"
+    GiveCandy @plr Black 6
     stop
 end
 
-# --- Ветка 3: 30% --- Средний исход: розовая конфета ---
-if {Chance 30%}
-    Hint @player 5s "<size=26><color=#FF69B4>СЛАДКАЯ УДАЧА!</color></size><br><size=18>Монета улыбнулась вам...<br>Вы получаете розовую конфету!</size>"
-    GiveCandy @player Pink 1
+
+# --- 10% (11 - 20) --- Неудача: Отрубаются руки ---
+if $roll <= 20
+    Hint @plr 8s "<size=26><color=#FF2200>МОНЕТА БЕРЁТ ДАНЬ</color></size><br><size=18>Монета потребовала жертву...<br><color=#FF6600>Ваши руки отрублены!</color></size>"
+    GiveEffect @plr SeveredHands 0s 1
     stop
 end
 
-# --- Ветка 4: fallthrough ~55% --- Монета пропадает ---
-Hint @player 4s "<size=26><color=#999999>ПУСТО...</color></size><br><size=18>Монета растворилась в воздухе.<br>Ничего не произошло.</size>"
-AdvDestroyItem *evCoinItem
+
+# --- 25% (21 - 45) --- Удача: Розовая конфета ---
+if $roll <= 45
+    Hint @plr 5s "<size=26><color=#FF69B4>СЛАДКАЯ УДАЧА!</color></size><br><size=18>Монета улыбнулась вам...<br>Вы получаете розовую конфету!</size>"
+    GiveCandy @plr Pink 1
+    stop
+end
+
+
+# --- 55% (46 - 100) --- Дефолт: Ничего ---
+Hint @plr 4s "<size=26><color=#999999>ПУСТО...</color></size><br><size=18>Монета растворилась в воздухе.<br>Ничего не произошло.</size>"

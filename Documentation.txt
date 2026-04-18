@@ -1,0 +1,584 @@
+Genrated on [18 April 2026] with SER version [1.0.0]
+
+===== Methods =====
+Hi! There are 239 methods available for your use!
+If a method has [rets], it means that this method returns a value.
+If you want to get specific information about a given method, just do 'serhelp <MethodName>'!
+
+--- Audio methods ---
+> CreateGlobalSpeaker         ~ Creates a speaker to play audio through.
+> CreatePlayerAttachedSpeaker ~ Creates a speaker attached to the player to play audio through.
+> DestroySpeaker              ~ Destroys a speaker.
+> IsAudioLoaded [rets]        ~ Returns true if a given audio clip has been loaded
+> IsPlayingAudio [rets]       ~ Checks if the audio player is playing anything.
+> LoadAudio                   ~ Loads an audio file into the audio player.
+> PlayAudio                   ~ Plays a loaded audio clip from a created speaker.
+> SpeakerExists [rets]        ~ Returns true or false indicating if a speaker with the provided name exists.
+
+--- AdminToys methods ---
+> CreateToy [rets] ~ Creates an Admin Toy
+> DestroyToy       ~ Destroys an Admin Toy.
+> MoveToy          ~ Moves an Admin Toy relative to its rotation.
+> SetToyParent     ~ Sets the parent of a toy (So that the toy follows it).
+> SetToyRotation   ~ Sets the rotation of a toy.
+> SetToyScale      ~ Sets the scale of a toy.
+> TPToyPlayer      ~ Teleports an Admin Toy to a given player
+> TPToyPos         ~ Teleports an Admin Toy to the given absolute coordinates
+> TPToyRoom        ~ Teleports an Admin Toy to the given room
+
+--- AdminToyProperty methods ---
+> SetCameraProperties          ~ Sets the properties of a CameraToy.
+> SetInteractableProperties    ~ Sets properties of an Interactable Toy.
+> SetLightSourceProperties     ~ Sets the properties of a LightSourceToy.
+> SetPrimitiveObjectProperties ~ Sets properties of a PrimitiveObjectToy.
+> SetShootingTargetProperties  ~ Sets the properties of a ShootingTargetToy.
+> SetTextProperties            ~ Sets the properties of a TextToy.
+> ToyInfo [rets]               ~ Returns information about an Admin Toy
+
+--- Broadcast methods ---
+> AnimatedBroadcast ~ Sends an animated broadcast to all players.
+> Broadcast         ~ Sends a broadcast to players.
+> ClearBroadcasts   ~ Clears broadcasts for players.
+> ClearCountdown    ~ Removes an active countdown for players if one is active.
+> Countdown         ~ Creates a countdown using broadcasts.
+> Hint              ~ Sends a hint to players.
+
+--- Command methods ---
+> Command                    ~ Runs a server command with full permission.
+> ResetGlobalCommandCooldown ~ Resets the global command cooldown for the 'CustomCommand' flag.
+> ResetPlayerCommandCooldown ~ Resets a player's command cooldown from the 'CustomCommand' flag.
+
+--- CollectionVariable methods ---
+> CollectionContains [rets]  ~ Returns true if the value exists in the collection
+> CollectionFetch [rets]     ~ Returns a value from a collection variable at a given position.
+> CollectionInsert           ~ Adds a value to a collection variable
+> CollectionLength [rets]    ~ Returns the amount of items in a collection.
+> CollectionRemoveAt         ~ Removes a value at the provided index from a collection variable
+> CollectionRemove           ~ Removes a matching value from a collection variable
+> EmptyCollection [rets]     ~ Returns an empty collection.
+> JoinCollections [rets]     ~ Returns a collection that has the combined values of all the given collections
+> SubtractCollections [rets] ~ Returns a collection that has the values of the first collection without the values of the latter
+
+--- CASSIE methods ---
+> Cassie                  ~ Makes a CASSIE announcement.
+> ClearCassie             ~ Clears all CASSIE announcements, active or queued.
+> IsCassieSpeaking [rets] ~ Returns boolean value indicating if CASSIE is speaking.
+
+--- Dummy methods ---
+> AddDummy [rets] ~ Adds a dummy to the server
+
+--- Door methods ---
+> BreakDoor            ~ Breaks specified doors if possible.
+> CloseDoor            ~ Closes doors.
+> GetRandomDoor [rets] ~ Returns a reference to a random door.
+> LockDoor             ~ Locks doors.
+> OpenDoor             ~ Opens doors.
+> PryGate              ~ Pries a gate.
+> RepairDoor           ~ Repairs specified doors if possible
+> SetDoorHealth        ~ Sets remaining health for specified doors if possible
+> SetDoorMaxHealth     ~ Sets max health for specified doors if possible
+> SetDoorPermission    ~ Sets door permissions.
+> UnlockDoor           ~ Unlocks doors.
+
+--- Discord methods ---
+> DeleteDiscordMessage      ~ Deletes a message sent by a discord webhook (with that same webhook).
+> DiscordEmbed [rets]       ~ Creates an embed which can later be sent to discord via webhook.
+> DiscordMessage [rets]     ~ Creates a discord message object.
+> EditDiscordMessage        ~ Edits a message sent by a discord webhook (with that same webhook).
+> EmbedAuthor [rets]        ~ Creates an author object that can be used in discord embeds.
+> EmbedField [rets]         ~ Creates a field object that can be used in discord embeds.
+> EmbedFooter [rets]        ~ Creates a footer that can be used in discord embeds.
+> SendDiscordMessageAndWait ~ Sends a message using a discord webhook and waits until it is completed. Returns the message id.
+> SendDiscordMessage        ~ Sends a message using a discord webhook.
+
+--- Database methods ---
+> AppendDB         ~ Adds a key-value pair to the database.
+> CreateDB         ~ Creates a new JSON file in the database folder.
+> DBExists [rets]  ~ Returns true if the provided database exists.
+> DBHasKey [rets]  ~ Returns true if the provided key exists in the database.
+> GetFromDB [rets] ~ Returns the value of a given key in the database.
+> RemoveDBKey      ~ Removes a key from a database.
+
+--- Event methods ---
+> DisableEvent       ~ Disables the provided event from running.
+> EnableEvent [rets] ~ Enables the provided event to run after being disabled.
+> IsAllowed          ~ Sets whether or not the event is allowed to run.
+
+--- Elevator methods ---
+> LockElevator    ~ Locks elevators.
+> SendElevator    ~ Sends elevators to the next floor.
+> SetElevatorText ~ Changes the text on the elevator panels between LCZ and HCZ.
+> UnlockElevator  ~ Unlocks elevators.
+
+--- Effect methods ---
+> ClearEffect      ~ Removes the provided status effect from players.
+> GiveEffect       ~ Adds a provided effect for specified players.
+> HasEffect [rets] ~ Returns true or false indicating if the player has the provided effect.
+
+--- HTTP methods ---
+> AppendJSON [rets]           ~ Parses a provided value into a JSON object.
+> CreateJSON [rets]           ~ Returns an empty JSON object.
+> FormatToReadableJSON [rets] ~ Returns the JSON object in a readable format.
+> HTTPGet                     ~ Sends a GET request to a provided URL and returns the response as a JSON object.
+> HTTPPatch                   ~ Sends a PATCH request to a provided URL.
+> HTTPPost                    ~ Sends a POST request to a provided URL.
+> ParseJSON [rets]            ~ Parses a provided value into a JSON object.
+
+--- Health methods ---
+> AddHume       ~ Adds hume shield to players. Do not confuse this method with SetHumeShieldMethod
+> Damage        ~ Damages players.
+> Heal          ~ Heals players. Doesn't exceed their max health.
+> Kill          ~ Kills players.
+> Regenerate    ~ Adds health regeneration to players.
+> SetAHP        ~ Sets the amount of AHP for players.
+> SetHealth     ~ Sets health for players.
+> SetHumeShield ~ Sets hume shield for players.
+> SetMaxHealth  ~ Sets the max health of players.
+
+--- Item methods ---
+> AdvDestroyItem         ~ Destroys items on the ground and in inventories.
+> AdvDropItem [rets]     ~ Drops an item from player inventory and returns a reference to the pickup object of that item.
+> ClearInventory         ~ Clears player inventory.
+> DestroyItem            ~ Destroys an item in players' inventory.
+> DropItem               ~ Drops items from players' inventories.
+> FirearmItemInfo [rets] ~ Returns info about provided firearm
+> ForceEquip             ~ Forces players to equip a provided item.
+> GiveCandy              ~ Gives candy to players.
+> GiveItem               ~ Gives an item to players.
+> GrantLoadout           ~ Grants players a class loadout.
+> SetRadioRange          ~ Sets the radio range of a specified radio item.
+> UsableItemInfo [rets]  ~ Returns information about provided usable item, like Painkillers, Medkit, etc.
+
+--- Intercom methods ---
+> IntercomInfo [rets] ~ Returns info about the Intercom.
+> SetIntercomState    ~ Sets the state of usage of the intercom.
+> SetIntercomText     ~ Sets the text on the Intercom.
+
+--- Light methods ---
+> LightsOut            ~ Turns off lights for rooms.
+> ResetLightColor      ~ Resets the light color for rooms.
+> SetLightColor        ~ Sets the light color for rooms.
+> TransitionLightColor ~ Transitions smoothly the light color for rooms.
+
+--- Map methods ---
+> CleanupPickups       ~ Cleans pickups (items) from the map.
+> CleanupRagdolls      ~ Destroys ragdolls.
+> CreateRagdoll        ~ Spawns a ragdoll.
+> Decontamination      ~ Controls the LCZ decontamination.
+> GetCameras [rets]    ~ Returns a collection of references to cameras.
+> GetDoors [rets]      ~ Returns a collection of references to doors.
+> GetElevators [rets]  ~ Returns a collection of references to elevators.
+> GetGenerators [rets] ~ Returns a collection of references to generators.
+> GetPickups [rets]    ~ Returns a collection of references to pickups.
+> GetRagdolls [rets]   ~ Returns a collection of references to ragdolls.
+> GetRoomLights [rets] ~ Returns a collection of references to room lights.
+> GetRooms [rets]      ~ Returns a collection of references to rooms.
+> GetTeslas [rets]     ~ Returns a collection of references to teslas.
+
+--- Number methods ---
+> Chance [rets]         ~ Returns true with the specified chance.
+> HexToInt [rets]       ~ Parses a hexadecimal number back to a number value
+> IntToHex [rets]       ~ Parses an integer into a hexadecimal number
+> IsNumber [rets]       ~ Returns true if the provided value is a number.
+> RandomNum [rets]      ~ Returns a randomly generated number.
+> TryParseNumber [rets] ~ Tries to parse a given value to a number.
+
+--- Output methods ---
+> Error ~ Sends an error message.
+> Print ~ Prints the text provided to the server console.
+> Reply ~ Sends a message to the place where the script was run from.
+
+--- PlayerVariable methods ---
+> AmountOf [rets]       ~ Returns the amount of players in a given player variable.
+> ContainsPlayer [rets] ~ Returns a true/false value indicating if the provided player is in the list.
+> FilterPlayers [rets]  ~ Returns players which match the value for a given property.
+> JoinPlayers [rets]    ~ Returns all players that were provided from multiple player variables.
+> LimitPlayers [rets]   ~ Returns a player variable with amount of players being equal or lower than the limit.
+> Overlapping [rets]    ~ Checks if all player variables have the same players.
+> RemovePlayers [rets]  ~ Returns players from the original variable that were not present in other variables.
+> Show [rets]           ~ Formats provided players into a nice text representation.
+
+--- Player methods ---
+> Ban                  ~ Bans players from the server.
+> Bypass               ~ Grants or removes bypass mode for players.
+> Explode              ~ Explodes players.
+> Godmode              ~ Enables or disables godmode for specified players.
+> HasPermission [rets] ~ Checks if a player has a specific permission.
+> Jump                 ~ Makes players jump (with modifiable jump strength).
+> Kick                 ~ Kicks players from the server.
+> Mute                 ~ Mutes specified players.
+> Noclip               ~ Enables or disables access to noclip for specified players.
+> ResetMute            ~ Resets mute status for specified players.
+> SetCustomInfo        ~ Sets custom info (overhead text) for specific players.
+> SetDisplayName       ~ Sets display name for specified players
+> SetEmote             ~ Sets emotion for specified players
+> SetGravity           ~ Changes player gravity.
+> SetGroup             ~ Sets or removes group from specified players
+> SetInfoArea          ~ Sets InfoArea for specified players
+> SetSize              ~ Sets the size of players.
+> SetSpectatability    ~ Allows or disallows a player to be spectated.
+> ShowHitMarker        ~ Shows a hit marker to players.
+> Stamina              ~ Control the stamina of players.
+
+--- PlayerData methods ---
+> ClearPlayerData      ~ Clears data associated with specified players
+> GetPlayerData [rets] ~ Gets player data from the key.
+> HasPlayerData [rets] ~ Checks if a given key has an associated value for a given player.
+> SetPlayerData        ~ Associates a custom key with a value for a given player.
+
+--- Pickup methods ---
+> AddPickupToInventory ~ Forces a pickup to be added to the player's inventory.
+> CreateGrenade [rets] ~ Creates a new grenade projectile to later spawn.
+> CreatePickup [rets]  ~ Creates a new item pickup to later spawn.
+> DestroyPickup        ~ Destroys a pickup / grenade from the map.
+> PickupExists [rets]  ~ Returns true if the provided pickup is still present on the server.
+> SpawnPickupPlayer    ~ Spawns an item pickup / grenade on a player.
+> SpawnPickupPos       ~ Spawns an item pickup / grenade at the coordinates.
+> SpawnPickupRoom      ~ Spawns an item pickup / grenade in a room.
+
+--- Parsing methods ---
+> IsLiteral [rets]    ~ Returns true if given value is a LiteralValue
+> ParsePlayers [rets] ~ Parses a string containing player IDs into a PlayerValue
+
+--- Round methods ---
+> EndRound         ~ Ends a round.
+> LobbyLock        ~ Changes the lobby lock state.
+> RoundInfo [rets] ~ Returns information about the current round.
+> RoundLock        ~ Changes the round lock state.
+> StartRound       ~ Start a round.
+
+--- Room methods ---
+> Blackout             ~ Blackouts rooms.
+> GetRoomByName [rets] ~ Returns a reference to a room which has the provided name.
+
+--- Role methods ---
+> SetRole ~ Sets a role for players.
+
+--- Respawn methods ---
+> GetWaveTimer [rets] ~ Returns the duration of a given spawn wave.
+> PlayWaveEffect      ~ Plays a Respawn Wave effect (the NTF helicopter/CI van arrival animation)
+> SpawnWave           ~ Forces a wave to start.
+
+--- ReferenceVariable methods ---
+> ValidRef [rets] ~ Verifies if the reference is valid, by checking if the object exists.
+
+--- Server methods ---
+> FriendlyFire      ~ Changes friendly fire mode.
+> ServerInfo [rets] ~ Returns info about the server.
+
+--- Script methods ---
+> IsRunning [rets]    ~ Returns true if given script is running
+> RunFunc             ~ Runs a function script with arguments.
+> RunScriptAndWait    ~ Runs a script and waits until the ran script has finished.
+> RunScript           ~ Runs a script.
+> ScriptExists [rets] ~ Returns true or false indicating if a script with the provided name exists.
+> StopScript          ~ Stops a given script.
+> This [rets]         ~ Returns info about the current script
+> TransferVariables   ~ Makes a copy of the given local variable(s) in a different script.
+> Trigger             ~ Fires a given trigger, executing scripts which are attached to it.
+
+--- Scp methods ---
+> Get096Targets [rets]   ~ Returns the targets of the specified SCP-096
+> Get173Observers [rets] ~ Returns the people that are looking at the specified SCP-173
+> Set079AccessTier       ~ Sets the Access Tier of the given player(s) if they are SCP-079
+> Set079AuxPower         ~ Sets the Auxiliary Power of the given player(s) if they are SCP-079
+> Set079Exp              ~ Sets the EXP of the given player(s) if they are SCP-079
+
+--- Time methods ---
+> DurationInfo [rets]   ~ Returns the value of the duration as a number of specified unit.
+> FormatDuration [rets] ~ Formats a duration into a special format.
+> TimeInfo [rets]       ~ Returns information about current time.
+> ToDuration [rets]     ~ Creates a duration value from a number and a unit.
+
+--- Text methods ---
+> ContainsText [rets]   ~ Returns true or false indicating if the provided text contains a provided value.
+> JoinText [rets]       ~ Joins provided text values.
+> PadText [rets]        ~ Fills the text from the left or right with the given character until the specified length is met
+> ReplaceTextInVariable ~ Replaces given values in a given text variable.
+> ReplaceText [rets]    ~ Replaces given values in a given text.
+> SubText [rets]        ~ Removes certain amount of characters from beginning and end of a text value.
+> TextLength [rets]     ~ Returns the length of the text.
+> TrimText [rets]       ~ Trims the text value from whitspaces at the beginning and end.
+
+--- TeslaRuleMethds methods ---
+> IgnoredPlayersByTesla      ~ Sets the players that will be ignored by a tesla.
+> IgnoredRolesByTesla        ~ Sets the type of roles that will be ignored by a tesla.
+> IgnoredTeamsByTesla        ~ Sets the type of teams that will be ignored by a tesla.
+> ResetIgnoredPlayersByTesla ~ Resets the list of players ignored by a tesla.
+> ResetIgnoredRolesByTesla   ~ Resets the list of roles ignored by a tesla.
+> ResetIgnoredTeamsByTesla   ~ Resets the list of teams ignored by a tesla.
+
+--- Teleport methods ---
+> TPDoor     ~ Teleports players to a door.
+> TPPlayer   ~ Teleports players to another player.
+> TPPosition ~ Teleports players to an XYZ position.
+> TPRoom     ~ Teleports players to relative coordinates of a room.
+> TPSpawn    ~ Teleports players to where a specified role would spawn.
+
+--- Variable methods ---
+> GetVariableByName [rets] ~ Returns the value of a variable with the given name and prefix.
+> GlobalVariables [rets]   ~ Returns a collection containing all the global variable names
+> LogVar [rets]            ~ Returns a formatted version of the variable for logging purposes.
+> PopVariable [rets]       ~ Erases a given variable, returning its value.
+> VarExists [rets]         ~ Returns a bool value indicating if the provided variable exists.
+
+--- Warhead methods ---
+> WarheadInfo [rets] ~ Returns information about Alpha Warhead
+> Warhead            ~ Manages alpha warhead.
+
+--- (not accessible) Ucr framework methods ---
+> GetPlayersWithUCRRole [rets] ~ Gets all players who have a provided UCR role.
+> GetUCRRole [rets]            ~ Returns a reference to the UCR role a player has.
+> SetUCRRole                   ~ Sets the UCR role of a player.
+
+--- (not accessible) Exiled framework methods ---
+> GetAmmoLimit [rets]     ~ Gets the player's limit on a certain ammunition type
+> SetAmmoLimit            ~ Sets the players' limit on a certain ammunition type
+> SetAppearance           ~ Changes the appearance of a player (or reskins)
+> ClearExiledEffect       ~ Removes the provided status effect from players.
+> GiveExiledEffect        ~ Adds a provided effect to a player.
+> HasExiledEffect [rets]  ~ Returns true or false indicating if the player has the provided effect.
+> PlayerCassie            ~ Makes a CASSIE announcement to specified players only.
+> PlayerAnimatedBroadcast ~ Sends an animated broadcast to specified players.
+
+--- (not accessible) Callvote framework methods ---
+> StartVoteAndWait  ~ Starts a vote and waits until it is completed.
+> StartVote         ~ Starts a vote.
+> VoteOption [rets] ~ Creates a vote option, which can be used in a vote.
+
+
+===== Variables =====
+Hi! There are 47 variables available for your use!
+
+--- Other variables ---
+> @all
+> @allPlayers
+> @alivePlayers
+> @npcPlayers
+> @empty
+> @emptyPlayers
+
+--- Role variables ---
+> @scp173Players
+> @classDPlayers
+> @spectatorPlayers
+> @scp106Players
+> @ntfSpecialistPlayers
+> @scp049Players
+> @scientistPlayers
+> @scp079Players
+> @chaosConscriptPlayers
+> @scp096Players
+> @scp0492Players
+> @ntfSergeantPlayers
+> @ntfCaptainPlayers
+> @ntfPrivatePlayers
+> @tutorialPlayers
+> @facilityGuardPlayers
+> @scp939Players
+> @customRolePlayers
+> @chaosRiflemanPlayers
+> @chaosMarauderPlayers
+> @chaosRepressorPlayers
+> @overwatchPlayers
+> @filmmakerPlayers
+> @scp3114Players
+> @destroyedPlayers
+> @flamingoPlayers
+> @alphaFlamingoPlayers
+> @zombieFlamingoPlayers
+> @ntfFlamingoPlayers
+> @chaosFlamingoPlayers
+> @nonePlayers
+
+--- Facility zone variables ---
+> @lightContainmentPlayers
+> @heavyContainmentPlayers
+> @entrancePlayers
+> @surfacePlayers
+> @otherPlayers
+
+--- Team variables ---
+> @scpPlayers
+> @foundationForcePlayers
+> @chaosInsurgencyPlayers
+> @deadPlayers
+> @otherAlivePlayers
+
+
+===== Enums =====
+Enums are basically options, where an enum has set of all valid values, so a valid option is an enum value.
+These enums are usually used to specify a room, door, zone etc.
+
+To get the list of all available values that an enum has, just use 'serhelp <enumName>'.
+For example: 'serhelp RoomName' will get you a list of all available room names to use in methods.
+
+Here are all enums used in SER:
+> RoomName
+> FacilityZone
+> DoorName
+> ItemType
+> ElevatorGroup
+> ConsoleType
+> DurationUnit
+> RoleTypeId
+> Team
+> RunReason
+> RoleSpawnFlags
+> RoleChangeReason
+> PlayerProperty
+> EmotionPresetType
+> PlayerInfoArea
+> HitmarkerType
+> ConsoleColor
+> CandyKindID
+> RadioRangeLevel
+> IntercomState
+> DoorLockReason
+> DoorDamageType
+> DoorPermissionFlags
+> ColliderShape
+> LightShadows
+> LightType
+> PrimitiveType
+> PrimitiveFlags
+
+===== Events =====
+Event is a signal that something happened on the server. 
+If the round has started, server will invoke an event (signal) called RoundStarted.
+You can use this functionality to run your scripts when a certain event happens.
+
+By putting `!-- OnEvent RoundStarted` at the top of your script, you will run your script when the round starts.
+You can put something different there, e.g. `!-- OnEvent Death`, which will run when someone has died.
+
+Some events have additional information attached to them in a form of variables.
+If you wish to know what variables are available for a given event, just use 'serhelp <eventName>'!
+
+Here are all events that SER can use:
+--- ObjectiveEvents ---
+Completing, Completed, KillingEnemyCompleting, KilledEnemyCompleted, EscapingCompleting, EscapedCompleted, ActivatingGeneratorCompleting, ActivatedGeneratorCompleted, DamagingScpCompleting, DamagedScpCompleted, PickingScpItemCompleting, PickedScpItemCompleted
+--- PlayerEvents ---
+Joined, Left, ReceivingVoiceMessage, SendingVoiceMessage, PreAuthenticating, PreAuthenticated, UsingIntercom, UsedIntercom, Banning, Banned, Kicking, Kicked, Muting, Muted, Unmuting, Unmuted, ReportingCheater, ReportedCheater, ReportingPlayer, ReportedPlayer, TogglingNoclip, ToggledNoclip, RequestingRaPlayerList, RequestedRaPlayerList, RaPlayerListAddingPlayer, RaPlayerListAddedPlayer, RequestedCustomRaInfo, RequestingRaPlayersInfo, RequestedRaPlayersInfo, RequestingRaPlayerInfo, RequestedRaPlayerInfo, ChangingBadgeVisibility, ChangedBadgeVisibility, ChangingNickname, ChangedNickname, GroupChanging, GroupChanged, UpdatingEffect, UpdatedEffect, Dying, Death, Hurting, Hurt, ChangingRole, ChangedRole, Cuffing, Cuffed, Uncuffing, Uncuffed, ReceivingLoadout, ReceivedLoadout, Spawning, Spawned, ChangingItem, ChangedItem, DroppingAmmo, DroppedAmmo, DroppingItem, DroppedItem, PickingUpAmmo, PickedUpAmmo, PickingUpArmor, PickedUpArmor, PickingUpItem, PickedUpItem, PickingUpScp330, PickedUpScp330, SearchedAmmo, SearchingArmor, SearchedArmor, SearchingPickup, InteractedToy, SearchedPickup, SearchingAmmo, ThrowingItem, ThrewItem, ThrowingProjectile, ThrewProjectile, InspectingKeycard, InspectedKeycard, SpinningRevolver, SpinnedRevolver, ToggledDisruptorFiringMode, InspectingItem, InspectedItem, UsingItem, UsedItem, ItemUsageEffectsApplying, UsingRadio, UsedRadio, AimedWeapon, DryFiringWeapon, DryFiredWeapon, UnloadingWeapon, UnloadedWeapon, ReloadingWeapon, ReloadedWeapon, ShootingWeapon, ShotWeapon, ChangingAttachments, ChangedAttachments, SendingAttachmentsPrefs, SentAttachmentsPrefs, CancellingUsingItem, CancelledUsingItem, ChangingRadioRange, ChangedRadioRange, ProcessingJailbirdMessage, ProcessedJailbirdMessage, TogglingFlashlight, ToggledFlashlight, TogglingWeaponFlashlight, ToggledWeaponFlashlight, TogglingRadio, ToggledRadio, Jumped, MovementStateChanged, ProcessingScp1509Message, ProcessedScp1509Message, Scp1509Resurrecting, Scp1509Resurrected, DamagingShootingTarget, DamagedShootingTarget, DamagingWindow, DamagedWindow, EnteringPocketDimension, EnteredPocketDimension, LeavingPocketDimension, LeftPocketDimension, TriggeringTesla, TriggeredTesla, Escaping, Escaped, FlippingCoin, FlippedCoin, SearchingToy, SearchedToy, SearchToyAborted, IdlingTesla, IdledTesla, InteractingDoor, InteractedDoor, InteractingElevator, InteractedElevator, InteractingGenerator, InteractedGenerator, OpeningGenerator, OpenedGenerator, ActivatingGenerator, ActivatedGenerator, DeactivatingGenerator, DeactivatedGenerator, UnlockingGenerator, UnlockedGenerator, ClosingGenerator, ClosedGenerator, InteractingLocker, InteractedLocker, InteractingScp330, InteractedScp330, InteractingShootingTarget, InteractedShootingTarget, PlacingBlood, PlacedBlood, PlacingBulletHole, PlacedBulletHole, SpawningRagdoll, SpawnedRagdoll, UnlockingWarheadButton, UnlockedWarheadButton, ReceivedAchievement, RoomChanged, ZoneChanged, InteractingWarheadLever, InteractedWarheadLever, SendingHitmarker, SentHitmarker, CheckedHitmarker, ChangedSpectator, EnteringHazard, EnteredHazard, StayingInHazard, LeavingHazard, LeftHazard, ValidatedVisibility, DetectedByScp1344
+--- Scp0492Events ---
+StartingConsumingCorpse, StartedConsumingCorpse, ConsumingCorpse, ConsumedCorpse
+--- Scp049Events ---
+StartingResurrection, ResurrectingBody, ResurrectedBody, UsingDoctorsCall, UsedDoctorsCall, UsingSense, UsedSense, Attacking, Attacked, SenseLostTarget, SenseKilledTarget
+--- Scp079Events ---
+BlackingOutRoom, BlackedOutRoom, BlackingOutZone, BlackedOutZone, ChangingCamera, ChangedCamera, CancellingRoomLockdown, CancelledRoomLockdown, GainingExperience, GainedExperience, LevelingUp, LeveledUp, LockingDoor, LockedDoor, LockingDownRoom, LockedDownRoom, Recontaining, Recontained, UnlockingDoor, UnlockedDoor, UsingTesla, UsedTesla, Pinging, Pinged
+--- Scp096Events ---
+AddingTarget, AddedTarget, ChangingState, ChangedState, Charging, Charged, Enraging, Enraged, PryingGate, PriedGate, StartCrying, StartedCrying, TryingNotToCry, TriedNotToCry
+--- Scp106Events ---
+ChangingStalkMode, ChangedStalkMode, ChangingVigor, ChangedVigor, UsedHunterAtlas, UsingHunterAtlas, ChangingSubmersionStatus, ChangedSubmersionStatus, TeleportingPlayer, TeleportedPlayer
+--- Scp127Events ---
+GainingExperience, GainExperience, LevellingUp, LevelUp, Talking, Talked
+--- Scp173Events ---
+BreakneckSpeedChanging, BreakneckSpeedChanged, AddingObserver, AddedObserver, RemovingObserver, RemovedObserver, CreatingTantrum, CreatedTantrum, PlayingSound, PlayedSound, Teleporting, Teleported, Snapping, Snapped
+--- Scp3114Events ---
+Disguising, Disguised, Revealing, Revealed, StrangleStarting, StrangleStarted, StrangleAborting, Dance, StartDancing, StrangleAborted
+--- Scp914Events ---
+Activating, Activated, KnobChanging, KnobChanged, ProcessingPickup, ProcessedPickup, ProcessingPlayer, ProcessedPlayer, ProcessingInventoryItem, ProcessedInventoryItem
+--- Scp939Events ---
+Attacking, Attacked, CreatingAmnesticCloud, CreatedAmnesticCloud, Lunging, Lunged, Focused, MimickingEnvironment, MimickedEnvironment
+--- ScpEvents ---
+HumeShieldBroken
+--- ServerEvents ---
+WaitingForPlayers, RoundRestarted, Shutdown, DeadmanSequenceActivated, DeadmanSequenceActivating, RoundEndingConditionsCheck, RoundEnding, RoundEnded, RoundStarting, RoundStarted, BanIssuing, BanIssued, BanRevoking, BanRevoked, BanUpdating, BanUpdated, CommandExecuting, CommandExecuted, CassieQueuingScpTermination, CassieQueuedScpTermination, WaveRespawning, WaveRespawned, WaveTeamSelecting, WaveTeamSelected, LczDecontaminationAnnounced, LczDecontaminationStarting, LczDecontaminationStarted, MapGenerating, MapGenerated, PickupCreated, PickupDestroyed, SendingAdminChat, SentAdminChat, ItemSpawning, ItemSpawned, CassieAnnouncing, CassieAnnounced, ProjectileExploding, ProjectileExploded, ExplosionSpawning, ExplosionSpawned, GeneratorActivating, GeneratorActivated, ElevatorSequenceChanged, ModifyingFactionInfluence, ModifiedFactionInfluence, AchievingMilestone, AchievedMilestone, BlastDoorChanging, BlastDoorChanged, RoomLightChanged, RoomColorChanged, DoorLockChanged, DoorRepairing, DoorRepaired, DoorDamaging, DoorDamaged, CheckpointDoorSequenceChanging, CheckpointDoorSequenceChanged
+--- WarheadEvents ---
+Starting, Started, Stopping, Stopped, Detonating, Detonated
+
+
+===== Properties =====
+Properties allow you to access internal data of SER values and C# objects using the '->' operator.
+
+Syntax:
+$hp = @player -> hp               - Accesses 'hp' property of a player variable.
+$type = *item -> type             - Accesses 'type' property of a reference variable.
+$key = *json -> someKey           - Accesses 'someKey' from a JSON object.
+
+Print {@sender -> name}           - You can use {} brackets to contain the expression into a single argument.
+
+if {@sender -> role} is "ClassD"  - Or use {} when in a condition.
+
+--- Basic SER value properties ---
+
+Player:
+- accessTier, artificialHealth, auxiliaryPower, customInfo, displayName, etc. (see 'serhelp properties player' for full list)
+
+Collection:
+- average, first, isEmpty, last, length, etc. (see 'serhelp properties collection' for full list)
+
+Number:
+- abs, ceil, floor, isEven, isOdd, etc. (see 'serhelp properties number' for full list)
+
+Text:
+- isEmpty, length, lower, trim, upper, etc. (see 'serhelp properties text' for full list)
+
+Bool:
+- asNumber, asString, not, valType
+
+Color:
+- a, b, g, hex, r, etc. (see 'serhelp properties color' for full list)
+
+Duration:
+- hours, milliseconds, minutes, seconds, totalHours, etc. (see 'serhelp properties duration' for full list)
+
+--- Registered C# objects ---
+Use 'serhelp properties <objectName>' to see available properties for these types:
+> Door
+> Pickup
+> Room
+> DamageHandlerBase
+> RespawnWave
+> Result
+> JObject
+> JToken
+> Player
+
+===== Flags =====
+Flags are a way to change script behavior depending on your needs.
+
+This how they are used:
+!-- SomeFlag argValue1 argValue2
+-- customFlagArgument "some value"
+
+Flags should be used at the top of the script.
+
+Below is a list of all flags available in SER:
+(for more info about their usage, use 'serhelp flagName')
+> CustomCommand
+> Function
+> InteractableToyEvent
+> OnCustomTrigger
+> OnEvent
+
+===== Keywords =====
+Keywords alter how the script behaves, not by changing someones role, but the internal script execution.
+They can range from simple things from stopping the script to handling advanced logic.
+
+Keywords are written as all lowercase words, like 'stop', 'if' etc.
+
+Some keywords also have an ability to have instructions inside their "body", making them statements!
+These statements control how the methods inside their body are executed.
+
+Here is a list of all keywords available in SER:
+(each of them is of course searchable using 'serhelp keywordName')
+> func
+> global
+> with
+> attempt
+> break
+> elif
+> else
+> end
+> if
+> on_error
+> return
+> stop
+> wait
+> wait_until
+> continue
+> forever
+> over
+> repeat
+> while
+

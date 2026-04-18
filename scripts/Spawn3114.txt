@@ -1,35 +1,44 @@
 !-- OnEvent RoundStarted
 
-# 1. Задержка для корректного спавна
-wait 2s
+# Шансы для спавна 3114
+if {Chance 15%} is false
+    stop
+end
 
-# 2. Шанс
-if {Chance 15%}
-    
-    # 3. Берем всех текущих SCP
-    @allScps = @scpPlayers
-    
-    # 4. Исключаем из них всех, кто является SCP-079
-    # Используем готовую системную переменную @scp079Players
-    @candidates = RemovePlayers @allScps @scp079Players
-    
-    # Если на сервере были ТОЛЬКО компьютеры, список станет пустым.
-    # В таком случае берем всех SCP (включая 079), чтобы раунд не остался без скелета.
-    if {AmountOf @candidates} is 0
-        @candidates = @allScps
-    end
+# Ждем 2 секунды, чтобы сервер успел выдать всем роли и заспавнить игроков
+wait 1s
 
-    # 5. Выбираем одну случайную цель
-    @victim = LimitPlayers @candidates 1
+# Проверяем, есть ли вообще SCP в этом раунде
+if {AmountOf @scpPlayers} is 0
+    stop
+end
+
+# Начинаем поиск случайного SCP, который не является 079
+@target = @empty
+
+# Повторяем случайную выборку до 20 раз, чтобы гарантированно найти не 079
+repeat 20
+    @potTarget = LimitPlayers @scpPlayers 1
     
-    # 6. Если цель найдена — превращаем
-    if {AmountOf @victim} > 0
-        
-        SetRole @victim Scp3114
-        
-        # Анонс
-        wait 2s
-        Cassie jingle "pitch_0.15 .g4 pitch_0.9 SCP 3 1 1 4 HAS SUCCESSFULLY BREACHED CONTAINMENT" "SCP-3114 успешно нарушил условия содержания."
-        
+    # Если выбранный игрок не 079, сохраняем его и прерываем цикл
+    if {@potTarget -> role} isnt "Scp079"
+        @target = @potTarget
+        break
     end
 end
+
+# Если после 20 попыток мы так и не нашли подходящего игрока
+# (например, за SCP играет только один человек и ему выпал 079), останавливаем скрипт
+if {AmountOf @target} is 0
+    stop
+end
+
+# Выдаем выбранному игроку роль SCP-3114
+SetRole @target Scp3114
+
+# Ждем 1 секунду перед объявлением
+wait 1s
+
+# Запускаем сообщение CASSIE с джинглом (звуком перед началом)
+# CASSIE прочитает "scp 3 1 1 4", а игроки на экране увидят перевод
+Cassie jingle "scp 3 1 1 4 containment breach detected" "Обнаружено нарушение особых условий содержания SCP-3114"
