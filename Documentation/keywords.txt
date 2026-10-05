@@ -1,0 +1,623 @@
+Generated on [05 October 2026] with SER version [1.0.0]
+
+Keywords alter how the script behaves, not by changing someones role, but the internal script execution.
+They can range from simple things from stopping the script to handling advanced logic.
+
+Keywords are written as lowercase words, like stop and if.
+
+Some keywords also have an ability to have instructions inside their "body", making them statements!
+These statements control how the methods inside their body are executed.
+
+Available keywords
+------------------
+Each keyword can be searched with serhelp keywordName.
+- delete
+- ephm
+- func
+- global
+- with
+- attempt
+- break
+- chance
+- elif
+- else
+- end
+- if
+- on_error
+- return
+- stop
+- wait
+- wait_until
+- continue
+- forever
+- over
+- repeat
+- while
+
+delete keyword
+==============
+Deletes a variable.
+
+Arguments
+---------
+- - $varToDelete — Variable to remove from the local or global scope. Expected: An existing variable name such as $value or @players.
+
+
+Usage
+-----
+delete $varToDelete
+
+
+Example
+-------
+global $temporaryMessage = "delete me"
+delete $temporaryMessage
+
+# Local variables can be deleted the same way.
+$localValue = 42
+delete $localValue
+
+ephm keyword
+============
+Creates/modifies a ephemeral variable.
+
+Arguments
+---------
+- - [variable prefix and name] — Value for [variable prefix and name]. Expected: See the keyword documentation for the accepted value.
+- - = — Value for =. Expected: See the keyword documentation for the accepted value.
+- - [value] — Value for [value]. Expected: See the keyword documentation for the accepted value.
+
+
+Usage
+-----
+ephm [variable prefix and name] = [value]
+
+
+Example
+-------
+if {@sender -> isAlive}
+    ephm $message = "Only needed during this statement"
+    Print $message
+end
+
+# accessing $message outside that if statement will not work!
+# Print $message <-- will error
+
+func keyword
+============
+Defines a function.
+
+Arguments
+---------
+- - [function name] — Value for [function name]. Expected: See the keyword documentation for the accepted value.
+
+
+Usage
+-----
+func [function name]
+    # some code
+end
+
+Example
+-------
+func $Add with $left $right
+    return $left + $right
+end
+
+$sum = run $Add 5 3
+Print "5 + 3 = {$sum}"
+
+# Functions without parameters can be called by name.
+func Announce
+    Print "The round has started."
+end
+run Announce
+
+global keyword
+==============
+Creates/modifies a global variable.
+
+Arguments
+---------
+- - [variable prefix and name] — Value for [variable prefix and name]. Expected: See the keyword documentation for the accepted value.
+- - = — Value for =. Expected: See the keyword documentation for the accepted value.
+- - [value] — Value for [value]. Expected: See the keyword documentation for the accepted value.
+
+
+Usage
+-----
+global [variable prefix and name] = [value]
+
+
+Example
+-------
+global $serverName = "Example server"
+
+# Global variables are available to later scripts and events.
+Print $serverName
+
+with keyword
+============
+This keyword is designed to provide a variable or a collection of variables to a statement.
+
+Arguments
+---------
+- - [variables...] — Defines temporary variables for the preceding statement. Expected: One or more variable names compatible with that statement. This argument accepts all remaining values.
+
+
+Usage
+-----
+with [variables...]
+
+
+Example
+-------
+over @all with @plr
+    Print {@plr -> name}
+end
+
+repeat 3 with $iteration
+    Print "iteration {$iteration}"
+end
+
+attempt keyword
+===============
+Runs everything inside the statement, and if something throws an exception (error), the error will not terminate the script. If there is an 'on_error' statement, it will be executed.
+
+
+
+Usage
+-----
+attempt
+    # some code
+end
+Signals
+-------
+This statement is extendable. Other statements can be added after this one when they support one of these signals:
+- ThrewException
+
+Example
+-------
+&collection = Coll.Empty
+attempt
+    Print {Coll.Fetch &collection 2}
+end
+
+# The error is handled by on_error when one is present.
+on_error with $message
+    Print "Handled: {$message}"
+end
+
+break keyword
+=============
+Makes a given loop or function (that the 'break' keyword is inside) act as it has completely ended its execution ("breaks" free from the loop/function)
+
+
+
+Usage
+-----
+break
+
+
+Example
+-------
+# the execution will "break" free after the third iteration
+repeat 10 with $iteration
+    if {$iteration is 3}
+        break
+    end
+    Print "iteration {$iteration}"
+end
+
+chance keyword
+==============
+This statement will execute with the provided chance.
+
+Arguments
+---------
+- - $chance — Probability that the body will execute. Expected: A number from 0 to 1, where 1 is 100%.
+
+
+Usage
+-----
+chance $chance
+    # some code
+end
+Signals
+-------
+This statement is extendable. Other statements can be added after this one when they support one of these signals:
+- DidntExecute
+
+Example
+-------
+chance 25%
+    Print "This happens about one time in four."
+end
+
+# The chance can also come from a value expression.
+$probability = 50%
+chance $probability
+    Print "This happens about half the time."
+end
+
+elif keyword
+============
+If the statement above it didn't execute, 'elif' statement will try to execute if the provided condition is met.
+
+Arguments
+---------
+- - $condition — Expression checked when the preceding branch did not execute. Expected: A boolean expression; values and method calls may be grouped with braces.
+
+
+Usage
+-----
+This statement can only be used after a statement supporting the DidntExecute signal.
+
+somekeyword
+    # some code
+elif $condition
+    # some other code
+end
+Signals
+-------
+This statement is extendable. Other statements can be added after this one when they support one of these signals:
+- DidntExecute
+
+Example
+-------
+if {@sender -> role} is "ClassD"
+    Print "You are a Class-D."
+elif {@sender -> role} is "Scientist"
+    Print "You are a scientist."
+else
+    Print "You have another role."
+end
+
+else keyword
+============
+If the statement above it didn't execute, 'else' statement will execute instead.
+
+
+
+Usage
+-----
+This statement can only be used after a statement supporting the DidntExecute signal.
+
+somekeyword
+    # some code
+else
+    # some other code
+end
+
+Example
+-------
+if {@sender -> team} is "SCPs"
+    Reply "You are an SCP"
+else
+    Reply "You are not an SCP"
+end
+
+end keyword
+===========
+Ends the current statement's body.
+
+
+
+Usage
+-----
+end
+
+
+Example
+-------
+if {@sender -> role} is "ClassD"
+    Print "This block ends here."
+end
+
+if keyword
+==========
+This statement will execute only if the provided condition is met.
+
+Arguments
+---------
+- - $condition — Expression that must evaluate to true for the body to run. Expected: A boolean expression; values and method calls may be grouped with braces.
+
+
+Usage
+-----
+if $condition
+    # some code
+end
+Signals
+-------
+This statement is extendable. Other statements can be added after this one when they support one of these signals:
+- DidntExecute
+
+Example
+-------
+if {@sender -> isAlive}
+    Print "You are still alive."
+end
+
+if {AmountOf @all} > 0
+    Print "There is at least one player online."
+end
+
+on_error keyword
+================
+Catches an exception thrown inside of an 'attempt' statement.
+
+
+
+Usage
+-----
+This statement can only be used after a statement supporting the ThrewException signal.
+
+somekeyword
+    # some code
+on_error
+    # some other code
+end
+
+Example
+-------
+&collection = Coll.Empty
+attempt
+    Print {Coll.Fetch &collection 2}
+    Print "This line is skipped after the error."
+on_error with $message $type
+    Print "Message: {$message}"
+    Print "Type: {$type}"
+end
+
+return keyword
+==============
+Returns value when in a function.
+
+Arguments
+---------
+- - [return value] — Value returned to the caller of the current function. Expected: Any SER value expression supported by the function's return type.
+
+
+Usage
+-----
+return [return value]
+
+
+Example
+-------
+func $IsAdult with $age
+    return age >= 18
+end
+
+$adult = run $IsAdult 16
+if $adult
+    Print "You are an adult."
+end
+
+stop keyword
+============
+Stops the script from executing.
+
+
+
+Usage
+-----
+stop
+
+
+Example
+-------
+if {@sender -> isAlive}
+    Print "The script is stopping now."
+    stop
+end
+
+wait keyword
+============
+Halts execution of the script for a specified amount of time.
+
+Arguments
+---------
+- - <duration> — How long execution should pause. Expected: A duration such as 5s, 250ms, or a duration variable.
+
+
+Usage
+-----
+wait <duration>
+
+
+Example
+-------
+# Wait for a fixed duration. 
+wait 5s
+
+# A duration can also come from a variable.
+$duration = 10s
+wait $duration
+
+# Or from a random value
+$duration = ToDuration {Random 1 10} seconds
+wait $duration
+
+wait_until keyword
+==================
+Halts execution of the script until a condition is met.
+
+Arguments
+---------
+- - $condition — Expression polled until it evaluates to true. Expected: A boolean expression; it is evaluated once per frame while waiting.
+
+
+Usage
+-----
+wait_until $condition
+
+
+Example
+-------
+# Wait until the server is empty.
+wait_until {AmountOf @all} is 0
+
+# Conditions can use variables and properties too.
+wait_until {@sender -> isAlive} is false
+
+continue keyword
+================
+Makes a given loop (that the 'continue' keyword is inside) act as it has reached the end of its body.
+
+
+
+Usage
+-----
+continue
+
+
+Example
+-------
+# number 3 will be skipped
+repeat 5 with $iteration
+    if $iteration is 3
+        continue
+    end
+    Print "iteration {$iteration}"
+end
+
+forever keyword
+===============
+Runs the body indefinitely. The body must yield periodically so the server can continue processing.
+
+Arguments
+---------
+- - with $iter (optional) — Stores the current 1-based iteration number. Expected: A number variable compatible with the loop iteration value.
+
+
+Usage
+-----
+forever with $iter
+    # some code
+end
+
+Example
+-------
+# A forever loop must yield so the server can continue processing.
+forever
+    wait 1m
+    Print "One minute has passed."
+end
+
+# The optional binding contains the 1-based iteration number.
+forever with $iter
+    wait 1s
+    Print "current iteration: {$iter}"
+end
+
+# Use break to leave the loop or continue to skip to its next iteration.
+
+over keyword
+============
+Repeats its body for each player in the player variable or a value in a collection variable, assigning it its own custom variable.
+
+Arguments
+---------
+- - @players — Players or collection whose values are iterated. Expected: A player value or collection value.
+- - with @item [$index] (optional) — Names variables receiving the current item and optional 1-based index. Expected: One or two variables compatible with the iterated value.
+
+
+Usage
+-----
+over @players with @item [$index]
+    # some code
+end
+
+Example
+-------
+# Run once for every player.
+over @all
+    Print "found player"
+end
+
+# Bind the current item to a temporary variable.
+over @all with @plr
+    Print "found player {@plr -> name}"
+end
+
+# Collections can be iterated in the same way.
+&inventory = @sender -> inventory
+over &inventory with *item
+    Print "found item {*item -> type}"
+end
+
+# Add a 1-based index as a second binding.
+over @all with @plr $index
+    Print "found player #{$index}: {@plr -> name}"
+end
+
+# Use break to leave the loop or continue to skip to its next iteration.
+
+repeat keyword
+==============
+Repeats everything inside its body a given amount of times.
+
+Arguments
+---------
+- - $number — Number of times the body should run. Expected: A non-negative whole-number expression.
+- - with $iter (optional) — Stores the current 1-based iteration number. Expected: A number variable compatible with the loop iteration value.
+
+
+Usage
+-----
+repeat $number with $iter
+    # some code
+end
+
+Example
+-------
+# Repeat a fixed number of times.
+repeat 10
+    Print "hi"
+end
+
+# The count can be an expression or variable.
+repeat {Random 1 10 int}
+    Print "hi"
+end
+
+# Bind the current 1-based iteration number.
+repeat 10 with $iter
+    Print "current iteration: {$iter}"
+end
+
+# Use break to leave the loop or continue to skip to its next iteration.
+
+while keyword
+=============
+A loop which will execute its body as long as the provided condition is evaluated to true.
+
+Arguments
+---------
+- - $condition — Condition checked before each iteration. Expected: A boolean expression.
+- - with $iter (optional) — Stores the current 1-based iteration number. Expected: A number variable compatible with the loop iteration value.
+
+
+Usage
+-----
+while $condition with $iter
+    # some code
+end
+
+Example
+-------
+# Check the condition before every iteration.
+while {AmountOf @all} > 0
+    wait 1s
+    Print "there are players on the server!"
+end
+
+# Bind the current 1-based iteration number when needed.
+while {Chance 90%} with $iter
+    Print "current attempt to leave loop: {$iter}"
+    wait 1s
+end
+
+# Use break to leave the loop or continue to skip to its next iteration.

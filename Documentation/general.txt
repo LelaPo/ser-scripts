@@ -1,0 +1,201 @@
+Generated on [05 October 2026] with SER version [1.0.0]
+
+===== Start =====
+Your first SER script
+=====================
+
+1. Script directory:
+   /home/scpsl/.config/SCP Secret Laboratory/LabAPI/configs/Scripted Events Reloaded
+
+2. Create 'hello.ser' there with:
+Print "Hello from SER!"
+
+   Use .ser when your host allows unknown file types. Use 'hello.txt' as
+   a compatibility format when its file manager blocks .ser. Both behave identically.
+
+3. Run:
+serrun hello
+
+   serrun discovers or reloads the requested file before running it.
+   Round restart reloads all scripts; 'serreload' does the same on demand.
+
+4. Diagnose files with:
+   serstatus
+
+Need examples? Run 'serexamples'. Generated files start with '#', so they
+are disabled. Copy one or remove the leading '#', then run 'serreload'.
+
+Script names are global: only one file with a given base name may exist,
+even when the files are in different folders.
+
+===== Methods =====
+SER currently exposes 0 methods.
+
+Start with:
+serhelp methods essential
+
+Browse a category with:
+serhelp methods <category>
+
+Show the complete list with:
+serhelp methods all
+
+Categories
+----------
+
+
+
+===== Variables =====
+Hi! There are 0 variables available for your use!
+
+
+===== Enums =====
+Enums are basically options, where an enum has set of all valid values, so a valid option is an enum value.
+These enums are usually used to specify a room, door, zone etc.
+
+To get the list of all available values that an enum has, just use 'serhelp <enumName>'.
+For example: 'serhelp RoomName' will get you a list of all available room names to use in methods.
+
+Here are some of the enums used in SER:
+- RoomName
+- FacilityZone
+- DoorName
+- ItemType
+- ElevatorGroup
+- ConsoleType
+- ValueType
+- Team
+
+===== Events =====
+Event is a signal that something happened on the server.
+If the round has started, server will invoke an event (signal) called RoundStarted.
+You can use this functionality to run your scripts when a certain event happens.
+
+By putting !-- OnEvent RoundStarted at the top of your script, you will run your script when the round starts.
+You can put something different there, e.g. !-- OnEvent Death, which will run when someone has died.
+
+Some events have additional information attached to them in a form of variables.
+If you wish to know what variables are available for a given event, just use 'serhelp <eventName>'!
+
+Available events
+----------------
+
+
+===== PmerEvents =====
+ProjectMER is not installed or did not expose any supported events.
+The OnPMER flag becomes available for binding when ProjectMER is loaded.
+
+===== UcrEvents =====
+UncomplicatedCustomRoles 9.6.0 or newer is not installed or did not expose any supported events.
+The OnUCR flag becomes available for binding when a supported UCR version is loaded.
+
+===== Properties =====
+Properties allow you to access internal data of SER values and SCP:SL objects using the '->' operator.
+
+Syntax:
+$hp = @player -> hp               - Accesses 'hp' property of a player variable.
+$type = *item -> type             - Accesses 'type' property of a reference variable.
+$key = *json -> someKey           - Accesses 'someKey' from a JSON object.
+
+Print {@sender -> name}           - You can use {} brackets to contain the expression into a single argument.
+
+if {@sender -> role} is "ClassD"  - Or use {} when in a condition.
+
+
+Enhanced property lookup
+------------------------
+You can now inspect properties without knowing the exact type name:
+
+From a global variable:
+serhelp properties *myVar
+
+From a local variable from a running script:
+serhelp properties *target script:round_start
+
+From the return value of a method:
+serhelp properties run:GetFromMap doors
+
+You can also specify the assembly:
+serhelp properties Door@LabAPI
+
+
+Basic SER value properties
+--------------------------
+
+Player:
+- accessTier, artificialHealth, auxiliaryPower, cRole, customInfo, etc. (see 'serhelp properties player' for full list)
+
+Collection:
+- average, first, isEmpty, last, length, etc. (see 'serhelp properties collection' for full list)
+
+Number:
+- abs, ceil, floor, isEven, isOdd, etc. (see 'serhelp properties number' for full list)
+
+Text:
+- isEmpty, length, lower, trim, upper, etc. (see 'serhelp properties text' for full list)
+
+Bool:
+- asNumber, asText, not, valType
+
+Color:
+- a, b, g, hex, r, etc. (see 'serhelp properties color' for full list)
+
+Duration:
+- h, m, ms, s, totalH, etc. (see 'serhelp properties duration' for full list)
+
+
+Registered SCP:SL objects
+-------------------------
+Use 'serhelp properties <objectName>' to see available properties for these types:
+
+and many more not listed here!
+
+===== Flags =====
+Flags are a way to change script behavior depending on your needs.
+
+Usage
+-----
+!-- SomeFlag argValue1 argValue2
+-- customFlagArgument "some value"
+
+Flags should be used at the top of the script.
+
+Available flags
+---------------
+For more information, use serhelp flagName.
+
+
+===== Keywords =====
+Keywords alter how the script behaves, not by changing someones role, but the internal script execution.
+They can range from simple things from stopping the script to handling advanced logic.
+
+Keywords are written as lowercase words, like stop and if.
+
+Some keywords also have an ability to have instructions inside their "body", making them statements!
+These statements control how the methods inside their body are executed.
+
+Available keywords
+------------------
+Each keyword can be searched with serhelp keywordName.
+- delete
+- ephm
+- func
+- global
+- with
+- attempt
+- break
+- chance
+- elif
+- else
+- end
+- if
+- on_error
+- return
+- stop
+- wait
+- wait_until
+- continue
+- forever
+- over
+- repeat
+- while

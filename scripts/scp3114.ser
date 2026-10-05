@@ -1,0 +1,98 @@
+!-- OnEvent RoundStarted
+
+# 15% шанс на появление SCP-3114 в раунде
+if {Chance 15%} is false
+    stop
+end
+
+# Ждём 2 секунды, чтобы сервер успел распределить роли и заспавнить всех SCP в камерах
+wait 2s
+
+# Проверяем, есть ли вообще SCP в раунде
+if {AmountOf @scpPlayers} is 0
+    stop
+end
+
+# Ищем случайного SCP, который не является Компьютером (Scp079)
+$found = false
+repeat 20 with $iter
+    @candidate = Take @scpPlayers 1
+    if {@candidate -> role} isnt "Scp079"
+        @target = @candidate
+        $found = true
+        break
+    end
+end
+
+# Если подходящий SCP не найден (например, единственный SCP - это 079)
+if $found is false
+    stop
+end
+
+# 1. Спавним игрока за SCP-3114
+SetRole @target Scp3114
+
+# Небольшая пауза перед началом тревоги
+wait 1.5s
+
+# 2. Фирменное объявление C.A.S.S.I.E. студийными фразами игры
+Cassie jingle "ATTENTIONALLPERSONNEL . CONTAINMENT BREACH DETECTED . SCPSUBJECT 3 1 1 4" "Внимание всему персоналу.<split>Обнаружено нарушение условий содержания: SCP-3114"
+
+# 3. Ждём окончания речи C.A.S.S.I.E. (за это время стандартная плашка игры уже пропадёт)
+wait_until {IsCassieSpeaking} is false
+
+# 4. Выводим наш хинт на чистый экран
+Hint @target 7s "<size=26><color=#D2B48C>СОВЕТ ДЛЯ SCP-3114</color></size><br><size=18>Душите одиноких людей и забирайте их кожу, чтобы маскироваться под персонал!</size>"
+
+
+# =======================================================
+# ТЕСТОВАЯ КОМАНДА: .scp3114 [random]
+# Доступна в консоли на '~' или в RA
+# =======================================================
+!-- CustomCommand scp3114
+-- availableFor Player RemoteAdmin
+-- requireSender
+-- arguments mode?
+
+@admin = @sender
+
+# Проверяем наличие опционального аргумента
+$isRandom = false
+if {VarExists $mode}
+    if $mode is "random" or $mode is "scp"
+        $isRandom = true
+    end
+end
+
+# Режим 1: .scp3114 random (проверить выбор случайного SCP)
+if $isRandom is true
+    $found = false
+    repeat 20 with $iter
+        @candidate = Take @scpPlayers 1
+        if {@candidate -> role} isnt "Scp079"
+            @target = @candidate
+            $found = true
+            break
+        end
+    end
+
+    if $found is true
+        SetRole @target Scp3114
+        Reply "Случайный SCP ({@target -> name}) превращён в SCP-3114!"
+        wait 1.5s
+        Cassie jingle "ATTENTIONALLPERSONNEL . CONTAINMENT BREACH DETECTED . SCPSUBJECT 3 1 1 4" "Внимание всему персоналу.<split>Обнаружено нарушение условий содержания: SCP-3114"
+        wait_until {IsCassieSpeaking} is false
+        Hint @target 7s "<size=26><color=#D2B48C>СОВЕТ ДЛЯ SCP-3114</color></size><br><size=18>[ТЕСТ] Душите людей и забирайте их кожу для маскировки!</size>"
+    else
+        Reply "Не удалось найти подходящего SCP (нет SCP или только 079)."
+    end
+    stop
+end
+
+# Режим 2: по умолчанию (.scp3114) — превращает самого админа
+SetRole @admin Scp3114
+Reply "Вы превращены в SCP-3114!"
+wait 1.5s
+Cassie jingle "ATTENTIONALLPERSONNEL . CONTAINMENT BREACH DETECTED . SCPSUBJECT 3 1 1 4" "Внимание всему персоналу.<split>Обнаружено нарушение условий содержания: SCP-3114"
+wait_until {IsCassieSpeaking} is false
+Hint @admin 7s "<size=26><color=#D2B48C>СОВЕТ ДЛЯ SCP-3114</color></size><br><size=18>[ТЕСТ] Вы успешно стали Скелетом!</size>"
