@@ -1,0 +1,165 @@
+!-- OnEvent FlippingCoin
+-- require @evPlayer
+
+@plr = @evPlayer
+
+# Защита от спама бросками
+if {GetPlayerData @plr "coin locked" false} is true
+    Hint @plr 4s "<color=red>Вы уже подбросили монету! Подождите окончания эффекта.</color>"
+    IsAllowed false
+    stop
+end
+
+SetPlayerData @plr "coin locked" true
+
+# Запоминаем именно ту монету, которую подбросили
+*coin = @plr -> heldItemRef
+
+# Ждём анимацию полёта монетки (1.8 секунды - момент хлопка ладони)
+wait 1.8s
+
+# Проверяем, жив ли игрок в момент ловли
+if {AmountOf @plr} is 0
+    stop
+end
+
+# Удаляем монету ровно в момент ловли
+if {*coin -> isInvalid} is false
+    AdvDestroyItem *coin
+end
+
+# Снимаем блокировку
+SetPlayerData @plr "coin locked" false
+
+# Роллим исход от 1 до 100
+$roll = Random 1 100 int
+
+
+# --- 6% (1 - 6): ТЕЛЕПОРТАЦИЯ ---
+if $roll <= 6
+    $destRoll = Random 1 3 int
+
+    # Исход 1: Улица
+    if $destRoll is 1
+        Hint @plr 6s "<size=26><color=#00FFFF>ВНЕЗАПНЫЙ СКВОЗНЯК</color></size><br><size=18>Монета перенесла вас на поверхность!</size>"
+        TPRoom @plr Outside
+        stop
+    end
+
+    # Исход 2: Боеголовка
+    if $destRoll is 2
+        Hint @plr 6s "<size=26><color=#FF0000>РАДИАЦИОННЫЙ ФОН</color></size><br><size=18>Монета забросила вас в шахту боеголовки!</size>"
+        TPRoom @plr HczWarhead
+        stop
+    end
+
+    # Исход 3: Телепорт к живому SCP (кроме Scp079)
+    $scpFound = false
+    over @scpPlayers with @candidate
+        if {@candidate -> role} isnt "Scp079"
+            @targetScp = @candidate
+            $scpFound = true
+            break
+        end
+    end
+
+    if $scpFound is true
+        Hint @plr 6s "<size=26><color=#8B0000>ПЛОХАЯ КОМПАНИЯ</color></size><br><size=18>Монета перенесла вас прямо к {@targetScp -> name}!</size>"
+        TPPlayer @plr @targetScp
+    else
+        Hint @plr 6s "<size=26><color=#00FFFF>ВНЕЗАПНЫЙ СКВОЗНЯК</color></size><br><size=18>Свободных SCP нет! Монета выбросила вас на улицу!</size>"
+        TPRoom @plr Outside
+    end
+    stop
+end
+
+
+# --- 4% (7 - 10): ДЖЕКПОТ (6 ЧЁРНЫХ КОНФЕТ) ---
+if $roll <= 10
+    Hint @plr 7s "<size=26><color=#1a1a1a>ТЬМА ПРИНЯЛА ЖЕРТВУ</color></size><br><size=18><color=#8B0000>Монета исчезла в темноте...<br>Взамен вы получаете 6 чёрных конфет!</color></size>"
+    GiveCandy @plr Black 6
+    stop
+end
+
+
+# --- 8% (11 - 18): ЖЕСТОКАЯ РАСПЛАТА (ОТРУБАНИЕ РУК) ---
+if $roll <= 18
+    Hint @plr 8s "<size=26><color=#FF2200>МОНЕТА БЕРЁТ ДАНЬ</color></size><br><size=18>Монета потребовала жертву...<br><color=#FF6600>Ваши руки отрублены!</color></size>"
+    GiveEffect @plr SeveredHands 0s 1
+    stop
+end
+
+
+# --- 12% (19 - 30): СМЕРТОНОСНАЯ РОЗОВАЯ КОНФЕТА ---
+if $roll <= 30
+    Hint @plr 6s "<size=26><color=#FF69B4>СЛАДКИЙ БУМ!</color></size><br><size=18>Монета одарила вас взрывной розовой конфетой!</size>"
+    GiveCandy @plr Pink 1
+    stop
+end
+
+
+# --- 15% (31 - 45): СЛАДКАЯ УДАЧА (РАДУЖНАЯ КОНФЕТА) ---
+if $roll <= 45
+    Hint @plr 5s "<size=26><color=#00FF99>РАДУЖНАЯ УДАЧА!</color></size><br><size=18>Монета подарила вам радужную конфету!</size>"
+    GiveCandy @plr Rainbow 1
+    stop
+end
+
+
+# --- 55% (46 - 100): НИЧЕГО ---
+Hint @plr 4s "<size=26><color=#999999>ПУСТО...</color></size><br><size=18>Монета растворилась в воздухе.<br>Ничего не произошло.</size>"
+
+
+# =======================================================
+# КОМАНДА ТЕСТИРОВАНИЯ ЭФФЕКТОВ: .testcoin <вариант>
+# Доступна в консоли на '~' или в RA
+# =======================================================
+!-- CustomCommand testcoin
+-- availableFor Player RemoteAdmin
+-- requireSender
+-- arguments choice
+
+@plr = @sender
+
+if $choice is "tp" or $choice is "1"
+    Hint @plr 6s "<color=yellow>[ТЕСТ]</color> Проверка телепортации!"
+    TPRoom @plr Outside
+    Reply "Тест телепорта выполнен."
+    stop
+end
+
+if $choice is "jackpot" or $choice is "2"
+    Hint @plr 7s "<size=26><color=#1a1a1a>ТЬМА ПРИНЯЛА ЖЕРТВУ</color></size><br><size=18><color=#8B0000>Монета исчезла в темноте...<br>Взамен вы получаете 6 чёрных конфет!</color></size>"
+    GiveCandy @plr Black 6
+    Reply "Тест джекпота (6 чёрных конфет) выполнен."
+    stop
+end
+
+if $choice is "hands" or $choice is "3"
+    Hint @plr 8s "<size=26><color=#FF2200>МОНЕТА БЕРЁТ ДАНЬ</color></size><br><size=18>Монета потребовала жертву...<br><color=#FF6600>Ваши руки отрублены!</color></size>"
+    GiveEffect @plr SeveredHands 0s 1
+    Reply "Тест отрубания рук выполнен."
+    stop
+end
+
+if $choice is "pink" or $choice is "4"
+    Hint @plr 6s "<size=26><color=#FF69B4>СЛАДКИЙ БУМ!</color></size><br><size=18>Монета одарила вас взрывной розовой конфетой!</size>"
+    GiveCandy @plr Pink 1
+    Reply "Тест розовой конфеты выполнен."
+    stop
+end
+
+if $choice is "rainbow" or $choice is "5"
+    Hint @plr 5s "<size=26><color=#00FF99>РАДУЖНАЯ УДАЧА!</color></size><br><size=18>Монета подарила вам радужную конфету!</size>"
+    GiveCandy @plr Rainbow 1
+    Reply "Тест радужной конфеты выполнен."
+    stop
+end
+
+if $choice is "empty" or $choice is "6"
+    Hint @plr 4s "<size=26><color=#999999>ПУСТО...</color></size><br><size=18>Монета растворилась в воздухе.<br>Ничего не произошло.</size>"
+    Reply "Тест пустого исхода выполнен."
+    stop
+end
+
+Reply "Использование: .testcoin <tp | jackpot | hands | pink | rainbow | empty>"
