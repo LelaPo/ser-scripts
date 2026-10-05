@@ -1,0 +1,247 @@
+Generated on [05 October 2026] with SER version [1.0.0]
+
+Enums are basically options, where an enum has set of all valid values, so a valid option is an enum value.
+These enums are usually used to specify a room, door, zone etc.
+
+To get the list of all available values that an enum has, just use 'serhelp <enumName>'.
+For example: 'serhelp RoomName' will get you a list of all available room names to use in methods.
+
+Here are some of the enums used in SER:
+- RoomName
+- FacilityZone
+- DoorName
+- ItemType
+- ElevatorGroup
+- ConsoleType
+- ValueType
+- Team
+
+RoomName enum
+=============
+This enum has the following values:
+
+- Unnamed
+- LczClassDSpawn
+- LczComputerRoom
+- LczCheckpointA
+- LczCheckpointB
+- LczToilets
+- LczArmory
+- Lcz173
+- LczGlassroom
+- Lcz330
+- Lcz914
+- LczGreenhouse
+- LczAirlock
+- HczCheckpointToEntranceZone
+- HczCheckpointA
+- HczCheckpointB
+- HczWarhead
+- Hcz049
+- Hcz079
+- Hcz096
+- Hcz106
+- Hcz939
+- HczMicroHID
+- HczArmory
+- HczServers
+- HczTesla
+- EzCollapsedTunnel
+- EzGateA
+- EzGateB
+- EzRedroom
+- EzEvacShelter
+- EzIntercom
+- EzOfficeStoried
+- EzOfficeLarge
+- EzOfficeSmall
+- Outside
+- Pocket
+- HczTestroom
+- Hcz127
+- HczAcroamaticAbatement
+- HczWaysideIncinerator
+- HczRampTunnel
+
+FacilityZone enum
+=================
+This enum has the following values:
+
+- None
+- LightContainment
+- HeavyContainment
+- Entrance
+- Surface
+- Other
+
+DoorName enum
+=============
+This enum has the following values:
+
+Enum type that represents all the door name tags defined in the game.
+- None
+- LczPc
+- LczWc
+- LczCheckpointA
+- LczCheckpointB
+- LczArmory
+- Lcz173Bottom
+- Lcz173Gate
+- Lcz173Connector
+- Lcz173Armory
+- LczGr18Inner
+- LczGr18Gate
+- Lcz914Gate
+- Lcz330
+- Lcz330Chamber
+- Hcz079FirstGate
+- Hcz079SecondGate
+- Hcz079Armory
+- Hcz096
+- Hcz939Cryo
+- HczArmory
+- Hcz049Armory
+- HczHidChamber
+- HczHidUpper
+- HczHidLower
+- HczNukeArmory
+- Hcz106Primiary
+- Hcz106Secondary
+- HczCheckpoint
+- Hcz127Lab
+- EzIntercom
+- EzGateA
+- EzGateB
+- SurfaceGate
+- SurfaceNuke
+- SurfaceEscapePrimary
+- SurfaceEscapeSecondary
+- SurfaceEscapeFinal
+
+ItemType enum
+=============
+This enum has the following values:
+
+- None
+- KeycardJanitor
+- KeycardScientist
+- KeycardResearchCoordinator
+- KeycardZoneManager
+- KeycardGuard
+- KeycardMTFPrivate
+- KeycardContainmentEngineer
+- KeycardMTFOperative
+- KeycardMTFCaptain
+- KeycardFacilityManager
+- KeycardChaosInsurgency
+- KeycardO5
+- Radio
+- GunCOM15
+- Medkit
+- Flashlight
+- MicroHID
+- SCP500
+- SCP207
+- Ammo12gauge
+- GunE11SR
+- GunCrossvec
+- Ammo556x45
+- GunFSP9
+- GunLogicer
+- GrenadeHE
+- GrenadeFlash
+- Ammo44cal
+- Ammo762x39
+- Ammo9x19
+- GunCOM18
+- SCP018
+- SCP268
+- Adrenaline
+- Painkillers
+- Coin
+- ArmorLight
+- ArmorCombat
+- ArmorHeavy
+- GunRevolver
+- GunAK
+- GunShotgun
+- SCP330
+- SCP2176
+- SCP244a
+- SCP244b
+- SCP1853
+- ParticleDisruptor
+- GunCom45
+- SCP1576
+- Jailbird
+- AntiSCP207
+- GunFRMG0
+- GunA7
+- Lantern
+- SCP1344
+- Snowball
+- Coal
+- SpecialCoal
+- SCP1507Tape
+- DebugRagdollMover
+- SurfaceAccessPass
+- GunSCP127
+- KeycardCustomTaskForce
+- KeycardCustomSite02
+- KeycardCustomManagement
+- KeycardCustomMetalCase
+- MarshmallowItem
+- SCP1509
+- Scp021J
+
+ElevatorGroup enum
+==================
+This enum has the following values:
+
+- GateA01
+- GateB
+- LczA01
+- LczA02
+- LczB01
+- LczB02
+- Nuke01
+- Scp049
+- Nuke02
+- ServerRoom
+- GateA02
+
+ConsoleType enum
+================
+This enum has the following values:
+
+- None
+- Player
+- RemoteAdmin
+- Server
+
+ValueType enum
+==============
+This enum has the following values:
+
+- Text
+- Number
+- Bool
+- Duration
+- Player
+- Reference
+- Collection
+- Enum
+- Color
+
+Team enum
+=========
+This enum has the following values:
+
+- SCPs
+- FoundationForces
+- ChaosInsurgency
+- Scientists
+- ClassD
+- Dead
+- OtherAlive
+- Flamingos

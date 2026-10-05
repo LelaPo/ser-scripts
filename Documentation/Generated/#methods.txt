@@ -1,0 +1,5 @@
+Generated on [05 October 2026] with SER version [1.0.0]
+
+Hi! There are 0 methods available for your use!
+If a method has [rets], it means that this method returns a value.
+If you want to get specific information about a given method, just do 'serhelp <MethodName>'!
