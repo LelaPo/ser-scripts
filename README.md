@@ -1,5 +1,5 @@
 [![version](https://img.shields.io/badge/ser-v1.0.0-black?style=flat-square)](https://github.com/ScriptedEvents/ScriptedEventsReloaded)
-[![license](https://img.shields.io/github/license/LelaPo/ser-scripts?style=flat-square)](LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-black?style=flat-square)](LICENSE)
 
 # ser-scripts
 
