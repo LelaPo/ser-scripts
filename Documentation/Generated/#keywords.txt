@@ -1,4 +1,4 @@
-Generated on [05 October 2026] with SER version [1.0.0]
+Generated on [17 October 2026] with SER version [1.0.0]
 
 Keywords alter how the script behaves, not by changing someones role, but the internal script execution.
 They can range from simple things from stopping the script to handling advanced logic.

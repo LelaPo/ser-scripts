@@ -1,4 +1,4 @@
-Generated on [05 October 2026] with SER version [1.0.0]
+Generated on [17 October 2026] with SER version [1.0.0]
 
 ===== Start =====
 Your first SER script
@@ -29,7 +29,7 @@ Script names are global: only one file with a given base name may exist,
 even when the files are in different folders.
 
 ===== Methods =====
-SER currently exposes 0 methods.
+SER currently exposes 252 methods.
 
 Start with:
 serhelp methods essential
@@ -43,10 +43,110 @@ serhelp methods all
 Categories
 ----------
 
-
+- - AdminToyProperty — 6 methods
+- - AdminToys — 10 methods
+- - Audio — 10 methods
+- - Broadcast — 6 methods
+- - CASSIE — 4 methods
+- - CollectionVariable — 8 methods
+- - Command — 3 methods
+- - Config — 2 methods
+- - CustomRole — 9 methods
+- - DamageRule — 2 methods
+- - Database — 6 methods
+- - Dictionary — 5 methods
+- - Discord — 9 methods
+- - Door — 11 methods
+- - Dummy — 2 methods
+- - Effect — 3 methods
+- - Elevator — 4 methods
+- - Event — 4 methods
+- - Health — 9 methods
+- - HTTP — 7 methods
+- - Intercom — 3 methods
+- - Item — 13 methods
+- - Light — 3 methods
+- - Map — 7 methods
+- - Number — 5 methods
+- - Output — 3 methods
+- - Pickup — 8 methods
+- - Player — 24 methods
+- - PlayerData — 4 methods
+- - PlayerValue — 9 methods
+- - Respawn — 6 methods
+- - Room — 2 methods
+- - Round — 6 methods
+- - Scp — 5 methods
+- - Script — 9 methods
+- - Server — 2 methods
+- - Teleport — 5 methods
+- - TeslaRule — 2 methods
+- - Text — 5 methods
+- - Time — 5 methods
+- - Variable — 4 methods
+- - Warhead — 2 methods
 
 ===== Variables =====
-Hi! There are 0 variables available for your use!
+Hi! There are 47 variables available for your use!
+
+Other variables
+---------------
+- @all
+- @allPlayers
+- @alivePlayers
+- @npcPlayers
+- @empty
+- @emptyPlayers
+
+Role variables
+--------------
+- @scp173Players
+- @classDPlayers
+- @spectatorPlayers
+- @scp106Players
+- @ntfSpecialistPlayers
+- @scp049Players
+- @scientistPlayers
+- @scp079Players
+- @chaosConscriptPlayers
+- @scp096Players
+- @scp0492Players
+- @ntfSergeantPlayers
+- @ntfCaptainPlayers
+- @ntfPrivatePlayers
+- @tutorialPlayers
+- @facilityGuardPlayers
+- @scp939Players
+- @customRolePlayers
+- @chaosRiflemanPlayers
+- @chaosMarauderPlayers
+- @chaosRepressorPlayers
+- @overwatchPlayers
+- @filmmakerPlayers
+- @scp3114Players
+- @destroyedPlayers
+- @flamingoPlayers
+- @alphaFlamingoPlayers
+- @zombieFlamingoPlayers
+- @ntfFlamingoPlayers
+- @chaosFlamingoPlayers
+- @nonePlayers
+
+Facility zone variables
+-----------------------
+- @lightContainmentPlayers
+- @heavyContainmentPlayers
+- @entrancePlayers
+- @surfacePlayers
+- @otherPlayers
+
+Team variables
+--------------
+- @scpPlayers
+- @foundationForcePlayers
+- @chaosInsurgencyPlayers
+- @deadPlayers
+- @otherAlivePlayers
 
 
 ===== Enums =====
@@ -65,6 +165,27 @@ Here are some of the enums used in SER:
 - ConsoleType
 - ValueType
 - Team
+- DurationUnit
+- RoleTypeId
+- RunReason
+- PlayerProperty
+- EmotionPresetType
+- RoleSpawnFlags
+- RoleChangeReason
+- PlayerInfoArea
+- HitmarkerType
+- ConsoleColor
+- CandyKindID
+- RadioRangeLevel
+- IntercomState
+- DoorLockReason
+- DoorDamageType
+- DoorPermissionFlags
+- ColliderShape
+- LightShadows
+- LightType
+- PrimitiveType
+- PrimitiveFlags
 
 ===== Events =====
 Event is a signal that something happened on the server.
@@ -79,6 +200,428 @@ If you wish to know what variables are available for a given event, just use 'se
 
 Available events
 ----------------
+ObjectiveEvents
+---------------
+Handles all events related to objectives.
+- Completing
+- Completed
+- KillingEnemyCompleting
+- KilledEnemyCompleted
+- EscapingCompleting
+- EscapedCompleted
+- ActivatingGeneratorCompleting
+- ActivatedGeneratorCompleted
+- DamagingScpCompleting
+- DamagedScpCompleted
+- PickingScpItemCompleting
+- PickedScpItemCompleted
+PlayerEvents
+------------
+Handles all the events related to the player.
+- Joined
+- Left
+- ReceivingVoiceMessage
+- SendingVoiceMessage
+- PreAuthenticating
+- PreAuthenticated
+- UsingIntercom
+- UsedIntercom
+- Banning
+- Banned
+- Kicking
+- Kicked
+- Muting
+- Muted
+- Unmuting
+- Unmuted
+- ReportingCheater
+- ReportedCheater
+- ReportingPlayer
+- ReportedPlayer
+- TogglingNoclip
+- ToggledNoclip
+- RequestingRaPlayerList
+- RequestedRaPlayerList
+- RaPlayerListAddingPlayer
+- RaPlayerListAddedPlayer
+- RequestedCustomRaInfo
+- RequestingRaPlayersInfo
+- RequestedRaPlayersInfo
+- RequestingRaPlayerInfo
+- RequestedRaPlayerInfo
+- ChangingBadgeVisibility
+- ChangedBadgeVisibility
+- ChangingNickname
+- ChangedNickname
+- GroupChanging
+- GroupChanged
+- UpdatingEffect
+- UpdatedEffect
+- Dying
+- Death
+- Hurting
+- Hurt
+- ChangingRole
+- ChangedRole
+- Cuffing
+- Cuffed
+- Uncuffing
+- Uncuffed
+- ReceivingLoadout
+- ReceivedLoadout
+- Spawning
+- Spawned
+- ChangingItem
+- ChangedItem
+- DroppingAmmo
+- DroppedAmmo
+- DroppingItem
+- DroppedItem
+- PickingUpAmmo
+- PickedUpAmmo
+- PickingUpArmor
+- PickedUpArmor
+- PickingUpItem
+- PickedUpItem
+- PickingUpScp330
+- PickedUpScp330
+- SearchedAmmo
+- SearchingArmor
+- SearchedArmor
+- SearchingPickup
+- InteractedToy
+- SearchedPickup
+- SearchingAmmo
+- ThrowingItem
+- ThrewItem
+- ThrowingProjectile
+- ThrewProjectile
+- InspectingKeycard
+- InspectedKeycard
+- SpinningRevolver
+- SpinnedRevolver
+- ToggledDisruptorFiringMode
+- InspectingItem
+- InspectedItem
+- UsingItem
+- UsedItem
+- ItemUsageEffectsApplying
+- UsingRadio
+- UsedRadio
+- AimedWeapon
+- DryFiringWeapon
+- DryFiredWeapon
+- UnloadingWeapon
+- UnloadedWeapon
+- ReloadingWeapon
+- ReloadedWeapon
+- ShootingWeapon
+- ShotWeapon
+- ChangingAttachments
+- ChangedAttachments
+- SendingAttachmentsPrefs
+- SentAttachmentsPrefs
+- CancellingUsingItem
+- CancelledUsingItem
+- ChangingRadioRange
+- ChangedRadioRange
+- ProcessingJailbirdMessage
+- ProcessedJailbirdMessage
+- TogglingFlashlight
+- ToggledFlashlight
+- TogglingWeaponFlashlight
+- ToggledWeaponFlashlight
+- TogglingRadio
+- ToggledRadio
+- Jumped
+- MovementStateChanged
+- ProcessingScp1509Message
+- ProcessedScp1509Message
+- Scp1509Resurrecting
+- Scp1509Resurrected
+- DamagingShootingTarget
+- DamagedShootingTarget
+- DamagingWindow
+- DamagedWindow
+- EnteringPocketDimension
+- EnteredPocketDimension
+- LeavingPocketDimension
+- LeftPocketDimension
+- TriggeringTesla
+- TriggeredTesla
+- Escaping
+- Escaped
+- FlippingCoin
+- FlippedCoin
+- SearchingToy
+- SearchedToy
+- SearchToyAborted
+- IdlingTesla
+- IdledTesla
+- InteractingDoor
+- InteractedDoor
+- InteractingElevator
+- InteractedElevator
+- InteractingGenerator
+- InteractedGenerator
+- OpeningGenerator
+- OpenedGenerator
+- ActivatingGenerator
+- ActivatedGenerator
+- DeactivatingGenerator
+- DeactivatedGenerator
+- UnlockingGenerator
+- UnlockedGenerator
+- ClosingGenerator
+- ClosedGenerator
+- InteractingLocker
+- InteractedLocker
+- InteractingScp330
+- InteractedScp330
+- InteractingShootingTarget
+- InteractedShootingTarget
+- PlacingBlood
+- PlacedBlood
+- PlacingBulletHole
+- PlacedBulletHole
+- SpawningRagdoll
+- SpawnedRagdoll
+- UnlockingWarheadButton
+- UnlockedWarheadButton
+- ReceivedAchievement
+- RoomChanged
+- ZoneChanged
+- InteractingWarheadLever
+- InteractedWarheadLever
+- SendingHitmarker
+- SentHitmarker
+- CheckedHitmarker
+- ChangedSpectator
+- EnteringHazard
+- EnteredHazard
+- StayingInHazard
+- LeavingHazard
+- LeftHazard
+- ValidatedVisibility
+- DetectedByScp1344
+Scp0492Events
+-------------
+Handles all events related to SCP-049-2.
+- StartingConsumingCorpse
+- StartedConsumingCorpse
+- ConsumingCorpse
+- ConsumedCorpse
+Scp049Events
+------------
+Handles all events related to SCP-049.
+- StartingResurrection
+- ResurrectingBody
+- ResurrectedBody
+- UsingDoctorsCall
+- UsedDoctorsCall
+- UsingSense
+- UsedSense
+- Attacking
+- Attacked
+- SenseLostTarget
+- SenseKilledTarget
+Scp079Events
+------------
+Handles all events related to SCP-079.
+- BlackingOutRoom
+- BlackedOutRoom
+- BlackingOutZone
+- BlackedOutZone
+- ChangingCamera
+- ChangedCamera
+- CancellingRoomLockdown
+- CancelledRoomLockdown
+- GainingExperience
+- GainedExperience
+- LevelingUp
+- LeveledUp
+- LockingDoor
+- LockedDoor
+- LockingDownRoom
+- LockedDownRoom
+- Recontaining
+- Recontained
+- UnlockingDoor
+- UnlockedDoor
+- UsingTesla
+- UsedTesla
+- Pinging
+- Pinged
+Scp096Events
+------------
+Handles all events related to SCP-096.
+- AddingTarget
+- AddedTarget
+- ChangingState
+- ChangedState
+- Charging
+- Charged
+- Enraging
+- Enraged
+- PryingGate
+- PriedGate
+- StartCrying
+- StartedCrying
+- TryingNotToCry
+- TriedNotToCry
+Scp106Events
+------------
+Handles all events related to SCP-106.
+- ChangingStalkMode
+- ChangedStalkMode
+- ChangingVigor
+- ChangedVigor
+- UsedHunterAtlas
+- UsingHunterAtlas
+- ChangingSubmersionStatus
+- ChangedSubmersionStatus
+- TeleportingPlayer
+- TeleportedPlayer
+Scp127Events
+------------
+Handles all the events related to the SCP-127.
+- GainingExperience
+- GainExperience
+- LevellingUp
+- LevelUp
+- Talking
+- Talked
+Scp173Events
+------------
+Handles all the events related to SCP-173.
+- BreakneckSpeedChanging
+- BreakneckSpeedChanged
+- AddingObserver
+- AddedObserver
+- RemovingObserver
+- RemovedObserver
+- CreatingTantrum
+- CreatedTantrum
+- PlayingSound
+- PlayedSound
+- Teleporting
+- Teleported
+- Snapping
+- Snapped
+Scp3114Events
+-------------
+Handles all events related to SCP-3114.
+- Disguising
+- Disguised
+- Revealing
+- Revealed
+- StrangleStarting
+- StrangleStarted
+- StrangleAborting
+- Dance
+- StartDancing
+- StrangleAborted
+Scp914Events
+------------
+Handles all events related to SCP-914.
+- Activating
+- Activated
+- KnobChanging
+- KnobChanged
+- ProcessingPickup
+- ProcessedPickup
+- ProcessingPlayer
+- ProcessedPlayer
+- ProcessingInventoryItem
+- ProcessedInventoryItem
+Scp939Events
+------------
+Handles all the events related to SCP-939.
+- Attacking
+- Attacked
+- CreatingAmnesticCloud
+- CreatedAmnesticCloud
+- Lunging
+- Lunged
+- Focused
+- MimickingEnvironment
+- MimickedEnvironment
+ScpEvents
+---------
+Handles all events related to SCPs.
+- HumeShieldBroken
+ServerEvents
+------------
+Handles all the events related to the server.
+- WaitingForPlayers
+- RoundRestarted
+- Shutdown
+- DeadmanSequenceActivated
+- DeadmanSequenceActivating
+- RoundEndingConditionsCheck
+- RoundEnding
+- RoundEnded
+- RoundStarting
+- RoundStarted
+- BanIssuing
+- BanIssued
+- BanRevoking
+- BanRevoked
+- BanUpdating
+- BanUpdated
+- CommandExecuting
+- CommandExecuted
+- CassieQueuingScpTermination
+- CassieQueuedScpTermination
+- WaveRespawning
+- WaveRespawned
+- WaveTeamSelecting
+- WaveTeamSelected
+- LczDecontaminationAnnounced
+- LczDecontaminationStarting
+- LczDecontaminationStarted
+- MapGenerating
+- MapGenerated
+- PickupCreated
+- PickupDestroyed
+- SendingAdminChat
+- SentAdminChat
+- ItemSpawning
+- ItemSpawned
+- CassieAnnouncing
+- CassieAnnounced
+- ProjectileExploding
+- ProjectileExploded
+- ExplosionSpawning
+- ExplosionSpawned
+- GeneratorActivating
+- GeneratorActivated
+- ElevatorSequenceChanged
+- ModifyingFactionInfluence
+- ModifiedFactionInfluence
+- AchievingMilestone
+- AchievedMilestone
+- BlastDoorChanging
+- BlastDoorChanged
+- RoomLightChanged
+- RoomColorChanged
+- DoorLockChanged
+- DoorRepairing
+- DoorRepaired
+- DoorDamaging
+- DoorDamaged
+- CheckpointDoorSequenceChanging
+- CheckpointDoorSequenceChanged
+- PluginsEnabled
+WarheadEvents
+-------------
+Handles all the events related to the warhead.
+- Starting
+- Started
+- Stopping
+- Stopped
+- Detonating
+- Detonated
 
 
 ===== PmerEvents =====
@@ -147,7 +690,16 @@ Duration:
 Registered SCP:SL objects
 -------------------------
 Use 'serhelp properties <objectName>' to see available properties for these types:
-
+- Item
+- Door
+- Pickup
+- Room
+- DamageHandlerBase
+- RespawnWave
+- JObject
+- JToken
+- IPInfo
+- Player
 and many more not listed here!
 
 ===== Flags =====
@@ -163,7 +715,14 @@ Flags should be used at the top of the script.
 Available flags
 ---------------
 For more information, use serhelp flagName.
-
+- CustomCommand
+- Function
+- InteractableToyEvent
+- OnCRole
+- OnCustomTrigger
+- OnEvent
+- OnPMER
+- OnUCR
 
 ===== Keywords =====
 Keywords alter how the script behaves, not by changing someones role, but the internal script execution.

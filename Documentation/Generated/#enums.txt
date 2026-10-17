@@ -1,4 +1,4 @@
-Generated on [05 October 2026] with SER version [1.0.0]
+Generated on [17 October 2026] with SER version [1.0.0]
 
 Enums are basically options, where an enum has set of all valid values, so a valid option is an enum value.
 These enums are usually used to specify a room, door, zone etc.
@@ -15,6 +15,27 @@ Here are some of the enums used in SER:
 - ConsoleType
 - ValueType
 - Team
+- DurationUnit
+- RoleTypeId
+- RunReason
+- PlayerProperty
+- EmotionPresetType
+- RoleSpawnFlags
+- RoleChangeReason
+- PlayerInfoArea
+- HitmarkerType
+- ConsoleColor
+- CandyKindID
+- RadioRangeLevel
+- IntercomState
+- DoorLockReason
+- DoorDamageType
+- DoorPermissionFlags
+- ColliderShape
+- LightShadows
+- LightType
+- PrimitiveType
+- PrimitiveFlags
 
 RoomName enum
 =============
@@ -245,3 +266,339 @@ This enum has the following values:
 - Dead
 - OtherAlive
 - Flamingos
+
+DurationUnit enum
+=================
+This enum has the following values:
+
+- Milliseconds
+- Seconds
+- Minutes
+- Hours
+
+RoleTypeId enum
+===============
+This enum has the following values:
+
+- None
+- Scp173
+- ClassD
+- Spectator
+- Scp106
+- NtfSpecialist
+- Scp049
+- Scientist
+- Scp079
+- ChaosConscript
+- Scp096
+- Scp0492
+- NtfSergeant
+- NtfCaptain
+- NtfPrivate
+- Tutorial
+- FacilityGuard
+- Scp939
+- CustomRole
+- ChaosRifleman
+- ChaosMarauder
+- ChaosRepressor
+- Overwatch
+- Filmmaker
+- Scp3114
+- Destroyed
+- Flamingo
+- AlphaFlamingo
+- ZombieFlamingo
+- NtfFlamingo
+- ChaosFlamingo
+
+RunReason enum
+==============
+This enum has the following values:
+
+- Unknown
+- Script
+- Event
+- BaseCommand
+- CustomCommand
+- FunctionCallback
+
+PlayerProperty enum
+===================
+This enum has the following values:
+
+- None
+- Name
+- DisplayName
+- Role
+- RoleRef
+- Team
+- Inventory
+- ItemCount
+- HeldItem
+- HeldItemRef
+- IsAlive
+- UserId
+- PlayerId
+- CustomInfo
+- RoomRef
+- Health
+- MaxHealth
+- ArtificialHealth
+- MaxArtificialHealth
+- HumeShield
+- MaxHumeShield
+- HumeShieldRegenRate
+- Effects
+- EffectReferences
+- GroupName
+- PosX
+- PosY
+- PosZ
+- IsDisarmed
+- IsMuted
+- IsIntercomMuted
+- IsGlobalModerator
+- IsNorthwoodStaff
+- IsBypassEnabled
+- IsGodModeEnabled
+- IsNoclipEnabled
+- Gravity
+- RoleChangeReason
+- RoleSpawnFlags
+- AuxiliaryPower
+- Emotion
+- Experience
+- MaxAuxiliaryPower
+- SizeX
+- SizeY
+- SizeZ
+- AccessTier
+- RelativeX
+- RelativeY
+- RelativeZ
+- IsNpc
+- IsDummy
+- IsSpeaking
+- IsSpectatable
+- IsJumping
+- IsGrounded
+- Stamina
+- MovementState
+- RoleColor
+- LifeId
+- UnitId
+- Unit
+- CRole
+- IsTransmitting
+- HasRemoteAdminAccess
+
+EmotionPresetType enum
+======================
+This enum has the following values:
+
+- Neutral
+- Happy
+- AwkwardSmile
+- Scared
+- Angry
+- Chad
+- Ogre
+
+RoleSpawnFlags enum
+===================
+This enum has the following values:
+
+- None
+- AssignInventory
+- UseSpawnpoint
+- All
+
+RoleChangeReason enum
+=====================
+This enum has the following values:
+
+- None
+- RoundStart
+- LateJoin
+- Respawn
+- Died
+- Escaped
+- Revived
+- RemoteAdmin
+- Destroyed
+- RespawnMiniwave
+- ItemUsage
+- Resurrected
+
+PlayerInfoArea enum
+===================
+This enum has the following values:
+
+- Nickname
+- Badge
+- CustomInfo
+- Role
+- UnitName
+- PowerStatus
+
+HitmarkerType enum
+==================
+This enum has the following values:
+
+- None
+- Regular
+- Blocked
+
+ConsoleColor enum
+=================
+This enum has the following values:
+
+- Black
+- DarkBlue
+- DarkGreen
+- DarkCyan
+- DarkRed
+- DarkMagenta
+- DarkYellow
+- Gray
+- DarkGray
+- Blue
+- Green
+- Cyan
+- Red
+- Magenta
+- Yellow
+- White
+
+CandyKindID enum
+================
+This enum has the following values:
+
+- None
+- Rainbow
+- Yellow
+- Purple
+- Red
+- Green
+- Blue
+- Pink
+- Orange
+- White
+- Gray
+- Black
+- Brown
+- Evil
+
+RadioRangeLevel enum
+====================
+This enum has the following values:
+
+- RadioDisabled
+- LowRange
+- MediumRange
+- HighRange
+- UltraRange
+
+IntercomState enum
+==================
+This enum has the following values:
+
+- Ready
+- Starting
+- InUse
+- Cooldown
+- NotFound
+
+DoorLockReason enum
+===================
+This enum has the following values:
+
+- None
+- Regular079
+- Lockdown079
+- Warhead
+- AdminCommand
+- DecontLockdown
+- DecontEvacuate
+- SpecialDoorFeature
+- NoPower
+- Isolation
+- Lockdown2176
+
+DoorDamageType enum
+===================
+This enum has the following values:
+
+- None
+- ServerCommand
+- Grenade
+- Weapon
+- Scp096
+- ParticleDisruptor
+
+DoorPermissionFlags enum
+========================
+This enum has the following values:
+
+- None
+- All
+- Checkpoints
+- ExitGates
+- Intercom
+- AlphaWarhead
+- ContainmentLevelOne
+- ContainmentLevelTwo
+- ContainmentLevelThree
+- ArmoryLevelOne
+- ArmoryLevelTwo
+- ArmoryLevelThree
+- ScpOverride
+
+ColliderShape enum
+==================
+This enum has the following values:
+
+- Box
+- Sphere
+- Capsule
+
+LightShadows enum
+=================
+This enum has the following values:
+
+- None
+- Hard
+- Soft
+
+LightType enum
+==============
+This enum has the following values:
+
+- Spot
+- Directional
+- Point
+- Rectangle
+- Disc
+- Pyramid
+- Box
+- Tube
+
+PrimitiveType enum
+==================
+This enum has the following values:
+
+- Sphere
+- Capsule
+- Cylinder
+- Cube
+- Plane
+- Quad
+
+PrimitiveFlags enum
+===================
+This enum has the following values:
+
+- None
+- Collidable
+- Visible

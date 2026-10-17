@@ -1,3 +1,62 @@
-Generated on [05 October 2026] with SER version [1.0.0]
+Generated on [17 October 2026] with SER version [1.0.0]
 
-Hi! There are 0 variables available for your use!
+Hi! There are 47 variables available for your use!
+
+Other variables
+---------------
+- @all
+- @allPlayers
+- @alivePlayers
+- @npcPlayers
+- @empty
+- @emptyPlayers
+
+Role variables
+--------------
+- @scp173Players
+- @classDPlayers
+- @spectatorPlayers
+- @scp106Players
+- @ntfSpecialistPlayers
+- @scp049Players
+- @scientistPlayers
+- @scp079Players
+- @chaosConscriptPlayers
+- @scp096Players
+- @scp0492Players
+- @ntfSergeantPlayers
+- @ntfCaptainPlayers
+- @ntfPrivatePlayers
+- @tutorialPlayers
+- @facilityGuardPlayers
+- @scp939Players
+- @customRolePlayers
+- @chaosRiflemanPlayers
+- @chaosMarauderPlayers
+- @chaosRepressorPlayers
+- @overwatchPlayers
+- @filmmakerPlayers
+- @scp3114Players
+- @destroyedPlayers
+- @flamingoPlayers
+- @alphaFlamingoPlayers
+- @zombieFlamingoPlayers
+- @ntfFlamingoPlayers
+- @chaosFlamingoPlayers
+- @nonePlayers
+
+Facility zone variables
+-----------------------
+- @lightContainmentPlayers
+- @heavyContainmentPlayers
+- @entrancePlayers
+- @surfacePlayers
+- @otherPlayers
+
+Team variables
+--------------
+- @scpPlayers
+- @foundationForcePlayers
+- @chaosInsurgencyPlayers
+- @deadPlayers
+- @otherAlivePlayers
