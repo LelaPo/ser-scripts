@@ -1,5 +1,5213 @@
-Generated on [05 October 2026] with SER version [1.0.0]
+Generated on [17 October 2026] with SER version [1.0.0]
 
-Hi! There are 0 methods available for your use!
+Hi! There are 252 methods available for your use!
 If a method has [rets], it means that this method returns a value.
 If you want to get specific information about a given method, just do 'serhelp <MethodName>'!
+
+Audio methods
+-------------
+- Audio.IsLoaded [rets] — Returns true if a given audio clip has been loaded
+- Audio.IsPlaying [rets] — Checks if the audio player is playing anything.
+- Audio.Load — Loads an audio file into the audio player.
+- Audio.Play — Plays a loaded audio clip from a created speaker.
+- Audio.Stop — Stops all audio clips playing through a speaker.
+- Speaker.CreateGlobal — Creates a speaker to play audio through.
+- Speaker.CreateOnPosition — Creates a speaker in a specified XYZ position.
+- Speaker.CreatePlayerAttached — Creates a speaker attached to a player to play audio through.
+- Speaker.Destroy — Destroys a speaker.
+- Speaker.Exists [rets] — Returns true or false indicating if a speaker with the provided name exists.
+
+AdminToys methods
+-----------------
+- Toy.Create [rets] — Creates an Admin Toy
+- Toy.Destroy — Destroys an Admin Toy.
+- Toy.Info [rets] — Returns numeric network or transform information about an Admin Toy.
+- Toy.Move — Moves an Admin Toy relative to its rotation.
+- Toy.SetParent — Sets the parent of a toy (So that the toy follows it).
+- Toy.SetRotation — Sets the rotation of a toy.
+- Toy.SetScale — Sets the scale of a toy.
+- Toy.TPPlayer — Teleports an Admin Toy to a given player
+- Toy.TPPosition — Teleports an Admin Toy to the given absolute coordinates
+- Toy.TPRoom — Teleports an Admin Toy to the given room
+
+AdminToyProperty methods
+------------------------
+- SetCameraProperties — Sets the properties of a CameraToy.
+- SetInteractableProperties — Sets properties of an Interactable Toy.
+- SetLightSourceProperties — Sets the properties of a LightSourceToy.
+- SetPrimitiveObjectProperties — Sets properties of a PrimitiveObjectToy.
+- SetShootingTargetProperties — Sets the properties of a ShootingTargetToy.
+- SetTextProperties — Sets the properties of a TextToy.
+
+Broadcast methods
+-----------------
+- AnimatedBroadcast — Sends an animated broadcast to specified players.
+- Broadcast — Sends a broadcast to players.
+- ClearBroadcasts — Clears broadcasts for players.
+- ClearCountdown — Removes an active countdown for players if one is active.
+- Countdown — Creates a countdown using broadcasts.
+- Hint — Sends a hint to players.
+
+CustomRole methods
+------------------
+- CRole.CreateBracketSpawnSystem [rets] — Creates a spawn for a custom roles that uses ranges of available players.
+- CRole.CreateChanceSpawnSystem [rets] — Creates a spawn system for a custom role using a simple chance.
+- CRole.CreateProceduralSpawnSystem [rets] — Creates a procedural spawn system for a custom role.
+- CRole.CreateSpawnBracket [rets] — Creates a spawn bracket for a the bracket spawn system.
+- CRole.IsRegistered [rets] — Checks if a given custom role is registered.
+- CRole.Register — Registers a custom role.
+- CRole.SetCallbacks — Sets the callbacks for a provided custom role.
+- CRole.Set — Assigns a custom role to a player.
+- CRole.Unregister — Unregisters a given custom role from the server.
+
+Config methods
+--------------
+- Config.GetOption [rets] — Tries to get a value from a config.
+- Config.Read [rets] — Reads a YAML file from the Custom Configs folder.
+
+Command methods
+---------------
+- Command — Runs a server command with full permission.
+- ResetGlobalCommandCooldown — Resets the global command cooldown for the 'CustomCommand' flag.
+- ResetPlayerCommandCooldown — Resets a player's command cooldown from the 'CustomCommand' flag.
+
+CollectionVariable methods
+--------------------------
+- Coll.Contains [rets] — Returns true if the value exists in the collection
+- Coll.Create [rets] — Returns an empty collection.
+- Coll.Fetch [rets] — Returns a value from a collection variable at a given position.
+- Coll.Insert — Adds a value to a collection variable
+- Coll.Join [rets] — Returns a collection that has the combined values of all the given collections
+- Coll.RemoveAt — Removes a value at the provided index from a collection variable
+- Coll.Remove — Removes a matching value from a collection variable
+- Coll.Subtract [rets] — Returns a collection that has the values of the first collection without the values of the latter
+
+CASSIE methods
+--------------
+- Cassie — Makes a CASSIE announcement.
+- ClearCassie — Clears all CASSIE announcements, active or queued.
+- IsCassieSpeaking [rets] — Returns boolean value indicating if CASSIE is speaking.
+- PlayerCassie — Makes a CASSIE announcement to specified players only.
+
+Dummy methods
+-------------
+- AddDummy [rets] — Adds a dummy to the server
+- DestroyDummy — Destroys a dummy off of the server.
+
+Door methods
+------------
+- BreakDoor — Breaks specified doors if possible.
+- CloseDoor — Closes doors.
+- GetRandomDoor [rets] — Returns a reference to a random door.
+- LockDoor — Locks doors.
+- OpenDoor — Opens doors.
+- PryGate — Pries a gate.
+- RepairDoor — Repairs specified doors if possible
+- SetDoorHealth — Sets remaining health for specified doors if possible
+- SetDoorMaxHealth — Sets max health for specified doors if possible
+- SetDoorPermission — Sets door permissions.
+- UnlockDoor — Unlocks doors.
+
+Discord methods
+---------------
+- Discord.CreateMessage [rets] — Creates a discord message object.
+- Discord.DeleteMessage — Deletes a message sent by a discord webhook (with that same webhook).
+- Discord.EditMessage — Edits a message sent by a discord webhook (with that same webhook).
+- Discord.SendMessageAndWait — Sends a message using a discord webhook and waits until it is completed. Returns the message id.
+- Discord.SendMessage — Sends a message using a discord webhook.
+- Embed.CreateAuthor [rets] — Creates an author object that can be used in discord embeds.
+- Embed.CreateField [rets] — Creates a field object that can be used in discord embeds.
+- Embed.CreateFooter [rets] — Creates a footer that can be used in discord embeds.
+- Embed.Create [rets] — Creates an embed which can later be sent to discord via webhook.
+
+Dictionary methods
+------------------
+- Dict.Add — Adds a key-value pair to a dictionary.
+- Dict.Contains [rets] — Returns true if the dictionary contains the provided key
+- Dict.Create [rets] — Creates an empty dictionary.
+- Dict.Get [rets] — Gets a value associated with a key from a dictionary.
+- Dict.Remove — Removes a key-value pair from a dictionary.
+
+Database methods
+----------------
+- DB.Add — Adds or overwrites a key-value pair into the database.
+- DB.Contains [rets] — Returns true if the provided key exists in the database.
+- DB.Create — Creates a new JSON file in the database folder.
+- DB.Exists [rets] — Returns true if the provided database exists.
+- DB.Get [rets] — Returns the value of a given key in the database.
+- DB.Remove — Removes a key from a database.
+
+DamageRule methods
+------------------
+- AddDamageRule — Sets the damage rule for a player.
+- RemoveDamageRule — Prevents a given damage rule from applying.
+
+Event methods
+-------------
+- AddEventHandler — Adds an event handler to the provided event.
+- DisableEvent [rets] — Disables the provided event from running.
+- EnableEvent [rets] — Enables the provided event to run after being disabled.
+- IsAllowed — Sets whether or not the event is allowed to run.
+
+Elevator methods
+----------------
+- LockElevator — Locks elevators.
+- SendElevator — Sends elevators to the next floor.
+- SetElevatorText — Changes the text on the elevator panels between LCZ and HCZ.
+- UnlockElevator — Unlocks elevators.
+
+Effect methods
+--------------
+- ClearEffect — Removes the provided status effect from players.
+- GiveEffect — Adds a provided effect for specified players.
+- HasEffect [rets] — Returns true or false indicating if the player has the provided effect.
+
+HTTP methods
+------------
+- HTTP.Get — Sends a GET request to a provided URL and returns the response as a JSON object.
+- HTTP.Patch — Sends a PATCH request to a provided URL.
+- HTTP.Post — Sends a POST request to a provided URL.
+- JSON.Add [rets] — Adds a key-value pair to a JSON object.
+- JSON.Create [rets] — Returns an empty JSON object.
+- JSON.FormatToReadable [rets] — Returns the JSON object in a readable format.
+- JSON.Parse [rets] — Parses a provided value into a JSON object.
+
+Health methods
+--------------
+- AddHume — Adds hume shield to players. Do not confuse this method with SetHumeShieldMethod
+- Damage — Damages players.
+- Heal — Heals players. Doesn't exceed their max health.
+- Kill — Kills players.
+- SetAHP — Sets the amount of AHP for players.
+- SetHealth — Sets health for players.
+- SetHumeShield — Sets hume shield for players.
+- SetMaxHealth — Sets the max health of players.
+- SetRegeneration — Adds health regeneration to players.
+
+Item methods
+------------
+- AdvDestroyItem — Destroys items on the ground and in inventories.
+- AdvDropItem [rets] — Drops an item from player inventory and returns a reference to the pickup object of that item.
+- AdvGiveItem [rets] — Gives a player a single item, and returns a reference to the item.
+- ClearInventory — Clears player inventory.
+- DestroyItem — Destroys an item in players' inventory.
+- DropItem — Drops items from players' inventories.
+- FirearmItemInfo [rets] — Returns info about provided firearm
+- ForceEquip — Forces players to equip a provided item.
+- GiveCandy — Gives candy to players.
+- GiveItem — Gives an item to players.
+- GrantLoadout — Grants players a class loadout.
+- SetRadioRange — Sets the radio range of a specified radio item.
+- UsableItemInfo [rets] — Returns information about provided usable item, like Painkillers, Medkit, etc.
+
+Intercom methods
+----------------
+- IntercomInfo [rets] — Returns info about the Intercom.
+- SetIntercomState — Sets the state of usage of the intercom.
+- SetIntercomText — Sets the text on the Intercom.
+
+Light methods
+-------------
+- DisableLights — Turns off lights for rooms.
+- ResetLightColor — Resets the light color for rooms.
+- SetLightColor — Sets the light color for rooms.
+
+Map methods
+-----------
+- CleanupPickups — Cleans pickups (items) from the map.
+- CleanupRagdolls — Destroys ragdolls.
+- CreateRagdoll — Spawns a ragdoll.
+- DecontaminationInfo [rets] — Returns decontamination info.
+- Decontamination — Controls the LCZ decontamination.
+- GetFromMap [rets] — Gets a collection of objects from a map.
+- GetPickups [rets] — Returns a collection of references to pickups.
+
+Number methods
+--------------
+- Chance [rets] — Returns true with the specified chance.
+- HexToInt [rets] — Parses a hexadecimal number back to a number value
+- IntToHex [rets] — Parses an integer into a hexadecimal number
+- Random [rets] — Returns a randomly generated number.
+- Round [rets] — Rounds a provided number.
+
+Output methods
+--------------
+- Error — Sends an error message.
+- Print — Prints the text provided to the server console.
+- Reply — Sends a message to the place where the script was run from.
+
+PlayerValue methods
+-------------------
+- AmountOf [rets] — Returns the amount of players in a given player variable.
+- Contains [rets] — Returns a true/false value indicating if the provided player is in the list.
+- Except [rets] — Returns players from the original variable EXCEPT those that were present in other variables.
+- Filter [rets] — Returns players which match the value for a given property.
+- Intersect [rets] — Returns players that are present in every provided player variable.
+- Join [rets] — Returns all players that were provided from multiple player variables.
+- Overlapping [rets] — Checks if provided player variables have the exact same players.
+- ParsePlayers [rets] — Tries to parse the provided value to a player value.
+- Take [rets] — Takes a specified amount of players from a player variable, lower or equal to the limit.
+
+Player methods
+--------------
+- Ban — Bans players from the server.
+- Explode — Explodes players.
+- GetIPInfo — Fetches information about a provided player IP address using ProxyCheck.io.
+- HasPermission [rets] — Checks if a player has a specific permission.
+- Jump — Makes players jump (with modifiable jump strength).
+- Kick — Kicks players from the server.
+- Mute — Mutes specified players.
+- ResetMute — Resets mute status for specified players.
+- SetBypass — Grants or removes bypass mode for players.
+- SetCustomInfo — Sets custom info (overhead text) for specific players.
+- SetDisplayName — Sets display name for specified players
+- SetEmote — Sets emotion for specified players
+- SetGodMode — Enables or disables godmode for specified players.
+- SetGravity — Changes player gravity.
+- SetGroup — Sets or removes group from specified players
+- SetNoclip — Enables or disables access to noclip for specified players.
+- SetPlayerIntercom — Sets whether a player is using a global intercom.
+- SetRole — Sets a role for players.
+- SetShownPlayerInfo — Sets what information about the player is shown.
+- SetSize — Sets the size of players.
+- SetSpectatability — Allows or disallows a player to be spectated.
+- ShowHitMarker — Shows a hit marker to players.
+- Show [rets] — Formats provided players into a nice text representation.
+- Stamina — Control the stamina of players.
+
+PlayerData methods
+------------------
+- ClearPlayerData — Clears data associated with specified players
+- GetPlayerData [rets] — Gets player data from the key.
+- HasPlayerData [rets] — Checks if a given key has an associated value for a given player.
+- SetPlayerData — Associates a custom key with a value for a given player.
+
+Pickup methods
+--------------
+- AddPickupToInventory — Forces a pickup to be added to the player's inventory.
+- CreateGrenade [rets] — Creates a new grenade projectile to later spawn.
+- CreatePickup [rets] — Creates a new item pickup to later spawn.
+- DestroyPickup — Destroys a pickup / grenade from the map.
+- PickupExists [rets] — Returns true if the provided pickup is still present on the server.
+- SpawnPickupPlayer — Spawns an item pickup / grenade on a player.
+- SpawnPickupPos — Spawns an item pickup / grenade at the coordinates.
+- SpawnPickupRoom — Spawns an item pickup / grenade in a room.
+
+Round methods
+-------------
+- EndRound — Ends a round.
+- RestartRound — Restarts the round.
+- RoundInfo [rets] — Returns information about the current round.
+- SetLobbyLock — Changes the lobby lock state.
+- SetRoundLock — Changes the round lock state.
+- StartRound — Start a round.
+
+Room methods
+------------
+- Blackout — Blackouts rooms.
+- GetRoomByName [rets] — Returns a reference to a room which has the provided name.
+
+Respawn methods
+---------------
+- GetWaveTimer [rets] — Returns the duration of a given spawn wave.
+- PlayWaveEffect — Plays a Respawn Wave effect (the NTF helicopter/CI van arrival animation)
+- SpawnWave — Forces a wave to start.
+- WaveInfluence — Changes influence of a wave.
+- WaveRespawnTime — Changes the time left to spawn a wave.
+- WaveRespawnTokens — Changes respawn tokens of a wave.
+
+Server methods
+--------------
+- ServerInfo [rets] — Returns info about the server.
+- SetFriendlyFire — Changes friendly fire mode.
+
+Script methods
+--------------
+- IsRunning [rets] — Returns true if given script is running
+- RunFunc — Runs a function script with arguments.
+- RunScriptAndWait — Runs a script and waits until the ran script has finished.
+- RunScript — Runs a script.
+- ScriptExists [rets] — Returns true or false indicating if a script with the provided name exists.
+- StopScript — Stops a given script.
+- ThisInfo [rets] — Returns info about the current script
+- TransferVariables — Makes a copy of the given local variable(s) in a different script.
+- Trigger — Fires a given trigger, executing scripts which are attached to it.
+
+Scp methods
+-----------
+- Get096Targets [rets] — Returns the targets of the specified SCP-096
+- Get173Observers [rets] — Returns the people that are looking at the specified SCP-173
+- Set079AccessTier — Sets the Access Tier of the given player(s) if they are SCP-079
+- Set079AuxPower — Sets the Auxiliary Power of the given player(s) if they are SCP-079
+- Set079Exp — Sets the EXP of the given player(s) if they are SCP-079
+
+Time methods
+------------
+- Date.Current [rets] — Returns the current date.
+- Date.Offset [rets] — Adds an offset to a date.
+- FormatDuration [rets] — Formats a duration into a special format.
+- TimeInfo [rets] — Returns information about current time.
+- ToDuration [rets] — Creates a duration value from a number and a unit.
+
+Text methods
+------------
+- Text.Contains [rets] — Returns true or false indicating if the provided text contains a provided value.
+- Text.Pad [rets] — Fills the text from the left or right with the given character until the specified length is met
+- Text.Replace [rets] — Replaces given values in a given text.
+- Text.Slice [rets] — Slices off characters from beginning and end of a text value.
+- Text.Trim [rets] — Trims whitespace from the beginning and end of a text value.
+
+TeslaRule methods
+-----------------
+- AddTeslaIgnoreRule — Sets the players that will be ignored by a tesla.
+- RemoveTeslaIgnoreRule — Resets the list of players ignored by a tesla.
+
+Teleport methods
+----------------
+- TPDoor — Teleports players to a door.
+- TPPlayer — Teleports players to another player.
+- TPPosition — Teleports players to an XYZ position.
+- TPRoom — Teleports players to relative coordinates of a room.
+- TPSpawn — Teleports players to where a specified role would spawn.
+
+Variable methods
+----------------
+- GetVariableByName [rets] — Returns the value of a variable with the given name and prefix.
+- GlobalVariables [rets] — Returns a collection containing all the global variable names
+- LogVar [rets] — Returns a formatted version of the variable for logging purposes.
+- VarExists [rets] — Returns a bool value indicating if the provided variable exists.
+
+Warhead methods
+---------------
+- WarheadInfo [rets] — Returns information about Alpha Warhead
+- Warhead — Manages alpha warhead.
+
+- UncomplicatedCustomRoles framework (not installed) can add 11 more methods
+
+- Exiled framework (not installed) can add 3 more methods
+
+- ProjectMapEditorReborn framework (not installed) can add 28 more methods
+
+- Callvote framework (not installed) can add 3 more methods
+
+
+WarheadInfo
+===========
+
+Returns information about Alpha Warhead
+
+This method returns bool value or duration value.
+You can save it to a variable with a '$' prefix.
+$myVariable = WarheadInfo ...
+
+This method expects the following arguments:
+- property argument
+  - Expected value: One of the following options:
+isLocked
+isOpen
+isArmed
+hasStarted
+isDetonated
+timeToDenotation
+duration (same as timeToDenotation)
+
+
+Warhead
+=======
+
+Manages alpha warhead.
+
+This method expects the following arguments:
+- action argument
+  - Expected value: One of the following options:
+open
+close
+arm
+disarm
+lock
+unlock
+start
+stop
+detonate
+shake
+
+
+GetVariableByName
+=================
+
+Returns the value of a variable with the given name and prefix.
+
+This method returns unknown value.
+
+This method expects the following arguments:
+- variable name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- Provided argument is not a syntactically valid variable name.
+- Specified variable doesn't exist
+
+
+GlobalVariables
+===============
+
+Returns a collection containing all the global variable names
+
+This method returns collection value.
+You can save it to a variable with a '&' prefix.
+&myVariable = GlobalVariables 
+
+This method does not expect any arguments.
+
+
+LogVar
+======
+
+Returns a formatted version of the variable for logging purposes.
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = LogVar ...
+
+This method expects the following arguments:
+- variable argument
+  - Expected value: Any existing variable e.g. $name or @players
+
+
+VarExists
+=========
+
+Returns a bool value indicating if the provided variable exists.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = VarExists ...
+
+This method expects the following arguments:
+- variable argument
+  - Expected value: A Variable token
+
+
+Date.Current
+============
+
+Returns the current date.
+
+This method returns reference to DateTime object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Date.Current 
+
+This method expects the following arguments:
+- time zone optional argument
+  - Expected value: One of the following options:
+utc
+local
+  - Default value/behavior: local
+    (use _ to keep the default)
+
+
+Date.Offset
+===========
+
+Adds an offset to a date.
+
+This method returns reference to DateTime object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Date.Offset ...
+
+This method expects the following arguments:
+- date argument
+  - Expected value: a reference to DateTime object.
+
+- mode argument
+  - Expected value: One of the following options:
+add
+remove
+
+- offset argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+
+FormatDuration
+==============
+
+Formats a duration into a special format.
+Here are some examples: 
+
+#1) "HH:SS"
+Shows only minutes and seconds, perfect for round timers or cooldowns.
+Result: 01:30
+
+#2) "DD days, HH hours and MM minutes"
+Creates a readable sentence. The system automatically handles the spaces and commas.
+Result: 2 days, 04 hours and 15 minutes
+
+#3) "MMm SSs FFFms"
+Displays minutes, seconds, and milliseconds for pinpoint accuracy.
+Result: 01m 22s 450ms
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = FormatDuration ...
+
+This method expects the following arguments:
+- duration to format argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+- format argument
+  - Description: Use these tags to format your time: DD for days, HH for hours, MM for minutes, and SS for seconds. 
+You can separate them with colons (:) or dashes (-).
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+TimeInfo
+========
+
+Returns information about current time.
+
+This method returns number value or text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = TimeInfo ...
+
+This method expects the following arguments:
+- options argument
+  - Expected value: One of the following options:
+second
+minute
+hour
+month
+year
+dayOfWeek
+dayOfWeekNumber (Instead of returning e.g. 'Monday', will return 1)
+dayOfMonth
+dayOfYear
+unixTimeUtc (Useful for making discord timestamps )
+unixTimeLocal
+
+
+ToDuration
+==========
+
+Creates a duration value from a number and a unit.
+Used when a number is not known ahead of time.
+
+This method returns duration value.
+You can save it to a variable with a '$' prefix.
+$myVariable = ToDuration ...
+
+This method expects the following arguments:
+- length argument
+  - Expected value: A number bigger or equal 0
+
+- unit argument
+  - Expected value: DurationUnit enum value - found using 'serhelp DurationUnit' command
+
+
+Text.Contains
+=============
+
+Returns true or false indicating if the provided text contains a provided value.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Text.Contains ...
+
+This method expects the following arguments:
+- text argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- text to check for argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Text.Pad
+========
+
+Fills the text from the left or right with the given character until the specified length is met
+The "character" argument must have EXACTLY 1 character in it.
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Text.Pad ...
+
+This method expects the following arguments:
+- text to pad argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- pad direction argument
+  - Expected value: One of the following options:
+left
+right
+
+- length argument
+  - Expected value: Any whole number
+
+- character argument
+  - Description: Has to be exactly 1 character long.
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- The "character" argument doesn't have EXACTLY 1 character in it.
+
+
+Text.Replace
+============
+
+Replaces given values in a given text.
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Text.Replace ...
+
+This method expects the following arguments:
+- value to perform the replacement on argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- text to replace argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- replacement text argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Text.Slice
+==========
+
+Slices off characters from beginning and end of a text value.
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Text.Slice ...
+
+This method expects the following arguments:
+- text argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- beginning amount optional argument
+  - Description: The amount of characters to remove from the beginning of the text.
+  - Expected value: A whole number bigger or equal 0
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- end amount optional argument
+  - Description: The amount of characters to remove from the end of the text.
+  - Expected value: A whole number bigger or equal 0
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+
+Text.Trim
+=========
+
+Trims whitespace from the beginning and end of a text value.
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Text.Trim ...
+
+This method expects the following arguments:
+- text argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+AddTeslaIgnoreRule
+==================
+
+Sets the players that will be ignored by a tesla.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- remove id optional argument
+  - Description: The ID of the tesla ignore rule. This is to identify this specific tesla ignore rule if you later want to remove SPECIFICALLY it later. There can be multiple tesla ignore rules with the same ID.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: no rule id
+    (use _ to keep the default)
+
+- update optional argument
+  - Description: Whether the rule should check for any changes regarding the 'players' argument. E.g. when you use 'players' = ClassD and 'update' = false, then the rule will NOT update when player roles change, meaning that when some ClassD becomes a Guard, their rule will STILL apply, even though they are no longer ClassD.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: True
+    (use _ to keep the default)
+
+
+RemoveTeslaIgnoreRule
+=====================
+
+Resets the list of players ignored by a tesla.
+
+This method expects the following arguments:
+- id to remove optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: Removes all tesla ignore rules
+    (use _ to keep the default)
+
+
+TPDoor
+======
+
+Teleports players to a door.
+
+This method expects the following arguments:
+- players to teleport argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- door to teleport to argument
+  - Expected value: DoorName enum, RoomName enum, FacilityZone enum or a Door reference.
+
+
+TPPlayer
+========
+
+Teleports players to another player.
+
+This method expects the following arguments:
+- players to TP argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- player target argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+
+TPPosition
+==========
+
+Teleports players to an XYZ position.
+
+This method expects the following arguments:
+- players to TP argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- X coordinate argument
+  - Expected value: Any number
+
+- Y coordinate argument
+  - Expected value: Any number
+
+- Z coordinate argument
+  - Expected value: Any number
+
+
+TPRoom
+======
+
+Teleports players to relative coordinates of a room.
+
+This method expects the following arguments:
+- players to teleport argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- room to teleport to argument
+  - Expected value: RoomName enum, FacilityZone enum or reference to Room
+
+- relative x optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- relative y optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- relative z optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+
+TPSpawn
+=======
+
+Teleports players to where a specified role would spawn.
+
+This method expects the following arguments:
+- players to teleport argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- spawnpoint of role argument
+  - Expected value: RoleTypeId enum value - found using 'serhelp RoleTypeId' command
+
+
+ServerInfo
+==========
+
+Returns info about the server.
+
+This method returns text value or number value or bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = ServerInfo ...
+
+This method expects the following arguments:
+- info argument
+  - Expected value: One of the following options:
+ip
+port
+name
+playerCount
+maxPlayers
+tps
+maxTps
+isVerified
+
+
+SetFriendlyFire
+===============
+
+Changes friendly fire mode.
+
+This method expects the following arguments:
+- enabled argument
+  - Expected value: bool (true or false) value
+
+
+IsRunning
+=========
+
+Returns true if given script is running
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = IsRunning ...
+
+This method expects the following arguments:
+- script name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+RunFunc
+=======
+
+Runs a function script with arguments.
+
+This method expects the following arguments:
+- script to run argument
+  - Expected value: Name of a script to create
+
+- values to pass optional argument
+  - Description: The values that will be passed to the function. These values must be compatible with the variables the function is expecting.
+  - Expected value: Any value
+  - Default value/behavior: none
+    (use _ to keep the default)
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+This method defines custom errors:
+- Provided script is not a function
+- Provided arguments are incompatible with the function
+
+
+RunScriptAndWait
+================
+
+Runs a script and waits until the ran script has finished.
+
+This method expects the following arguments:
+- script to create argument
+  - Expected value: Name of a script to create
+
+- variables to pass optional argument
+  - Description: Passes an exact copy of the provided variables to the script.
+  - Expected value: Any existing variable e.g. $name or @players
+  - Default value/behavior: none
+    (use _ to keep the default)
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+RunScript
+=========
+
+Runs a script.
+
+This method expects the following arguments:
+- script to create argument
+  - Expected value: Name of a script to create
+
+- variables to pass optional argument
+  - Description: Passes an exact copy of the provided variables to the script.
+  - Expected value: Any existing variable e.g. $name or @players
+  - Default value/behavior: none
+    (use _ to keep the default)
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+ScriptExists
+============
+
+Returns true or false indicating if a script with the provided name exists.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = ScriptExists ...
+
+This method expects the following arguments:
+- script name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+StopScript
+==========
+
+Stops a given script.
+
+This method expects the following arguments:
+- running script argument
+  - Expected value: Name of a currently running script
+
+
+ThisInfo
+========
+
+Returns info about the current script
+
+This method returns collection value or text value or duration value.
+
+This method expects the following arguments:
+- info to receive argument
+  - Expected value: One of the following options:
+flags
+caller (The name of the script that called this script)
+context (Returns a RunReason enum value)
+duration (The amount of time the script's been running for)
+name
+path (The path to the script on the local directory of the server)
+variables (Returns a CollectionValue containing the names of all the variables in the script)
+
+
+TransferVariables
+=================
+
+Makes a copy of the given local variable(s) in a different script.
+
+This method expects the following arguments:
+- target script argument
+  - Expected value: Name of a currently running script
+
+- variables argument
+  - Expected value: Any existing variable e.g. $name or @players
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+Trigger
+=======
+
+Fires a given trigger, executing scripts which are attached to it.
+
+This method expects the following arguments:
+- trigger name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Get096Targets
+=============
+
+Returns the targets of the specified SCP-096
+
+This method returns player value.
+You can save it to a variable with a '@' prefix.
+@myVariable = Get096Targets 
+
+This method expects the following arguments:
+- shy guy optional argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+  - Default value/behavior: Every target from every SCP-096
+    (use _ to keep the default)
+
+This method defines custom errors:
+- The specified player isn't SCP-096.
+
+
+Get173Observers
+===============
+
+Returns the people that are looking at the specified SCP-173
+
+This method returns player value.
+You can save it to a variable with a '@' prefix.
+@myVariable = Get173Observers 
+
+This method expects the following arguments:
+- peanut optional argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+  - Default value/behavior: Every observer from every SCP-173
+    (use _ to keep the default)
+
+This method defines custom errors:
+- The specified player isn't SCP-173.
+
+
+Set079AccessTier
+================
+
+Sets the Access Tier of the given player(s) if they are SCP-079
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- tier argument
+  - Expected value: A whole number between 1 and 5 (inclusive)
+
+
+Set079AuxPower
+==============
+
+Sets the Auxiliary Power of the given player(s) if they are SCP-079
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- power argument
+  - Expected value: A whole number bigger or equal 0
+
+
+Set079Exp
+=========
+
+Sets the EXP of the given player(s) if they are SCP-079
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- exp argument
+  - Expected value: A whole number bigger or equal 0
+
+
+EndRound
+========
+
+Ends a round.
+
+This method does not expect any arguments.
+
+
+RestartRound
+============
+
+Restarts the round.
+
+This method does not expect any arguments.
+
+
+RoundInfo
+=========
+
+Returns information about the current round.
+
+This method returns bool value or duration value.
+You can save it to a variable with a '$' prefix.
+$myVariable = RoundInfo ...
+
+This method expects the following arguments:
+- mode argument
+  - Expected value: One of the following options:
+hasStarted
+isInProgress
+hasEnded
+duration
+
+
+SetLobbyLock
+============
+
+Changes the lobby lock state.
+
+This method expects the following arguments:
+- new state argument
+  - Expected value: bool (true or false) value
+
+
+SetRoundLock
+============
+
+Changes the round lock state.
+
+This method expects the following arguments:
+- new state argument
+  - Expected value: bool (true or false) value
+
+
+StartRound
+==========
+
+Start a round.
+
+This method does not expect any arguments.
+
+
+Blackout
+========
+
+Blackouts rooms.
+
+This method expects the following arguments:
+- rooms argument
+  - Expected value: RoomName enum, FacilityZone enum, reference to Room, or 'all' for every room
+
+- duration optional argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+  - Default value/behavior: infinite
+    (use _ to keep the default)
+
+
+GetRoomByName
+=============
+
+Returns a reference to a room which has the provided name.
+If more than one room matches the provided name, a random room will be returned.
+
+This method returns reference to Room object.
+You can save it to a variable with a '*' prefix.
+*myVariable = GetRoomByName ...
+
+This method expects the following arguments:
+- room name argument
+  - Expected value: RoomName enum value - found using 'serhelp RoomName' command
+
+
+GetWaveTimer
+============
+
+Returns the duration of a given spawn wave.
+Will return 0s if the wave is not active or spawning.
+
+This method returns duration value.
+You can save it to a variable with a '$' prefix.
+$myVariable = GetWaveTimer ...
+
+This method expects the following arguments:
+- wave type argument
+  - Expected value: One of the following wave types:
+chaosWave - A class representing ChaosSpawnWave.
+miniChaosWave - A class representing ChaosMiniWave.
+miniMtfWave - A class representing NtfMiniWave.
+mtfWave - A class representing NtfSpawnWave.
+
+
+PlayWaveEffect
+==============
+
+Plays a Respawn Wave effect (the NTF helicopter/CI van arrival animation)
+
+This method expects the following arguments:
+- wave type argument
+  - Expected value: One of the following wave types:
+chaosWave - A class representing ChaosSpawnWave.
+miniChaosWave - A class representing ChaosMiniWave.
+miniMtfWave - A class representing NtfMiniWave.
+mtfWave - A class representing NtfSpawnWave.
+
+
+SpawnWave
+=========
+
+Forces a wave to start.
+
+This method expects the following arguments:
+- wave type argument
+  - Expected value: One of the following wave types:
+chaosWave - A class representing ChaosSpawnWave.
+miniChaosWave - A class representing ChaosMiniWave.
+miniMtfWave - A class representing NtfMiniWave.
+mtfWave - A class representing NtfSpawnWave.
+
+- mode optional argument
+  - Expected value: One of the following options:
+withAnimation
+instant
+  - Default value/behavior: withAnimation
+    (use _ to keep the default)
+
+
+WaveInfluence
+=============
+
+Changes influence of a wave.
+
+This method expects the following arguments:
+- wave type argument
+  - Expected value: One of the following wave types:
+chaosWave - A class representing ChaosSpawnWave.
+miniChaosWave - A class representing ChaosMiniWave.
+miniMtfWave - A class representing NtfMiniWave.
+mtfWave - A class representing NtfSpawnWave.
+
+- mode argument
+  - Expected value: One of the following options:
+set
+changeBy
+
+- influence argument
+  - Expected value: Any number
+
+
+WaveRespawnTime
+===============
+
+Changes the time left to spawn a wave.
+
+This method expects the following arguments:
+- wave type argument
+  - Expected value: One of the following wave types:
+chaosWave - A class representing ChaosSpawnWave.
+miniChaosWave - A class representing ChaosMiniWave.
+miniMtfWave - A class representing NtfMiniWave.
+mtfWave - A class representing NtfSpawnWave.
+
+- mode argument
+  - Expected value: One of the following options:
+set
+add
+remove
+
+- time argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+
+WaveRespawnTokens
+=================
+
+Changes respawn tokens of a wave.
+
+This method expects the following arguments:
+- wave type argument
+  - Expected value: One of the following wave types:
+chaosWave - A class representing ChaosSpawnWave.
+miniChaosWave - A class representing ChaosMiniWave.
+miniMtfWave - A class representing NtfMiniWave.
+mtfWave - A class representing NtfSpawnWave.
+
+- mode argument
+  - Expected value: One of the following options:
+set
+changeBy
+
+- respawn tokens argument
+  - Expected value: Any whole number
+
+
+AmountOf
+========
+
+Returns the amount of players in a given player variable.
+
+This method returns number value.
+You can save it to a variable with a '$' prefix.
+$myVariable = AmountOf ...
+
+This method expects the following arguments:
+- variable argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+
+Contains
+========
+
+Returns a true/false value indicating if the provided player is in the list.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Contains ...
+
+This method expects the following arguments:
+- player list argument
+  - Description: The variable that will be checked if it contains the player.
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- searched player argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+
+Except
+======
+
+Returns players from the original variable EXCEPT those that were present in other variables.
+
+This method returns player value.
+You can save it to a variable with a '@' prefix.
+@myVariable = Except ...
+
+This method expects the following arguments:
+- original players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- players to except argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+Filter
+======
+
+Returns players which match the value for a given property.
+
+This method returns player value.
+You can save it to a variable with a '@' prefix.
+@myVariable = Filter ...
+
+This method expects the following arguments:
+- players to filter argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- player property to filter by argument
+  - Expected value: PlayerProperty enum value - found using 'serhelp PlayerProperty' command
+
+- desired value of property argument
+  - Expected value: Any value
+
+
+Intersect
+=========
+
+Returns players that are present in every provided player variable.
+
+This method returns player value.
+You can save it to a variable with a '@' prefix.
+@myVariable = Intersect ...
+
+This method expects the following arguments:
+- first value argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- other values argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+Join
+====
+
+Returns all players that were provided from multiple player variables.
+
+This method returns player value.
+You can save it to a variable with a '@' prefix.
+@myVariable = Join ...
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+Overlapping
+===========
+
+Checks if provided player variables have the exact same players.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Overlapping ...
+
+This method expects the following arguments:
+- first value argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- other values argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+ParsePlayers
+============
+
+Tries to parse the provided value to a player value.
+Tries to parse using: nickname, display name, user group, user id, ip address, player id, team, role, room, zone,Room reference, Item reference, ReferenceHub reference, GameObject reference, Transform reference.
+
+This method returns player value.
+You can save it to a variable with a '@' prefix.
+@myVariable = ParsePlayers ...
+
+This method expects the following arguments:
+- input argument
+  - Expected value: Any value
+
+
+Take
+====
+
+Takes a specified amount of players from a player variable, lower or equal to the limit.
+
+This method returns player value.
+You can save it to a variable with a '@' prefix.
+@myVariable = Take ...
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- limit argument
+  - Expected value: A whole number bigger or equal 1
+
+
+Ban
+===
+
+Bans players from the server.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- duration argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+- reason argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Explode
+=======
+
+Explodes players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+
+GetIPInfo
+=========
+
+Fetches information about a provided player IP address using ProxyCheck.io.
+The keyless API is limited to 100 queries per day, which may not be enough for a big server. Consider providing your own API key from https://proxycheck.io/ if you need more (up to 1,000 requests per day on the free tier).
+
+This method returns reference to IPInfo object.
+You can save it to a variable with a '*' prefix.
+*myVariable = GetIPInfo ...
+
+This method expects the following arguments:
+- player argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- apiKey optional argument
+  - Description: The API key to use for the request. If not provided, the keyless API will be used.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: Keyless
+    (use _ to keep the default)
+
+This method defines custom errors:
+- Failed to fetch IP info: %message%
+- API Error: %message%
+
+
+HasPermission
+=============
+
+Checks if a player has a specific permission.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = HasPermission ...
+
+This method expects the following arguments:
+- player argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- permissions argument
+  - Description: 'true' is returned when player has any of the provided permissions
+  - Expected value: Any text e.g. "Hello, World!"
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+Jump
+====
+
+Makes players jump (with modifiable jump strength).
+This also works for players in the air. Allowing for mid-air jumps.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- jump strength optional argument
+  - Expected value: Any number
+  - Default value/behavior: default jump strength
+    (use _ to keep the default)
+
+
+Kick
+====
+
+Kicks players from the server.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- reason argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Mute
+====
+
+Mutes specified players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- is temporary optional argument
+  - Expected value: bool (true or false) value
+  - Default value/behavior: True
+    (use _ to keep the default)
+
+
+ResetMute
+=========
+
+Resets mute status for specified players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- revoke permanent optional argument
+  - Expected value: bool (true or false) value
+  - Default value/behavior: True
+    (use _ to keep the default)
+
+
+SetBypass
+=========
+
+Grants or removes bypass mode for players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- mode argument
+  - Expected value: bool (true or false) value
+
+
+SetCustomInfo
+=============
+
+Sets custom info (overhead text) for specific players.
+
+This method expects the following arguments:
+- playersToAffect argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- customInfoText argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+SetDisplayName
+==============
+
+Sets display name for specified players
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- display name argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: removes display name
+    (use _ to keep the default)
+
+
+SetEmote
+========
+
+Sets emotion for specified players
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- emotion argument
+  - Expected value: EmotionPresetType enum value - found using 'serhelp EmotionPresetType' command
+
+
+SetGodMode
+==========
+
+Enables or disables godmode for specified players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- mode argument
+  - Expected value: bool (true or false) value
+
+
+SetGravity
+==========
+
+Changes player gravity.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- gravity argument
+  - Expected value: Any number
+
+
+SetGroup
+========
+
+Sets or removes group from specified players
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- group argument
+  - Description: Name of the group or set to NONE if you want to remove group from specified players
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+SetNoclip
+=========
+
+Enables or disables access to noclip for specified players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- isAllowed argument
+  - Expected value: bool (true or false) value
+
+
+SetPlayerIntercom
+=================
+
+Sets whether a player is using a global intercom.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- state argument
+  - Expected value: bool (true or false) value
+
+
+SetRole
+=======
+
+Sets a role for players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- newRole argument
+  - Expected value: RoleTypeId enum value - found using 'serhelp RoleTypeId' command
+
+- spawnFlags optional argument
+  - Expected value: RoleSpawnFlags enum value - found using 'serhelp RoleSpawnFlags' command. Use '|' character to provide multiple e.g. Val1|Val2|Val3
+  - Default value/behavior: All
+    (use _ to keep the default)
+
+- reason optional argument
+  - Expected value: RoleChangeReason enum value - found using 'serhelp RoleChangeReason' command
+  - Default value/behavior: RemoteAdmin
+    (use _ to keep the default)
+
+
+SetShownPlayerInfo
+==================
+
+Sets what information about the player is shown.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- info to show argument
+  - Expected value: PlayerInfoArea enum value - found using 'serhelp PlayerInfoArea' command. Use '|' character to provide multiple e.g. Val1|Val2|Val3
+  - Default value/behavior: nothing
+    (use _ to keep the default)
+
+
+SetSize
+=======
+
+Sets the size of players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- x size argument
+  - Expected value: Any number
+
+- y size argument
+  - Expected value: Any number
+
+- z size argument
+  - Expected value: Any number
+
+
+SetSpectatability
+=================
+
+Allows or disallows a player to be spectated.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- new state argument
+  - Expected value: bool (true or false) value
+
+
+ShowHitMarker
+=============
+
+Shows a hit marker to players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- hitmarker size optional argument
+  - Expected value: Any number
+  - Default value/behavior: Default Size
+    (use _ to keep the default)
+
+- should play audio optional argument
+  - Expected value: bool (true or false) value
+  - Default value/behavior: Hitmarker will make a noise.
+    (use _ to keep the default)
+
+- hitmarker type optional argument
+  - Expected value: HitmarkerType enum value - found using 'serhelp HitmarkerType' command
+  - Default value/behavior: Regular Hitmarker
+    (use _ to keep the default)
+
+
+Show
+====
+
+Formats provided players into a nice text representation.
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Show ...
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- property optional argument
+  - Description: The property which will be displayed.
+  - Expected value: PlayerProperty enum value - found using 'serhelp PlayerProperty' command
+  - Default value/behavior: name
+    (use _ to keep the default)
+
+- separator optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: ", "
+    (use _ to keep the default)
+
+- separator on beginning optional argument
+  - Description: Whether to add the separator at the beginning of the returned text
+  - Expected value: bool (true or false) value
+  - Default value/behavior: False
+    (use _ to keep the default)
+
+This method defines custom errors:
+- Provided property returned a value which cannot be displayed using text.
+
+
+Stamina
+=======
+
+Control the stamina of players.
+
+This method expects the following arguments:
+- options argument
+  - Expected value: One of the following options:
+add
+remove
+set
+
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- stamina value argument
+  - Description: Stamina is valued from 0 to 100%. 0 meaning an empty stamina bar and 100% meaning a full stamina bar.
+  - Expected value: A number between 0% and 100% (inclusive)
+
+- delay stamina regen optional argument
+  - Description: Stops stamina regeneration for a short duration after applying new stamina value, just like at the end of a sprint.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: will delay stamina regeneration for a second when new stamina value is applied.
+    (use _ to keep the default)
+
+
+ClearPlayerData
+===============
+
+Clears data associated with specified players
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- key to clear optional argument
+  - Description: Don't provide this argument to clear all keys for players, provide if you want to clear specific key
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: all keys
+    (use _ to keep the default)
+
+
+GetPlayerData
+=============
+
+Gets player data from the key.
+It's recommended to set 'default value' argument for you to not get errors when the key doesn't exist for a given player!
+
+This method returns unknown value.
+
+This method expects the following arguments:
+- player argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- key argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- default value optional argument
+  - Description: If the key doesn't exist, this value will be returned.
+  - Expected value: Any value
+  - Default value/behavior: no default value; errors when the key doesn't exist
+    (use _ to keep the default)
+
+This method defines custom errors:
+- Key %key% was not found for the player %player_name%.
+
+
+HasPlayerData
+=============
+
+Checks if a given key has an associated value for a given player.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = HasPlayerData ...
+
+This method expects the following arguments:
+- player argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- key argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+SetPlayerData
+=============
+
+Associates a custom key with a value for a given player.
+This method ties a specific value to a specific player, allowing you to e.g. keep track of how many seconds each player was on surface zone, as you're tying the amount of time to a specific player, independently of other players. For this, you would create a key e.g. 'surfaceTime', and under that key you can start saving the value. It's basically a dictionary/hashmap attached to a player.
+
+This method expects the following arguments:
+- player argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- key argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- value to set argument
+  - Expected value: Any value
+
+
+AddPickupToInventory
+====================
+
+Forces a pickup to be added to the player's inventory.
+Pickup will not be added if the player's inventory is full.
+
+This method expects the following arguments:
+- player argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- pickup argument
+  - Expected value: a reference to Pickup object.
+
+
+CreateGrenade
+=============
+
+Creates a new grenade projectile to later spawn.
+To spawn SCP-018, SCP-2176 or the grenades' unactivated versions, use the Pickup method. Grenades require an attacker to deal damage, so this argument must identify a player.
+
+This method returns reference to Projectile object.
+You can save it to a variable with a '*' prefix.
+*myVariable = CreateGrenade ...
+
+This method expects the following arguments:
+- grenade type argument
+  - Expected value: One of the following options:
+GrenadeHE
+GrenadeFlash
+
+- attacker argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+
+CreatePickup
+============
+
+Creates a new item pickup to later spawn.
+
+This method returns reference to Pickup object.
+You can save it to a variable with a '*' prefix.
+*myVariable = CreatePickup ...
+
+This method expects the following arguments:
+- item type argument
+  - Expected value: ItemType enum value - found using 'serhelp ItemType' command
+
+
+DestroyPickup
+=============
+
+Destroys a pickup / grenade from the map.
+
+This method expects the following arguments:
+- pickup or projectile reference argument
+  - Expected value: a reference to Pickup object.
+
+This method defines custom errors:
+- The pickup/projectile hasn't been spawned yet or doesn't exist anymore.
+
+
+PickupExists
+============
+
+Returns true if the provided pickup is still present on the server.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = PickupExists ...
+
+This method expects the following arguments:
+- pickup reference argument
+  - Expected value: a reference to Pickup object.
+
+
+SpawnPickupPlayer
+=================
+
+Spawns an item pickup / grenade on a player.
+
+This method expects the following arguments:
+- pickup or projectile reference argument
+  - Expected value: a reference to Pickup object.
+
+- player to spawn pickup on argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+This method defines custom errors:
+- The projectile/item has already been spawned.
+
+
+SpawnPickupPos
+==============
+
+Spawns an item pickup / grenade at the coordinates.
+
+This method expects the following arguments:
+- pickup or projectile reference argument
+  - Expected value: a reference to Pickup object.
+
+- x position argument
+  - Expected value: Any number
+
+- y position argument
+  - Expected value: Any number
+
+- z position argument
+  - Expected value: Any number
+
+This method defines custom errors:
+- The projectile/item has already been spawned.
+
+
+SpawnPickupRoom
+===============
+
+Spawns an item pickup / grenade in a room.
+
+This method expects the following arguments:
+- pickup or projectile reference argument
+  - Expected value: a reference to Pickup object.
+
+- room to spawn pickup in argument
+  - Expected value: RoomName enum, FacilityZone enum or reference to Room
+
+- relative x optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- relative y optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- relative z optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+This method defines custom errors:
+- The projectile/item has already been spawned.
+
+
+Error
+=====
+
+Sends an error message.
+
+This method expects the following arguments:
+- error argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Print
+=====
+
+Prints the text provided to the server console.
+
+This method expects the following arguments:
+- text argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- color optional argument
+  - Expected value: ConsoleColor enum value - found using 'serhelp ConsoleColor' command
+  - Default value/behavior: Green
+    (use _ to keep the default)
+
+
+Reply
+=====
+
+Sends a message to the place where the script was run from.
+
+This method expects the following arguments:
+- message argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Chance
+======
+
+Returns true with the specified chance.
+e.g. if set to 20%, true will be returned 20% of the time.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Chance ...
+
+This method expects the following arguments:
+- chance argument
+  - Expected value: A number between 0 and 1 (inclusive)
+
+
+HexToInt
+========
+
+Parses a hexadecimal number back to a number value
+The hex number can start (but doesn't have to) with 0x or #
+
+This method returns number value.
+You can save it to a variable with a '$' prefix.
+$myVariable = HexToInt ...
+
+This method expects the following arguments:
+- hex number argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- The provided string does not represent a hexadecimal number.
+
+
+IntToHex
+========
+
+Parses an integer into a hexadecimal number
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = IntToHex ...
+
+This method expects the following arguments:
+- integer to parse argument
+  - Expected value: Any whole number
+
+
+Random
+======
+
+Returns a randomly generated number.
+'startingNum' argument MUST be smaller than 'endingNum' argument.
+
+This method returns number value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Random ...
+
+This method expects the following arguments:
+- startingNum argument
+  - Expected value: Any number
+
+- endingNum argument
+  - Expected value: Any number
+
+- numberType optional argument
+  - Expected value: One of the following options:
+int (Returns an integer number)
+real (Returns a real number)
+  - Default value/behavior: int
+    (use _ to keep the default)
+
+This method defines custom errors:
+- The starting number must not be greater than the ending number.
+- The requested integer range does not contain an integer.
+
+
+Round
+=====
+
+Rounds a provided number.
+
+This method returns number value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Round ...
+
+This method expects the following arguments:
+- number to round argument
+  - Expected value: Any number
+
+- decimal places optional argument
+  - Description: The number of decimal places to round to.
+  - Expected value: A whole number bigger or equal 0
+  - Default value/behavior: rounds to whole number (0)
+    (use _ to keep the default)
+
+
+CleanupPickups
+==============
+
+Cleans pickups (items) from the map.
+
+This method does not expect any arguments.
+
+
+CleanupRagdolls
+===============
+
+Destroys ragdolls.
+
+This method expects the following arguments:
+- roleToRemove optional argument
+  - Description: Do not provide this argument to destroy all ragdolls.
+  - Expected value: RoleTypeId enum value - found using 'serhelp RoleTypeId' command
+  - Default value/behavior: all
+    (use _ to keep the default)
+
+
+CreateRagdoll
+=============
+
+Spawns a ragdoll.
+
+This method expects the following arguments:
+- role argument
+  - Expected value: RoleTypeId enum value - found using 'serhelp RoleTypeId' command
+
+- name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- x position argument
+  - Expected value: Any number
+
+- y position argument
+  - Expected value: Any number
+
+- z position argument
+  - Expected value: Any number
+
+- x size optional argument
+  - Expected value: Any number
+  - Default value/behavior: default role x scale
+    (use _ to keep the default)
+
+- y size optional argument
+  - Expected value: Any number
+  - Default value/behavior: default role y scale
+    (use _ to keep the default)
+
+- z size optional argument
+  - Expected value: Any number
+  - Default value/behavior: default role z scale
+    (use _ to keep the default)
+
+- x rotation optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- y rotation optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- z rotation optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- w rotation optional argument
+  - Expected value: Any number
+  - Default value/behavior: 1
+    (use _ to keep the default)
+
+- damage handler optional argument
+  - Description: Accepts a TextValue or a DamageHandlerBase reference.
+  - Expected value: Any value
+  - Default value/behavior: Damage reason will be blank
+    (use _ to keep the default)
+
+This method defines custom errors:
+- Damage handler value must be a DamageHandlerBase reference or a TextValue.
+- The provided reference value was not a DamageHandlerBase reference.
+
+
+DecontaminationInfo
+===================
+
+Returns decontamination info.
+
+This method returns bool value or duration value.
+You can save it to a variable with a '$' prefix.
+$myVariable = DecontaminationInfo ...
+
+This method expects the following arguments:
+- option argument
+  - Expected value: One of the following options:
+hasStarted
+timeToStart
+
+
+Decontamination
+===============
+
+Controls the LCZ decontamination.
+
+This method expects the following arguments:
+- mode argument
+  - Expected value: One of the following options:
+enable
+disable
+force
+
+
+GetFromMap
+==========
+
+Gets a collection of objects from a map.
+
+This method returns collection of reference value.
+You can save it to a variable with a '&' prefix.
+&myVariable = GetFromMap ...
+
+This method expects the following arguments:
+- object argument
+  - Expected value: One of the following options:
+doors (Returns a collection of references to Door objects)
+elevators (Returns a collection of references to Elevator objects)
+generators (Returns a collection of references to Generator objects)
+cameras (Returns a collection of references to Camera objects)
+teslas (Returns a collection of references to Tesla objects)
+rooms (Returns a collection of references to Room objects)
+roomLights (Returns a collection of references to LightsController objects)
+ragdolls (Returns a collection of references to Ragdoll objects)
+
+
+GetPickups
+==========
+
+Returns a collection of references to pickups.
+
+This method returns collection of reference to Pickup object.
+You can save it to a variable with a '&' prefix.
+&myVariable = GetPickups 
+
+This method does not expect any arguments.
+
+
+DisableLights
+=============
+
+Turns off lights for rooms.
+
+This method expects the following arguments:
+- rooms argument
+  - Expected value: RoomName enum, FacilityZone enum, reference to Room, or 'all' for every room
+
+- duration argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+
+ResetLightColor
+===============
+
+Resets the light color for rooms.
+
+This method expects the following arguments:
+- rooms argument
+  - Expected value: RoomName enum, FacilityZone enum, reference to Room, or 'all' for every room
+
+
+SetLightColor
+=============
+
+Sets the light color for rooms.
+
+This method expects the following arguments:
+- rooms argument
+  - Expected value: RoomName enum, FacilityZone enum, reference to Room, or 'all' for every room
+
+- color argument
+  - Expected value: Color in format RRGGBB or RRGGBBAA.
+
+- intensity optional argument
+  - Expected value: A number bigger or equal 0%
+  - Default value/behavior: 100%
+    (use _ to keep the default)
+
+- transition duration optional argument
+  - Description: the amount of time in which the lights will fade to the new color
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+  - Default value/behavior: instant change
+    (use _ to keep the default)
+
+
+AdvDestroyItem
+==============
+
+Destroys items on the ground and in inventories.
+
+This method expects the following arguments:
+- items argument
+  - Expected value: ItemType enum, reference to Item, or 'all' for every item
+
+
+AdvDropItem
+===========
+
+Drops an item from player inventory and returns a reference to the pickup object of that item.
+
+This method returns reference to Pickup object.
+You can save it to a variable with a '*' prefix.
+*myVariable = AdvDropItem ...
+
+This method expects the following arguments:
+- item argument
+  - Expected value: a reference to Item object.
+
+
+AdvGiveItem
+===========
+
+Gives a player a single item, and returns a reference to the item.
+Returned reference will be invalid if the player does not have enough space for the item.
+
+This method returns reference to Item object.
+You can save it to a variable with a '*' prefix.
+*myVariable = AdvGiveItem ...
+
+This method expects the following arguments:
+- player to give item argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- item type to add argument
+  - Expected value: ItemType enum value - found using 'serhelp ItemType' command
+
+
+ClearInventory
+==============
+
+Clears player inventory.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- mode optional argument
+  - Expected value: One of the following options:
+drop
+destroy
+  - Default value/behavior: destroy
+    (use _ to keep the default)
+
+
+DestroyItem
+===========
+
+Destroys an item in players' inventory.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- item argument
+  - Expected value: ItemType enum value - found using 'serhelp ItemType' command
+
+- amount optional argument
+  - Expected value: A whole number bigger or equal 1
+  - Default value/behavior: 1
+    (use _ to keep the default)
+
+
+DropItem
+========
+
+Drops items from players' inventories.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- itemTypeToDrop argument
+  - Expected value: ItemType enum value - found using 'serhelp ItemType' command
+
+- amountToDrop optional argument
+  - Expected value: A whole number bigger or equal 1
+  - Default value/behavior: 1
+    (use _ to keep the default)
+
+
+FirearmItemInfo
+===============
+
+Returns info about provided firearm
+
+This method returns bool value or number value.
+You can save it to a variable with a '$' prefix.
+$myVariable = FirearmItemInfo ...
+
+This method expects the following arguments:
+- firearm argument
+  - Expected value: a reference to FirearmItem object.
+
+- property argument
+  - Expected value: One of the following options:
+ammo
+maxAmmo
+isCocked
+isMagazineInserted
+
+
+ForceEquip
+==========
+
+Forces players to equip a provided item.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- item type optional argument
+  - Expected value: ItemType enum value - found using 'serhelp ItemType' command
+  - Default value/behavior: Un-equip held item.
+    (use _ to keep the default)
+
+
+GiveCandy
+=========
+
+Gives candy to players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- candyType argument
+  - Expected value: CandyKindID enum value - found using 'serhelp CandyKindID' command
+
+- amount optional argument
+  - Expected value: A whole number bigger or equal 1
+  - Default value/behavior: 1
+    (use _ to keep the default)
+
+
+GiveItem
+========
+
+Gives an item to players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- item argument
+  - Expected value: ItemType enum value - found using 'serhelp ItemType' command
+
+- amount optional argument
+  - Expected value: A whole number bigger or equal 1
+  - Default value/behavior: 1
+    (use _ to keep the default)
+
+
+GrantLoadout
+============
+
+Grants players a class loadout.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- roleLoadout argument
+  - Expected value: RoleTypeId enum value - found using 'serhelp RoleTypeId' command
+
+
+SetRadioRange
+=============
+
+Sets the radio range of a specified radio item.
+
+This method expects the following arguments:
+- radio argument
+  - Expected value: a reference to RadioItem object.
+
+- new radio range argument
+  - Expected value: RadioRangeLevel enum value - found using 'serhelp RadioRangeLevel' command
+
+
+UsableItemInfo
+==============
+
+Returns information about provided usable item, like Painkillers, Medkit, etc.
+
+This method returns number value or bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = UsableItemInfo ...
+
+This method expects the following arguments:
+- usable argument
+  - Expected value: a reference to UsableItem object.
+
+- property argument
+  - Expected value: One of the following options:
+useTime
+canUse
+isUsing
+
+
+IntercomInfo
+============
+
+Returns info about the Intercom.
+
+This method returns text value or player value or duration value.
+
+This method expects the following arguments:
+- mode argument
+  - Expected value: One of the following options:
+state (Returns a IntercomState enum value)
+speaker
+cooldown
+speechTimeLeft
+textOverride
+
+
+SetIntercomState
+================
+
+Sets the state of usage of the intercom.
+
+This method expects the following arguments:
+- state argument
+  - Expected value: IntercomState enum value - found using 'serhelp IntercomState' command
+
+
+SetIntercomText
+===============
+
+Sets the text on the Intercom.
+Resets the intercom text if given text is empty.
+
+This method expects the following arguments:
+- text argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+HTTP.Get
+========
+
+Sends a GET request to a provided URL and returns the response as a JSON object.
+
+This method returns reference to JObject object.
+You can save it to a variable with a '*' prefix.
+*myVariable = HTTP.Get ...
+
+This method expects the following arguments:
+- address argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- ConnectionError
+- DataProcessingError
+- ProtocolError
+- Response exceeded the configured maximum size.
+- Provided response was not a valid JSON object.
+
+
+HTTP.Patch
+==========
+
+Sends a PATCH request to a provided URL.
+
+This method expects the following arguments:
+- address argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- json data to patch argument
+  - Expected value: a reference to JObject object.
+
+This method defines custom errors:
+- ConnectionError
+- DataProcessingError
+- ProtocolError
+
+
+HTTP.Post
+=========
+
+Sends a POST request to a provided URL.
+
+This method expects the following arguments:
+- address argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- json data to post argument
+  - Expected value: a reference to JObject object.
+
+This method defines custom errors:
+- ConnectionError
+- DataProcessingError
+- ProtocolError
+- Response exceeded the configured maximum size.
+
+
+JSON.Add
+========
+
+Adds a key-value pair to a JSON object.
+
+This method returns reference to JObject object.
+You can save it to a variable with a '*' prefix.
+*myVariable = JSON.Add ...
+
+This method expects the following arguments:
+- JSON to add value to argument
+  - Expected value: a reference to JObject object.
+
+- key argument
+  - Description: You will be using this key to refer to this value, like { "key": value }
+  - Expected value: Any text e.g. "Hello, World!"
+
+- value argument
+  - Expected value: a value of type LiteralValue
+
+This method defines custom errors:
+- Provided value was not able to be added to the JSON object.
+
+
+JSON.Create
+===========
+
+Returns an empty JSON object.
+
+This method returns reference to JObject object.
+You can save it to a variable with a '*' prefix.
+*myVariable = JSON.Create 
+
+This method does not expect any arguments.
+
+
+JSON.FormatToReadable
+=====================
+
+Returns the JSON object in a readable format.
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = JSON.FormatToReadable ...
+
+This method expects the following arguments:
+- JSON object argument
+  - Expected value: a reference to JObject object.
+
+
+JSON.Parse
+==========
+
+Parses a provided value into a JSON object.
+
+This method returns reference to JObject object.
+You can save it to a variable with a '*' prefix.
+*myVariable = JSON.Parse ...
+
+This method expects the following arguments:
+- string representation of JSON object argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- Provided value is not parsable as a JSON object.
+
+
+AddHume
+=======
+
+Adds hume shield to players. Do not confuse this method with SetHumeShieldMethod
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- amount argument
+  - Expected value: A number bigger or equal 0
+
+
+Damage
+======
+
+Damages players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- amount argument
+  - Expected value: A number bigger or equal 0
+
+- reason optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: empty
+    (use _ to keep the default)
+
+
+Heal
+====
+
+Heals players. Doesn't exceed their max health.
+
+This method expects the following arguments:
+- players to heal argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- amount optional argument
+  - Description: If this argument is not provided, all players will be fully healed.
+  - Expected value: A number bigger or equal 0
+  - Default value/behavior: max amount
+    (use _ to keep the default)
+
+
+Kill
+====
+
+Kills players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- reason optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: empty
+    (use _ to keep the default)
+
+
+SetAHP
+======
+
+Sets the amount of AHP for players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- amount argument
+  - Description: The amount of artificial health to ADD to the player. Use a negative number to remove.
+  - Expected value: A number bigger or equal 0
+
+- limit optional argument
+  - Description: The upper limit of AHP.
+  - Expected value: A number bigger or equal 0
+  - Default value/behavior: 75
+    (use _ to keep the default)
+
+- decay optional argument
+  - Description: How much AHP is lost per second.
+  - Expected value: A number bigger or equal 0
+  - Default value/behavior: 1.2
+    (use _ to keep the default)
+
+- efficacy optional argument
+  - Description: The percent of incoming damage absorbed by AHP.
+  - Expected value: A number between 0% and 100% (inclusive)
+  - Default value/behavior: 70%
+    (use _ to keep the default)
+
+- sustain optional argument
+  - Description: The amount of time before the AHP begins to decay.
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+  - Default value/behavior: instant (0 seconds)
+    (use _ to keep the default)
+
+- isPersistent optional argument
+  - Description: Whether or not the AHP process stays after AHP reaches 0.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: False
+    (use _ to keep the default)
+
+
+SetHealth
+=========
+
+Sets health for players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- health argument
+  - Expected value: A number bigger or equal 0
+
+
+SetHumeShield
+=============
+
+Sets hume shield for players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- amount argument
+  - Description: The amount of hume shield to set.
+  - Expected value: A number bigger or equal 0
+
+- limit argument
+  - Description: The maximal amount of hume shield.
+  - Expected value: A number bigger or equal 0
+
+- regen rate argument
+  - Description: The rate of hume shield regenerated per second.
+  - Expected value: A number bigger or equal 0
+
+- regen cooldown argument
+  - Description: The cooldown before hume shield regeneration begins.
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+
+SetMaxHealth
+============
+
+Sets the max health of players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- maxHealth argument
+  - Expected value: A number bigger or equal 1
+
+
+SetRegeneration
+===============
+
+Adds health regeneration to players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- regeneration rate argument
+  - Expected value: Any number
+
+- regeneration duration argument
+  - Expected value: Any number
+
+
+AddEventHandler
+===============
+
+Adds an event handler to the provided event.
+This is a simplified version of the event handling system. It is recommended to use the '!-- OnEvent' flag when possible. Additionally, the variables are NOT going to be added via the arguments defined on the function, but automatically (like in the '!-- OnEvent' flag) - this is due to a technical limitation.
+
+This method expects the following arguments:
+- event name argument
+  - Expected value: An in-game event e.g. RoundStarted (found using command 'serhelp events')
+
+- callback argument
+  - Expected value: A name of a function defined above e.g. MyFunction
+
+
+DisableEvent
+============
+
+Disables the provided event from running.
+Returns true if the event was disabled, false if it was already disabled.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = DisableEvent ...
+
+This method expects the following arguments:
+- eventName argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- There exists no event with the provided name.
+- The provided event is not cancellable.
+
+
+EnableEvent
+===========
+
+Enables the provided event to run after being disabled.
+Returns true if the event was enabled, false if it was already enabled.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = EnableEvent ...
+
+This method expects the following arguments:
+- eventName argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- There exists no event with the provided name.
+- The provided event is not cancellable.
+
+
+IsAllowed
+=========
+
+Sets whether or not the event is allowed to run.
+In order for it to have any impact, the script in which the method is used must be triggered by an event, and that event must be cancellable.
+
+This method expects the following arguments:
+- isAllowed argument
+  - Expected value: bool (true or false) value
+
+
+LockElevator
+============
+
+Locks elevators.
+
+This method expects the following arguments:
+- elevators argument
+  - Expected value: ElevatorGroup enum, reference to an elevator or 'all' for every elevator
+
+- lockReason optional argument
+  - Expected value: DoorLockReason enum value - found using 'serhelp DoorLockReason' command. Use '|' character to provide multiple e.g. Val1|Val2|Val3
+  - Default value/behavior: AdminCommand
+    (use _ to keep the default)
+
+
+SendElevator
+============
+
+Sends elevators to the next floor.
+
+This method expects the following arguments:
+- elevators argument
+  - Expected value: ElevatorGroup enum, reference to an elevator or 'all' for every elevator
+
+
+SetElevatorText
+===============
+
+Changes the text on the elevator panels between LCZ and HCZ.
+An empty text value will reset the elevator panel text to it's original value.
+
+This method expects the following arguments:
+- text optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: Resets the text to it's original value.
+    (use _ to keep the default)
+
+
+UnlockElevator
+==============
+
+Unlocks elevators.
+
+This method expects the following arguments:
+- elevators argument
+  - Expected value: ElevatorGroup enum, reference to an elevator or 'all' for every elevator
+
+
+ClearEffect
+===========
+
+Removes the provided status effect from players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- effect optional argument
+  - Expected value: One of the following effects:
+AmnesiaItems
+AmnesiaVision
+AnomalousRegeneration
+AnomalousTarget
+Asphyxiated
+Bleeding
+Blindness
+Blurred
+BodyshotReduction
+Burned
+CardiacArrest
+AntiScp207
+Scp207
+Concussed
+Corroding
+DamageReduction
+Deafened
+Decontaminating
+Disabled
+Ensnared
+Exhausted
+Fade
+Flashed
+FocusedVision
+FogControl
+Ghostly
+HeavyFooted
+Hemorrhage
+InsufficientLighting
+Invigorated
+Invisible
+Lightweight
+MovementBoost
+NightVision
+PitDeath
+PocketCorroding
+Poisoned
+RainbowTaste
+Scanned
+Scp1344
+Scp1344Detected
+Scp1509Resurrected
+Scp1576
+Scp1853
+SeveredEyes
+SeveredHands
+SilentWalk
+Sinkhole
+Slowness
+SoundtrackMute
+SpawnProtected
+Stained
+Strangled
+Traumatized
+Vitality
+Hypothermia
+  - Default value/behavior: Removes all status effects
+    (use _ to keep the default)
+
+
+GiveEffect
+==========
+
+Adds a provided effect for specified players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- effect argument
+  - Expected value: One of the following effects:
+AmnesiaItems
+AmnesiaVision
+AnomalousRegeneration
+AnomalousTarget
+Asphyxiated
+Bleeding
+Blindness
+Blurred
+BodyshotReduction
+Burned
+CardiacArrest
+AntiScp207
+Scp207
+Concussed
+Corroding
+DamageReduction
+Deafened
+Decontaminating
+Disabled
+Ensnared
+Exhausted
+Fade
+Flashed
+FocusedVision
+FogControl
+Ghostly
+HeavyFooted
+Hemorrhage
+InsufficientLighting
+Invigorated
+Invisible
+Lightweight
+MovementBoost
+NightVision
+PitDeath
+PocketCorroding
+Poisoned
+RainbowTaste
+Scanned
+Scp1344
+Scp1344Detected
+Scp1509Resurrected
+Scp1576
+Scp1853
+SeveredEyes
+SeveredHands
+SilentWalk
+Sinkhole
+Slowness
+SoundtrackMute
+SpawnProtected
+Stained
+Strangled
+Traumatized
+Vitality
+Hypothermia
+
+- duration optional argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+  - Default value/behavior: infinite
+    (use _ to keep the default)
+
+- intensity optional argument
+  - Expected value: A whole number between 0 and 255 (inclusive)
+  - Default value/behavior: 1
+    (use _ to keep the default)
+
+- add duration if active optional argument
+  - Expected value: bool (true or false) value
+  - Default value/behavior: False
+    (use _ to keep the default)
+
+
+HasEffect
+=========
+
+Returns true or false indicating if the player has the provided effect.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = HasEffect ...
+
+This method expects the following arguments:
+- player argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- effect argument
+  - Expected value: One of the following effects:
+AmnesiaItems
+AmnesiaVision
+AnomalousRegeneration
+AnomalousTarget
+Asphyxiated
+Bleeding
+Blindness
+Blurred
+BodyshotReduction
+Burned
+CardiacArrest
+AntiScp207
+Scp207
+Concussed
+Corroding
+DamageReduction
+Deafened
+Decontaminating
+Disabled
+Ensnared
+Exhausted
+Fade
+Flashed
+FocusedVision
+FogControl
+Ghostly
+HeavyFooted
+Hemorrhage
+InsufficientLighting
+Invigorated
+Invisible
+Lightweight
+MovementBoost
+NightVision
+PitDeath
+PocketCorroding
+Poisoned
+RainbowTaste
+Scanned
+Scp1344
+Scp1344Detected
+Scp1509Resurrected
+Scp1576
+Scp1853
+SeveredEyes
+SeveredHands
+SilentWalk
+Sinkhole
+Slowness
+SoundtrackMute
+SpawnProtected
+Stained
+Strangled
+Traumatized
+Vitality
+Hypothermia
+
+
+AddDummy
+========
+
+Adds a dummy to the server
+
+This method returns player value.
+You can save it to a variable with a '@' prefix.
+@myVariable = AddDummy ...
+
+This method expects the following arguments:
+- name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+DestroyDummy
+============
+
+Destroys a dummy off of the server.
+
+This method expects the following arguments:
+- dummies to destroy argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+
+BreakDoor
+=========
+
+Breaks specified doors if possible.
+
+This method expects the following arguments:
+- doors argument
+  - Description: Doors to break
+  - Expected value: DoorName enum, FacilityZone enum, RoomName enum, reference to Door, reference to Room or 'all' for every door
+
+- damage type optional argument
+  - Description: Type of damage to be applied on doors
+  - Expected value: DoorDamageType enum value - found using 'serhelp DoorDamageType' command. Use '|' character to provide multiple e.g. Val1|Val2|Val3
+  - Default value/behavior: ServerCommand
+    (use _ to keep the default)
+
+
+CloseDoor
+=========
+
+Closes doors.
+
+This method expects the following arguments:
+- doors argument
+  - Expected value: DoorName enum, FacilityZone enum, RoomName enum, reference to Door, reference to Room or 'all' for every door
+
+
+GetRandomDoor
+=============
+
+Returns a reference to a random door.
+
+This method returns reference to Door object.
+You can save it to a variable with a '*' prefix.
+*myVariable = GetRandomDoor 
+
+This method does not expect any arguments.
+
+
+LockDoor
+========
+
+Locks doors.
+
+This method expects the following arguments:
+- doors argument
+  - Expected value: DoorName enum, FacilityZone enum, RoomName enum, reference to Door, reference to Room or 'all' for every door
+
+- lock optional argument
+  - Expected value: DoorLockReason enum value - found using 'serhelp DoorLockReason' command. Use '|' character to provide multiple e.g. Val1|Val2|Val3
+  - Default value/behavior: AdminCommand
+    (use _ to keep the default)
+
+
+OpenDoor
+========
+
+Opens doors.
+
+This method expects the following arguments:
+- doors argument
+  - Expected value: DoorName enum, FacilityZone enum, RoomName enum, reference to Door, reference to Room or 'all' for every door
+
+
+PryGate
+=======
+
+Pries a gate.
+
+This method expects the following arguments:
+- gate argument
+  - Expected value: DoorName enum (that is a gate) or reference to Gate
+
+- should play effects optional argument
+  - Description: Whether to play gate button effects when pried.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: does not play button effects
+    (use _ to keep the default)
+
+
+RepairDoor
+==========
+
+Repairs specified doors if possible
+Remember, you can't repair things like gates, but you can repair normal doors like HCZ doors
+
+This method expects the following arguments:
+- doors to repair argument
+  - Expected value: DoorName enum, FacilityZone enum, RoomName enum, reference to Door, reference to Room or 'all' for every door
+
+
+SetDoorHealth
+=============
+
+Sets remaining health for specified doors if possible
+This is only applicable for doors that can break, like HCZ doors and not gates.
+
+This method expects the following arguments:
+- doors argument
+  - Expected value: DoorName enum, FacilityZone enum, RoomName enum, reference to Door, reference to Room or 'all' for every door
+
+- health argument
+  - Expected value: Any number
+
+
+SetDoorMaxHealth
+================
+
+Sets max health for specified doors if possible
+
+This method expects the following arguments:
+- doors argument
+  - Expected value: DoorName enum, FacilityZone enum, RoomName enum, reference to Door, reference to Room or 'all' for every door
+
+- max health argument
+  - Expected value: Any number
+
+
+SetDoorPermission
+=================
+
+Sets door permissions.
+
+This method expects the following arguments:
+- doors argument
+  - Expected value: DoorName enum, FacilityZone enum, RoomName enum, reference to Door, reference to Room or 'all' for every door
+
+- permissions argument
+  - Expected value: DoorPermissionFlags enum value - found using 'serhelp DoorPermissionFlags' command. Use '|' character to provide multiple e.g. Val1|Val2|Val3
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+UnlockDoor
+==========
+
+Unlocks doors.
+
+This method expects the following arguments:
+- doors argument
+  - Expected value: DoorName enum, FacilityZone enum, RoomName enum, reference to Door, reference to Room or 'all' for every door
+
+
+Discord.CreateMessage
+=====================
+
+Creates a discord message object.
+This method does NOT send the message. Use Discord.SendMessage for that.
+
+This method returns reference to DMessage object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Discord.CreateMessage 
+
+This method expects the following arguments:
+- message content optional argument
+  - Description: The main message text (up to 2000 characters)
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: empty
+    (use _ to keep the default)
+
+- sender name optional argument
+  - Description: Overrides the webhook's default display name.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: default
+    (use _ to keep the default)
+
+- sender avatar url optional argument
+  - Description: Overrides the webhook's default profile picture.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: default
+    (use _ to keep the default)
+
+- embeds optional argument
+  - Description: An list containing up to 10 rich embed objects.
+  - Expected value: a reference to DEmbed object.
+  - Default value/behavior: none
+    (use _ to keep the default)
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+This method defines custom errors:
+- Provided more than 10 embeds. Discord only allows 10 embeds per message.
+
+
+Discord.DeleteMessage
+=====================
+
+Deletes a message sent by a discord webhook (with that same webhook).
+
+This method expects the following arguments:
+- webhook url argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- message id argument
+  - Description: You can get it by right-clicking on a message and clicking "Copy message ID" or with the Discord.SendMessageAndWait method
+  - Expected value: Any text e.g. "Hello, World!"
+
+- thread id optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: no thread
+    (use _ to keep the default)
+
+This method defines custom errors:
+- ConnectionError
+- DataProcessingError
+- ProtocolError
+- Response exceeded the configured maximum size.
+- Message ID must not be empty.
+- Provided URL is not a valid webhook URL.
+
+
+Discord.EditMessage
+===================
+
+Edits a message sent by a discord webhook (with that same webhook).
+
+This method expects the following arguments:
+- webhook url argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- message id argument
+  - Description: You can get it by right-clicking on a message and clicking "Copy message ID"
+  - Expected value: Any text e.g. "Hello, World!"
+
+- message object argument
+  - Expected value: a reference to DMessage object.
+
+- thread id optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: no thread
+    (use _ to keep the default)
+
+This method defines custom errors:
+- ConnectionError
+- DataProcessingError
+- ProtocolError
+- Response exceeded the configured maximum size.
+- Message ID must not be empty.
+- Provided URL is not a valid webhook URL.
+
+
+Discord.SendMessageAndWait
+==========================
+
+Sends a message using a discord webhook and waits until it is completed. Returns the message id.
+
+This method returns text value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Discord.SendMessageAndWait ...
+
+This method expects the following arguments:
+- webhook url argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- message object argument
+  - Expected value: a reference to DMessage object.
+
+- thread id optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: no thread
+    (use _ to keep the default)
+
+This method defines custom errors:
+- ConnectionError
+- DataProcessingError
+- ProtocolError
+- Response exceeded the configured maximum size.
+- Provided URL is not a valid webhook URL.
+
+
+Discord.SendMessage
+===================
+
+Sends a message using a discord webhook.
+
+This method expects the following arguments:
+- webhook url argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- message object argument
+  - Expected value: a reference to DMessage object.
+
+- thread id optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: no thread
+    (use _ to keep the default)
+
+This method defines custom errors:
+- ConnectionError
+- DataProcessingError
+- ProtocolError
+- Response exceeded the configured maximum size.
+- Provided URL is not a valid webhook URL.
+
+
+Embed.CreateAuthor
+==================
+
+Creates an author object that can be used in discord embeds.
+
+This method returns reference to DEmbedAuthor object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Embed.CreateAuthor ...
+
+This method expects the following arguments:
+- name argument
+  - Description: Small text at the top of the embed.
+  - Expected value: Any text e.g. "Hello, World!"
+
+- icon url optional argument
+  - Description: Small round image next to the author name.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+- clickable url optional argument
+  - Description: Link that turns the author name into a hyperlink.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+
+Embed.CreateField
+=================
+
+Creates a field object that can be used in discord embeds.
+
+This method returns reference to DEmbedField object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Embed.CreateField ...
+
+This method expects the following arguments:
+- name argument
+  - Description: The bold "header" of a specific field.
+  - Expected value: Any text e.g. "Hello, World!"
+
+- value argument
+  - Description: The main text content for that specific field.
+  - Expected value: Any text e.g. "Hello, World!"
+
+- inline argument
+  - Description: Determines if fields sit side-by-side.
+  - Expected value: bool (true or false) value
+
+
+Embed.CreateFooter
+==================
+
+Creates a footer that can be used in discord embeds.
+
+This method returns reference to DEmbedFooter object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Embed.CreateFooter ...
+
+This method expects the following arguments:
+- content argument
+  - Description: Small text at the bottom of the embed.
+  - Expected value: Any text e.g. "Hello, World!"
+
+- icon url argument
+  - Description: Small square image next to the footer text.
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Embed.Create
+============
+
+Creates an embed which can later be sent to discord via webhook.
+This method does NOT send the embed. Use Discord.SendMessage for that.
+
+This method returns reference to DEmbed object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Embed.Create 
+
+This method expects the following arguments:
+- title optional argument
+  - Description: The bold header text at the top.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+- description optional argument
+  - Description: The main body text of the embed.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+- color optional argument
+  - Description: The vertical sidebar color.
+  - Expected value: Color in format RRGGBB or RRGGBBAA.
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+- author optional argument
+  - Description: Created using Embed.CreateAuthor
+  - Expected value: a reference to DEmbedAuthor object.
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+- footer optional argument
+  - Description: Created using Embed.CreateFooter
+  - Expected value: a reference to DEmbedFooter object.
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+- thumbnail url optional argument
+  - Description: The source link for the thumbnail.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+- image url optional argument
+  - Description: The source link for the image.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+- clickable url optional argument
+  - Description: Makes the title a clickable hyperlink.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: none
+    (use _ to keep the default)
+
+- fields optional argument
+  - Description: List of fields, created using Embed.CreateField
+  - Expected value: a reference to DEmbedField object.
+  - Default value/behavior: none
+    (use _ to keep the default)
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+Dict.Add
+========
+
+Adds a key-value pair to a dictionary.
+
+This method expects the following arguments:
+- dictionary argument
+  - Expected value: a reference to Dict object.
+
+- key argument
+  - Expected value: Any value
+
+- value argument
+  - Expected value: Any value
+
+
+Dict.Contains
+=============
+
+Returns true if the dictionary contains the provided key
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Dict.Contains ...
+
+This method expects the following arguments:
+- dictionary argument
+  - Expected value: a reference to Dict object.
+
+- key argument
+  - Expected value: Any value
+
+
+Dict.Create
+===========
+
+Creates an empty dictionary.
+Dictionary is a collection of unique keys (values) mapped to specific values. Think of it like a real-world dictionary where the "word" is the key and the "definition" is the value. E.g. you can map the value "hello" to the "world" value. This data type is used by more experienced users, allowing for dynamic data storage.
+
+This method returns reference to Dict object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Dict.Create 
+
+This method does not expect any arguments.
+
+
+Dict.Get
+========
+
+Gets a value associated with a key from a dictionary.
+
+This method returns unknown value.
+
+This method expects the following arguments:
+- dictionary argument
+  - Expected value: a reference to Dict object.
+
+- key argument
+  - Expected value: Any value
+
+This method defines custom errors:
+- There is no key with the given name in the dictionary.
+
+
+Dict.Remove
+===========
+
+Removes a key-value pair from a dictionary.
+
+This method expects the following arguments:
+- dictionary argument
+  - Expected value: a reference to Dict object.
+
+- key to remove argument
+  - Expected value: Any value
+
+
+DB.Add
+======
+
+Adds or overwrites a key-value pair into the database.
+
+This method expects the following arguments:
+- database argument
+  - Expected value: Database name
+
+- key argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- value argument
+  - Description: For now only literal values and player values are supported.
+  - Expected value: Any value
+
+This method defines custom errors:
+- Provided value cannot be stored in databases.
+- The database could not be saved.
+
+
+DB.Contains
+===========
+
+Returns true if the provided key exists in the database.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = DB.Contains ...
+
+This method expects the following arguments:
+- database argument
+  - Expected value: Database name
+
+- key argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+DB.Create
+=========
+
+Creates a new JSON file in the database folder.
+
+This method expects the following arguments:
+- name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- The database name is invalid or resolves outside the SER database directory.
+
+
+DB.Exists
+=========
+
+Returns true if the provided database exists.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = DB.Exists ...
+
+This method expects the following arguments:
+- database name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+DB.Get
+======
+
+Returns the value of a given key in the database.
+
+This method returns unknown value.
+
+This method expects the following arguments:
+- database argument
+  - Expected value: Database name
+
+- key argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- Provided key does not exist in the database.
+
+
+DB.Remove
+=========
+
+Removes a key from a database.
+
+This method expects the following arguments:
+- database argument
+  - Expected value: Database name
+
+- key argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- The database could not be saved.
+
+
+AddDamageRule
+=============
+
+Sets the damage rule for a player.
+
+This method expects the following arguments:
+- mode argument
+  - Description: Indicates whether the damage rule will be applied on all damage dealt by the attacker or on all damage received by the receiver.
+  - Expected value: One of the following options:
+attacker
+receiver
+reciever
+
+- players affected argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- multiplier argument
+  - Expected value: Any number
+
+- remove id optional argument
+  - Description: The ID of the damage rule. This is to identify this specific damage rule if you later want to remove SPECIFICALLY it later. There can be multiple rules with the same ID.
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: no rule id
+    (use _ to keep the default)
+
+- update optional argument
+  - Description: Whether the rule should check for any changes regarding the 'players affected' argument. E.g. when you use 'players affected' = ClassD and 'update' = false, then the damage rule will NOT update when player roles change, meaning that when some ClassD becomes a Guard, their damage rule will STILL apply, even though they are no longer ClassD.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: True
+    (use _ to keep the default)
+
+
+RemoveDamageRule
+================
+
+Prevents a given damage rule from applying.
+
+This method expects the following arguments:
+- id to remove optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: Removes all damage rules
+    (use _ to keep the default)
+
+
+CRole.CreateBracketSpawnSystem
+==============================
+
+Creates a spawn for a custom roles that uses ranges of available players.
+
+This method returns reference to CustomRoleSpawnSystem object.
+You can save it to a variable with a '*' prefix.
+*myVariable = CRole.CreateBracketSpawnSystem ...
+
+This method expects the following arguments:
+- role to replace argument
+  - Expected value: RoleTypeId enum value - found using 'serhelp RoleTypeId' command
+
+- spawn brackets argument
+  - Description: The spawn brackets to use for this role.
+  - Expected value: a reference to SpawnBracket object.
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+This method defines custom errors:
+- At least one spawn bracket is required.
+- Brackets are overlapping with each other.
+
+
+CRole.CreateChanceSpawnSystem
+=============================
+
+Creates a spawn system for a custom role using a simple chance.
+
+This method returns reference to CustomRoleSpawnSystem object.
+You can save it to a variable with a '*' prefix.
+*myVariable = CRole.CreateChanceSpawnSystem ...
+
+This method expects the following arguments:
+- role to replace argument
+  - Expected value: RoleTypeId enum value - found using 'serhelp RoleTypeId' command
+
+- replacement chance argument
+  - Description: The chance that a player will spawn with this custom role when changing into 'role to replace'
+  - Expected value: A number between 0% and 100% (inclusive)
+
+
+CRole.CreateProceduralSpawnSystem
+=================================
+
+Creates a procedural spawn system for a custom role.
+This spawn system works only when the round starts.
+
+This method returns reference to CustomRoleSpawnSystem object.
+You can save it to a variable with a '*' prefix.
+*myVariable = CRole.CreateProceduralSpawnSystem ...
+
+This method expects the following arguments:
+- role to replace argument
+  - Description: This decides which base-game role will be replaced by a custom role.
+  - Expected value: RoleTypeId enum value - found using 'serhelp RoleTypeId' command
+
+- per player spawn chance argument
+  - Description: Example: setting conversion chance to 30% means that EACH player has a 30% chance to convert.
+  - Expected value: A number between 0% and 100% (inclusive)
+
+- conversion limit optional argument
+  - Description: The maximum amount of players that can convert.
+  - Expected value: A whole number bigger or equal 0
+  - Default value/behavior: no limit
+    (use _ to keep the default)
+
+- minimum required players optional argument
+  - Description: The minimum amount of players that must have the 'role to replace' when the round starts for the conversion to happen.
+  - Expected value: A whole number bigger or equal 0
+  - Default value/behavior: no minimum
+    (use _ to keep the default)
+
+
+CRole.CreateSpawnBracket
+========================
+
+Creates a spawn bracket for a the bracket spawn system.
+Example: If you define a bracket with lower bound 3 and upper bound 5, and amount to spawn 2, then if there are 3 to 5 players that can be converted to a custom role, then 2 of them will be converted. If the players available to convert exceed the range of 3 to 5, then this bracket is ignored.
+
+This method returns reference to SpawnBracket object.
+You can save it to a variable with a '*' prefix.
+*myVariable = CRole.CreateSpawnBracket ...
+
+This method expects the following arguments:
+- lower bound argument
+  - Description: The amount of players from which this bracket applies.
+  - Expected value: A whole number bigger or equal 0
+
+- upper bound argument
+  - Description: The amount of players until which this bracket applies.
+  - Expected value: A whole number bigger or equal 0
+
+- amount to spawn argument
+  - Description: The amount of players that will be spawned in this bracket.
+  - Expected value: A whole number bigger or equal 0
+
+This method defines custom errors:
+- The lower bound is greater than the upper bound.
+- The amount to spawn is greater than the smallest amount of players available to convert.
+
+
+CRole.IsRegistered
+==================
+
+Checks if a given custom role is registered.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = CRole.IsRegistered ...
+
+This method expects the following arguments:
+- role id argument
+  - Expected value: Text with no spaces e.g. someValue (quotes are not required)
+
+
+CRole.Register
+==============
+
+Registers a custom role.
+
+This method expects the following arguments:
+- id argument
+  - Description: This will be used to identify the role.
+  - Expected value: Text with no spaces e.g. someValue (quotes are not required)
+
+- display name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- role type argument
+  - Expected value: RoleTypeId enum value - found using 'serhelp RoleTypeId' command
+
+- spawn system optional argument
+  - Expected value: a reference to CustomRoleSpawnSystem object.
+  - Default value/behavior: the role will not be spawned automatically
+    (use _ to keep the default)
+
+- remove role on death optional argument
+  - Expected value: bool (true or false) value
+  - Default value/behavior: True
+    (use _ to keep the default)
+
+This method defines custom errors:
+- Display name uses an invalid format.
+
+
+CRole.SetCallbacks
+==================
+
+Sets the callbacks for a provided custom role.
+
+This method expects the following arguments:
+- custom role argument
+  - Expected value: Custom role id e.g. myCustomRole
+
+- on spawning optional argument
+  - Description: This will be called when a player is being spawned with this role.
+  - Expected value: A name of a function defined above e.g. MyFunction. It has to have these arguments: @player *role
+  - Default value/behavior: no spawning callback
+    (use _ to keep the default)
+
+- on removing optional argument
+  - Description: This will be called when this role is being taken away from a player.
+  - Expected value: A name of a function defined above e.g. MyFunction. It has to have these arguments: @player *role
+  - Default value/behavior: no removing callback
+    (use _ to keep the default)
+
+
+CRole.Set
+=========
+
+Assigns a custom role to a player.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- custom role argument
+  - Expected value: Custom role id e.g. myCustomRole
+  - Default value/behavior: removes the current custom role from the player
+    (use _ to keep the default)
+
+
+CRole.Unregister
+================
+
+Unregisters a given custom role from the server.
+
+This method expects the following arguments:
+- custom role argument
+  - Expected value: Custom role id e.g. myCustomRole
+
+
+Config.GetOption
+================
+
+Tries to get a value from a config.
+It's advised that you set the 'default value' argument if you don't want an error to occur if no key is found.
+
+This method returns unknown value.
+
+This method expects the following arguments:
+- config argument
+  - Expected value: a reference to CustomConfig object.
+
+- key argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- default value optional argument
+  - Description: The value to return if the key is not found.
+  - Expected value: Any value
+  - Default value/behavior: no default value
+    (use _ to keep the default)
+
+This method defines custom errors:
+- The requested key was not found in the config.
+
+
+Config.Read
+===========
+
+Reads a YAML file from the Custom Configs folder.
+Add a '.yml' or '.yaml' file to the Custom Configs folder inside the SER config directory. Pass the file name without its extension. If no matching file exists, this method returns an invalid reference. Learn more about YAML: https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started
+
+This method returns reference to CustomConfig object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Config.Read ...
+
+This method expects the following arguments:
+- config name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- The config name resolves outside the SER custom config directory.
+
+
+Command
+=======
+
+Runs a server command with full permission.
+This action executes commands as the server. Therefore, the command needs '/' before it if it's a RA command, or '.' before it if it's a console command.
+
+This method expects the following arguments:
+- command argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- sender optional argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+  - Default value/behavior: unspecified
+    (use _ to keep the default)
+
+
+ResetGlobalCommandCooldown
+==========================
+
+Resets the global command cooldown for the 'CustomCommand' flag.
+
+This method expects the following arguments:
+- command argument
+  - Expected value: a reference to CustomCommand object.
+
+
+ResetPlayerCommandCooldown
+==========================
+
+Resets a player's command cooldown from the 'CustomCommand' flag.
+
+This method expects the following arguments:
+- command argument
+  - Expected value: a reference to CustomCommand object.
+
+- players optional argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+  - Default value/behavior: all players
+    (use _ to keep the default)
+
+
+Coll.Contains
+=============
+
+Returns true if the value exists in the collection
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Coll.Contains ...
+
+This method expects the following arguments:
+- collection argument
+  - Expected value: A collection variable e.g. &collection
+
+- value to check argument
+  - Expected value: Any value
+
+
+Coll.Create
+===========
+
+Returns an empty collection.
+
+This method returns collection value.
+You can save it to a variable with a '&' prefix.
+&myVariable = Coll.Create 
+
+This method does not expect any arguments.
+
+
+Coll.Fetch
+==========
+
+Returns a value from a collection variable at a given position.
+
+This method returns unknown value.
+
+This method expects the following arguments:
+- collection argument
+  - Expected value: A collection variable e.g. &collection
+
+- index argument
+  - Description: The place in the collection to fetch the value from, starting from 1
+  - Expected value: A whole number bigger or equal 1
+
+
+Coll.Insert
+===========
+
+Adds a value to a collection variable
+If value is a CollectionValue, it will nest the collection inside the collection variable. Use JoinCollections for combining collection values.
+
+This method expects the following arguments:
+- collection variable argument
+  - Expected value: Any existing collection variable e.g. &texts or &playerIds
+
+- value argument
+  - Expected value: Any value
+
+
+Coll.Join
+=========
+
+Returns a collection that has the combined values of all the given collections
+
+This method returns collection value.
+You can save it to a variable with a '&' prefix.
+&myVariable = Coll.Join ...
+
+This method expects the following arguments:
+- collections argument
+  - Expected value: A collection variable e.g. &collection
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+Coll.RemoveAt
+=============
+
+Removes a value at the provided index from a collection variable
+
+This method expects the following arguments:
+- collection variable argument
+  - Expected value: Any existing collection variable e.g. &texts or &playerIds
+
+- index argument
+  - Description: The place in the collection to remove the value from, starting from 1
+  - Expected value: A whole number bigger or equal 1
+
+
+Coll.Remove
+===========
+
+Removes a matching value from a collection variable
+
+This method expects the following arguments:
+- collection variable argument
+  - Expected value: Any existing collection variable e.g. &texts or &playerIds
+
+- value to remove argument
+  - Expected value: Any value
+
+- amount of matches to remove optional argument
+  - Description: Will delete every match if -1.
+  - Expected value: A whole number bigger or equal -1
+  - Default value/behavior: -1
+    (use _ to keep the default)
+
+
+Coll.Subtract
+=============
+
+Returns a collection that has the values of the first collection without the values of the latter
+
+This method returns collection value.
+You can save it to a variable with a '&' prefix.
+&myVariable = Coll.Subtract ...
+
+This method expects the following arguments:
+- original collection argument
+  - Expected value: A collection variable e.g. &collection
+
+- collections to remove values from argument
+  - Expected value: A collection variable e.g. &collection
+  - This argument consumes all remaining values; every value provided AFTER this one will also count towards THIS argument's values.
+
+
+Cassie
+======
+
+Makes a CASSIE announcement.
+
+This method expects the following arguments:
+- mode argument
+  - Expected value: One of the following options:
+jingle
+noJingle
+
+- message argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- subtitles optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: empty
+    (use _ to keep the default)
+
+- glitch scale optional argument
+  - Description: The amount of glitching to apply to the announcement, from 0% to 100%
+  - Expected value: A number between 0 and 1 (inclusive)
+  - Default value/behavior: 0%
+    (use _ to keep the default)
+
+
+ClearCassie
+===========
+
+Clears all CASSIE announcements, active or queued.
+
+This method does not expect any arguments.
+
+
+IsCassieSpeaking
+================
+
+Returns boolean value indicating if CASSIE is speaking.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = IsCassieSpeaking 
+
+This method does not expect any arguments.
+
+
+PlayerCassie
+============
+
+Makes a CASSIE announcement to specified players only.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- mode argument
+  - Expected value: One of the following options:
+jingle
+noJingle
+
+- message argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- subtitles optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: empty
+    (use _ to keep the default)
+
+
+AnimatedBroadcast
+=================
+
+Sends an animated broadcast to specified players.
+Uses CASSIE to make an animated broadcast - if there is CASSIE playing, it will be stopped. Keep custom formatting to a minimum, this system is very limited.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- duration argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+- content argument
+  - Description: Use <charwait=x> and </charwait> tags to specify how much time each character will take to be printed, or <wait=x> to specify a single wait action. Example: "<charwait=100ms>Slow print</charwait><br><wait=2s>waited 2 seconds for that!"
+  - Expected value: Any text e.g. "Hello, World!"
+
+- line break length optional argument
+  - Description: The maximum amount of characters per line
+  - Expected value: Any whole number
+  - Default value/behavior: 60
+    (use _ to keep the default)
+
+
+Broadcast
+=========
+
+Sends a broadcast to players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- duration argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+- message argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+ClearBroadcasts
+===============
+
+Clears broadcasts for players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+
+ClearCountdown
+==============
+
+Removes an active countdown for players if one is active.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+
+Countdown
+=========
+
+Creates a countdown using broadcasts.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- duration argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+- title argument
+  - Description: Use %seconds% to get seconds remaining until the end of the countdown.
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Hint
+====
+
+Sends a hint to players.
+
+This method expects the following arguments:
+- players argument
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+
+- duration argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+
+- message argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Audio.IsLoaded
+==============
+
+Returns true if a given audio clip has been loaded
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Audio.IsLoaded ...
+
+This method expects the following arguments:
+- clip name argument
+  - Description: This is NOT the path or the file name, but a clip name
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Audio.IsPlaying
+===============
+
+Checks if the audio player is playing anything.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Audio.IsPlaying ...
+
+This method expects the following arguments:
+- speaker name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- Speaker doesn't exist.
+
+
+Audio.Load
+==========
+
+Loads an audio file into the audio player.
+SER is using 'AudioPlayerApi' to manage audio. 
+This method does not error using SER's system, most audio errors will be logged by AudioPlayerApi to the console.
+Your .ogg file MUST BE:
+- 48kHz
+- single (mono) channel
+- medium quality
+
+This method expects the following arguments:
+- file name argument
+  - Description: The .ogg file name. SER searches all folders under its main data directory automatically - no need to provide a full path.
+  - Expected value: Any text e.g. "Hello, World!"
+
+- clip name argument
+  - Description: This will be the name of the audio clip. Refer to this name when attempting to play audio.
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- File doesn't exist
+- File is not of type 'ogg'
+- More than one file with the same name exists
+
+
+Audio.Play
+==========
+
+Plays a loaded audio clip from a created speaker.
+
+This method expects the following arguments:
+- speaker name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- audio clip name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- loop optional argument
+  - Expected value: bool (true or false) value
+  - Default value/behavior: False
+    (use _ to keep the default)
+
+This method defines custom errors:
+- Speaker does not exist.
+- There is no loaded audio clip with the given name.
+
+
+Audio.Stop
+==========
+
+Stops all audio clips playing through a speaker.
+
+This method expects the following arguments:
+- speaker name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+This method defines custom errors:
+- Speaker does not exist.
+
+
+Speaker.CreateGlobal
+====================
+
+Creates a speaker to play audio through.
+
+This method expects the following arguments:
+- speaker name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- volume optional argument
+  - Description: The volume of the audio.
+  - Expected value: A number bigger or equal 0%
+  - Default value/behavior: 100%
+    (use _ to keep the default)
+
+- target players optional argument
+  - Description: only these players will hear the audio.
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+  - Default value/behavior: everyone
+    (use _ to keep the default)
+
+- update target players optional argument
+  - Description: Whether to constantly refresh the value provided in the 'target players' argument.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: no update
+    (use _ to keep the default)
+
+
+Speaker.CreateOnPosition
+========================
+
+Creates a speaker in a specified XYZ position.
+
+This method expects the following arguments:
+- speaker name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- x argument
+  - Expected value: Any number
+
+- y argument
+  - Expected value: Any number
+
+- z argument
+  - Expected value: Any number
+
+- volume optional argument
+  - Description: The volume of the audio.
+  - Expected value: A number bigger or equal 0%
+  - Default value/behavior: 100%
+    (use _ to keep the default)
+
+- min distance optional argument
+  - Description: The minimum distance for full-volume audio.
+  - Expected value: A number bigger or equal 0
+  - Default value/behavior: 5
+    (use _ to keep the default)
+
+- max distance optional argument
+  - Description: The maximum audible distance for the audio.
+  - Expected value: A number bigger or equal 0
+  - Default value/behavior: 15
+    (use _ to keep the default)
+
+- is stereo optional argument
+  - Description: Whether the audio will be 3D.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: True
+    (use _ to keep the default)
+
+- target players optional argument
+  - Description: only these players will hear the audio.
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+  - Default value/behavior: everyone
+    (use _ to keep the default)
+
+- update target players optional argument
+  - Description: Whether to constantly refresh the value provided in the 'target players' argument.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: no update
+    (use _ to keep the default)
+
+
+Speaker.CreatePlayerAttached
+============================
+
+Creates a speaker attached to a player to play audio through.
+
+This method expects the following arguments:
+- player to attach argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- speaker name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+- volume optional argument
+  - Description: The volume of the audio.
+  - Expected value: A number bigger or equal 0%
+  - Default value/behavior: 100%
+    (use _ to keep the default)
+
+- min distance optional argument
+  - Description: The minimum distance for full-volume audio.
+  - Expected value: A number bigger or equal 0
+  - Default value/behavior: 5
+    (use _ to keep the default)
+
+- max distance optional argument
+  - Description: The maximum audible distance for the audio.
+  - Expected value: A number bigger or equal 0
+  - Default value/behavior: 15
+    (use _ to keep the default)
+
+- is stereo optional argument
+  - Description: Whether the audio will be 3D.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: True
+    (use _ to keep the default)
+
+- target players optional argument
+  - Description: only these players will hear the audio.
+  - Expected value: Player variable (e.g. @all, @classDPlayers)
+  - Default value/behavior: everyone
+    (use _ to keep the default)
+
+- update target players optional argument
+  - Description: Whether to constantly refresh the value provided in the 'target players' argument.
+  - Expected value: bool (true or false) value
+  - Default value/behavior: no update
+    (use _ to keep the default)
+
+This method defines custom errors:
+- Player does not have a model to attach a speaker to.
+
+
+Speaker.Destroy
+===============
+
+Destroys a speaker.
+
+This method expects the following arguments:
+- speaker name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Speaker.Exists
+==============
+
+Returns true or false indicating if a speaker with the provided name exists.
+
+This method returns bool value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Speaker.Exists ...
+
+This method expects the following arguments:
+- speaker name argument
+  - Expected value: Any text e.g. "Hello, World!"
+
+
+Toy.Create
+==========
+
+Creates an Admin Toy
+Remember to also TP the created toy somewhere in order to see it.
+
+This method returns reference to AdminToy object.
+You can save it to a variable with a '*' prefix.
+*myVariable = Toy.Create ...
+
+This method expects the following arguments:
+- toy type argument
+  - Expected value: One of the following options:
+primitiveObject (Returns a reference to PrimitiveObjectToy object)
+lightSource (Returns a reference to LightSourceToy object)
+shootingTarget (Returns a reference to ShootingTargetToy object)
+interactable (Returns a reference to InteractableToy object)
+camera (Returns a reference to CameraToy object)
+capybara (Returns a reference to CapybaraToy object)
+text (Returns a reference to TextToy object)
+
+
+Toy.Destroy
+===========
+
+Destroys an Admin Toy.
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to AdminToy object.
+
+This method defines custom errors:
+- The Admin Toy hasn't been spawned yet or doesn't exist anymore.
+
+
+Toy.Info
+========
+
+Returns numeric network or transform information about an Admin Toy.
+
+This method returns number value.
+You can save it to a variable with a '$' prefix.
+$myVariable = Toy.Info ...
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to AdminToy object.
+
+- property argument
+  - Expected value: One of the following options:
+netId
+posX
+posY
+posZ
+rotX
+rotY
+rotZ
+scaleX
+scaleY
+scaleZ
+
+
+Toy.Move
+========
+
+Moves an Admin Toy relative to its rotation.
+E.g. "Toy.Move *toy 0 0 1" would move the referenced toy 1 unit (meter) forward.
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to AdminToy object.
+
+- x position argument
+  - Expected value: Any number
+
+- y position argument
+  - Expected value: Any number
+
+- z position argument
+  - Expected value: Any number
+
+This method defines custom errors:
+- The Admin Toy hasn't been spawned yet or doesn't exist anymore.
+
+
+Toy.SetParent
+=============
+
+Sets the parent of a toy (So that the toy follows it).
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to AdminToy object.
+
+- parent type argument
+  - Expected value: One of the following options:
+playerCamera
+playerBody
+toy
+
+- player parent optional argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+  - Default value/behavior: none (if type is toy)
+    (use _ to keep the default)
+
+- toy parent optional argument
+  - Expected value: a reference to AdminToy object.
+  - Default value/behavior: none (if type is player)
+    (use _ to keep the default)
+
+This method defines custom errors:
+- No player has been given when needed.
+- No Admin Toy has been given when needed.
+
+
+Toy.SetRotation
+===============
+
+Sets the rotation of a toy.
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to AdminToy object.
+
+- rotation mode optional argument
+  - Expected value: One of the following options:
+add
+set
+  - Default value/behavior: add
+    (use _ to keep the default)
+
+- x rotation optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- y rotation optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- z rotation optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+
+Toy.SetScale
+============
+
+Sets the scale of a toy.
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to AdminToy object.
+
+- scale mode optional argument
+  - Expected value: One of the following options:
+add
+set
+  - Default value/behavior: add
+    (use _ to keep the default)
+
+- x scale optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- y scale optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- z scale optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+
+Toy.TPPlayer
+============
+
+Teleports an Admin Toy to a given player
+Spawns the toy if it hasn't been already
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to AdminToy object.
+
+- player to teleport toy to argument
+  - Expected value: Player value e.g. @player, with EXACTLY 1 player.
+
+- align toy rotation to player optional argument
+  - Expected value: bool (true or false) value
+  - Default value/behavior: False
+    (use _ to keep the default)
+
+
+Toy.TPPosition
+==============
+
+Teleports an Admin Toy to the given absolute coordinates
+Spawns the toy if it hasn't been already
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to AdminToy object.
+
+- mode argument
+  - Description: Indicates whether to add the vector to the toy's position or to set the position to it.
+  - Expected value: One of the following options:
+add
+set
+
+- x position argument
+  - Expected value: Any number
+
+- y position argument
+  - Expected value: Any number
+
+- z position argument
+  - Expected value: Any number
+
+
+Toy.TPRoom
+==========
+
+Teleports an Admin Toy to the given room
+Spawns the toy if it hasn't been already
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to AdminToy object.
+
+- room to teleport toy to argument
+  - Expected value: RoomName enum, FacilityZone enum or reference to Room
+
+- relative x optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- relative y optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+- relative z optional argument
+  - Expected value: Any number
+  - Default value/behavior: 0
+    (use _ to keep the default)
+
+
+SetCameraProperties
+===================
+
+Sets the properties of a CameraToy.
+
+This method expects the following arguments:
+- camera reference argument
+  - Expected value: a reference to CameraToy object.
+
+- label optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- up constraint optional argument
+  - Expected value: A number between -180 and 180 (inclusive)
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- down constraint optional argument
+  - Expected value: A number between -180 and 180 (inclusive)
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- left constraint optional argument
+  - Expected value: A number between -180 and 180 (inclusive)
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- right constraint optional argument
+  - Expected value: A number between -180 and 180 (inclusive)
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- minimal zoom optional argument
+  - Expected value: A number between 0 and 1 (inclusive)
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- maximal zoom optional argument
+  - Expected value: A number between 0 and 1 (inclusive)
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+This method defines custom errors:
+- up constraint has to be lower or equal to down constraint
+- left constraint has to be lower or equal to right constraint
+- minimal zoom has to be lower or equal to maximal zoom
+
+
+SetInteractableProperties
+=========================
+
+Sets properties of an Interactable Toy.
+
+This method expects the following arguments:
+- toy argument
+  - Expected value: a reference to InteractableToy object.
+
+- shape optional argument
+  - Expected value: ColliderShape enum value - found using 'serhelp ColliderShape' command
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- interaction duration optional argument
+  - Expected value: Duration in format #ms, #s, #m, #h (e.g. 5s or 2m)
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- is locked optional argument
+  - Expected value: bool (true or false) value
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+
+SetLightSourceProperties
+========================
+
+Sets the properties of a LightSourceToy.
+
+This method expects the following arguments:
+- light reference argument
+  - Expected value: a reference to LightSourceToy object.
+
+- intensity optional argument
+  - Expected value: Any number
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- range optional argument
+  - Expected value: Any number
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- color optional argument
+  - Expected value: Color in format RRGGBB or RRGGBBAA.
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- shadow type optional argument
+  - Expected value: LightShadows enum value - found using 'serhelp LightShadows' command
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- shadow strength optional argument
+  - Expected value: Any number
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- light type optional argument
+  - Expected value: LightType enum value - found using 'serhelp LightType' command
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+
+SetPrimitiveObjectProperties
+============================
+
+Sets properties of a PrimitiveObjectToy.
+
+This method expects the following arguments:
+- toy reference argument
+  - Expected value: a reference to PrimitiveObjectToy object.
+
+- type optional argument
+  - Expected value: PrimitiveType enum value - found using 'serhelp PrimitiveType' command
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- color optional argument
+  - Expected value: Color in format RRGGBB or RRGGBBAA.
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- flags optional argument
+  - Expected value: PrimitiveFlags enum value - found using 'serhelp PrimitiveFlags' command. Use '|' character to provide multiple e.g. Val1|Val2|Val3
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+
+SetShootingTargetProperties
+===========================
+
+Sets the properties of a ShootingTargetToy.
+
+This method expects the following arguments:
+- target reference argument
+  - Expected value: a reference to ShootingTargetToy object.
+
+- max hp optional argument
+  - Expected value: A whole number between 1 and 256 (inclusive)
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- auto reset time optional argument
+  - Expected value: A whole number between -1 and 11 (inclusive)
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- synchronize damage optional argument
+  - Expected value: bool (true or false) value
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+
+SetTextProperties
+=================
+
+Sets the properties of a TextToy.
+
+This method expects the following arguments:
+- text toy reference argument
+  - Expected value: a reference to TextToy object.
+
+- label optional argument
+  - Expected value: Any text e.g. "Hello, World!"
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- display width optional argument
+  - Expected value: Any number
+  - Default value/behavior: not changing
+    (use _ to keep the default)
+
+- display height optional argument
+  - Expected value: Any number
+  - Default value/behavior: not changing
+    (use _ to keep the default)

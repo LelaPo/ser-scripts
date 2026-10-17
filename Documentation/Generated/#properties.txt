@@ -1,1 +1,345 @@
-Generated on [05 October 2026] with SER version [1.0.0]
+Generated on [17 October 2026] with SER version [1.0.0]
+
+Properties for Item value in 'LabApi' assembly
+The wrapper representing ItemBase. Not to be confused with Pickup.
+
+Base properties
+---------------
+- addReason (ItemAddReason enum value) - Gets the item's reason for being added to the inventory.
+- base (reference to ItemBase object) - The Base of the item.
+- canDrop (bool value) - Gets whether the item can be dropped.
+Remarks: Only applies to player interactions, forcefully dropping an item is always possible.
+- canEquip (bool value) - Gets whether the item can be equipped.
+Remarks: Only applies to player interactions, forcefully equipping an item is always possible.
+- canHolster (bool value) - Gets whether the item can be holstered.
+Remarks: An item is holstered when either changing to another item or deflecting the item. Only applies to player interactions, forcefully holstering an item is always possible.
+- category (ItemCategory enum value) [settable] - Gets or sets the item's ItemCategory. Category is not saved and is discarded when the item is dropped.
+- currentOwner (player value) - Gets the item's current owner.
+- gameObject (reference to GameObject object) - Gets the item's GameObject.
+- isDestroyed (bool value) - Gets whether the item was destroyed.
+Remarks: Happens when an item is either dropped, removed or used up.
+- isEquipped (bool value) - Gets whether the item is being held.
+- isPrefab (bool value) - Gets whether or not this instance is used as a prefab.
+Remarks: Changes made to the prefab instance will be reflected across all subsequent new instances.
+- serial (number value) - Gets the item's serial.
+- throwSettings (reference to ItemThrowSettings object) [settable] - Gets or sets the item's ItemThrowSettings. Settings are not saved and are discarded when the item is dropped.
+- tierFlags (collection of ItemTierFlags enum values) [settable] - Gets or sets the item's ItemTierFlags. Flags are not saved and are discarded when the item is dropped.
+- type (ItemType enum value) - Gets the item's ItemType.
+- weight (number value) - Gets the item's weight.
+
+Custom SER properties
+---------------------
+- inInventory (bool value) - Whether the item is in a player inventory
+- isInvalid (bool value) - Whether the reference is invalid
+- isValid (bool value) - Whether the reference is valid
+- refAssembly (text value) - Returns the name of the assembly the object is defined in
+- refName (text value) - Returns the name of the held object
+- valType (ValueType enum value) - The type of the value
+
+Properties for Door value in 'LabApi' assembly
+The wrapper representing DoorVariant, the in-game doors.
+
+Base properties
+---------------
+- base (reference to DoorVariant object) - The base object.
+- bypass2176 (bool value) [settable] - Gets or sets whether the door will bypass 2176.
+- canInteract (bool value) - Gets whether the door can be interacted with by a Player.
+- doorName (DoorName enum value) - Gets the DoorName of the door.
+Remarks: Is the enum version of NameTag.
+- exactState (number value) - A value from 0.0f to 1.0f used to determine the intermediate state between fully closed and fully open.
+Remarks: When a door is fully closed and fully open and how to interpolate between that is implementation dependent so using this value to compare between doors of different type is not recommend.
+- gameObject (reference to GameObject object) - Gets the door's GameObject.
+- isDestroyed (bool value) - Whether the door has been destroyed, see DestroyObject.
+- isLocked (bool value) [settable] - Gets or sets whether the door is locked.
+- isOpened (bool value) [settable] - Gets or sets whether the door is open.
+- lockReason (collection of DoorLockReason enum values) - Gets the door's DoorLockReason.
+- nameTag (text value) - Gets the name tag of the door.
+Remarks: Is the string version of DoorName.
+- permissions (collection of DoorPermissionFlags enum values) [settable] - Gets or sets the required DoorPermissionFlags.
+- position (reference to Vector3 object) - Gets the door's position.
+- rooms (collection of reference to Room object) - Gets the rooms which have this door.
+- rotation (reference to Quaternion object) - Gets the door's rotation.
+- transform (collection of reference to generic value object) - Gets the door's Transform.
+- zone (FacilityZone enum value) - Gets the zone in which this door is.
+
+Custom SER properties
+---------------------
+- isBreakable (bool value) - Is the door breakable?
+- isBroken (bool value) - Whether the door is broken - DONT USE isDestroyed!
+- isCheckpoint (bool value) - Is the door a part of a checkpoint?
+- isGate (bool value) - Is the door a gate?
+- isInvalid (bool value) - Whether the reference is invalid
+- isMoving (bool value) - Whether the door is moving.
+- isValid (bool value) - Whether the reference is valid
+- maxHealth (number value) - The maximum health of the door
+- refAssembly (text value) - Returns the name of the assembly the object is defined in
+- refName (text value) - Returns the name of the held object
+- remainingHealth (number value) - The remaining health of the door
+- valType (ValueType enum value) - The type of the value
+
+Properties for Pickup value in 'LabApi' assembly
+The wrapper representing ItemPickupBase. Not to be confused with Item.
+
+Base properties
+---------------
+- base (reference to ItemPickupBase object) - The ItemPickupBase of the pickup.
+- category (ItemCategory enum value) - Gets the pickup's ItemCategory.
+- gameObject (reference to GameObject object) - Gets the pickup's GameObject.
+- isDestroyed (bool value) - Gets whether the pickup was destroyed.
+- isInUse (bool value) [settable] - Gets or sets whether or not the pickup is in use.
+- isLocked (bool value) [settable] - Gets or sets whether or not the pickup is locked.
+- isPrefab (bool value) - Gets whether or not this instance is used as a prefab.
+Remarks: Changes made to the prefab instance will be reflected across all subsequent new instances.
+- isSpawned (bool value) - Gets whether the pickup is spawned on the client.
+- lastOwner (player value) - Gets the pickup's previous owner Player.
+- networkIdentity (reference to NetworkIdentity object) - The NetworkIdentity of the pickup.
+- physicsModule (reference to PickupPhysicsModule object) - Gets the pickup's PickupPhysicsModule.
+- pickupStandardPhysics (reference to PickupStandardPhysics object) - THe PickupStandardPhysics of the pickup.
+Remarks: Will be null if the PickupPhysicsModule is not a PickupStandardPhysics e.g. when SCP018 it is in its "Activated" state and uses an alternate physics module. Use PhysicsModule instead for those cases.
+- position (reference to Vector3 object) [settable] - Gets or sets the pickup's position.
+- rigidbody (reference to Rigidbody object) - Gets the pickup's Rigidbody.
+Remarks: Null if PickupStandardPhysics is null.
+- room (reference to Room object) - Gets the Room at the pickup's current position.
+- rotation (reference to Quaternion object) [settable] - Gets or sets the pickup's rotation.
+- serial (number value) - Gets the pickup's serial.
+- tier (collection of ItemTierFlags enum values) - Gets the pickup's ItemTierFlags.
+- transform (collection of reference to generic value object) - Gets the pickup's Transform.
+- type (ItemType enum value) - Gets the pickup's ItemType.
+- weight (number value) [settable] - Gets or sets the pickup's weight.
+
+Custom SER properties
+---------------------
+- isInvalid (bool value) - Whether the reference is invalid
+- isValid (bool value) - Whether the reference is valid
+- posX (number value) - The X position of the pickup
+- posY (number value) - The Y position of the pickup
+- posZ (number value) - The Z position of the pickup
+- refAssembly (text value) - Returns the name of the assembly the object is defined in
+- refName (text value) - Returns the name of the held object
+- valType (ValueType enum value) - The type of the value
+
+Properties for Room value in 'LabApi' assembly
+The wrapper representing RoomIdentifier, the in-game rooms.
+
+Base properties
+---------------
+- adjacentRooms (collection of reference to Room object) - Gets the room's adjacent rooms where the player can traverse to. Includes rooms that can be traversed to via elevator.
+- allLightControllers (collection of reference to LightsController object) - Gets all light controllers for this specified room. Some rooms such as 049, warhead and such may have multiple light controllers as they are split by the elevator.
+- base (reference to RoomIdentifier object) - The base object.
+- cameras (collection of reference to Camera object) - Gets a collection of cameras in the room.
+- connectedRooms (collection of reference to RoomIdentifier object) - Gets the room's neighbors.
+- doors (collection of reference to Door object) - Gets the doors that are a part of this room.
+- gameObject (reference to GameObject object) - Gets the room's GameObject.
+- isDestroyed (bool value) - Gets whether the base room instance was destroyed.
+- lightController (reference to LightsController object) - Gets the first light controller for this room. Use AllLightControllers if you wish to modify all lights in this room.
+- name (RoomName enum value) - The room's name.
+- players (player value) - Gets a collection of players in the room.
+- position (reference to Vector3 object) - Gets the room's position.
+- rotation (reference to Quaternion object) - Gets the room's rotation.
+- shape (RoomShape enum value) - The room's shape.
+- transform (collection of reference to generic value object) - Gets the room's Transform.
+- zone (FacilityZone enum value) - The zone in which this room is located.
+
+Custom SER properties
+---------------------
+- isInvalid (bool value) - Whether the reference is invalid
+- isValid (bool value) - Whether the reference is valid
+- posX (number value) - The X position of the room
+- posY (number value) - The Y position of the room
+- posZ (number value) - The Z position of the room
+- refAssembly (text value) - Returns the name of the assembly the object is defined in
+- refName (text value) - Returns the name of the held object
+- valType (ValueType enum value) - The type of the value
+
+Properties for DamageHandlerBase value in 'Assembly-CSharp' assembly
+
+Base properties
+---------------
+- cassieDeathAnnouncement (reference to CassieAnnouncement object) 
+- deathScreenText (text value) 
+- ragdollInspectText (text value) 
+- serverLogsText (text value) 
+- serverMetricsText (text value) 
+
+Custom SER properties
+---------------------
+- attacker (player value) - Attacker player
+- damage (number value) - Damage amount, -1 if not applicable
+- firearmUsed (reference to Firearm object) - Firearm used
+- hitbox (HitboxType enum value) - Hitbox type
+- isInvalid (bool value) - Whether the reference is invalid
+- isValid (bool value) - Whether the reference is valid
+- refAssembly (text value) - Returns the name of the assembly the object is defined in
+- refName (text value) - Returns the name of the held object
+- valType (ValueType enum value) - The type of the value
+
+Properties for RespawnWave value in 'LabApi' assembly
+A class representing TimeBasedWave. Can be both RespawnWave and MiniRespawnWave.
+
+Base properties
+---------------
+- additionalSecondsPerSpawn (number value) [settable] - Gets or sets the second that is added to the next respawn timer after the wave has respawned.
+- animationTime (number value) - Gets the time the spawn animations takes in seconds.
+- base (reference to TimeBasedWave object) [settable] - The base TimeBasedWave object.
+- faction (Faction enum value) - Gets the faction this respawn wave belong to.
+- isForcefullyPaused (bool value) [settable] - Gets or sets whether this wave's timer is frozen.
+- maxWaveSize (number value) [settable] - Gets or sets the amount of Players that are going to spawn with the wave. Amount is based on the amount of all Players including dummies.
+- pausedTime (number value) [settable] - Gets or sets the time this wave's timer is paused.
+Remarks: Currently the wave timer pauses only at about 10% left.
+- timePassed (number value) - Gets or sets the time that has passed since last wave respawn.
+
+Custom SER properties
+---------------------
+- influence (number value) - Faction influence
+- isInvalid (bool value) - Whether the reference is invalid
+- isValid (bool value) - Whether the reference is valid
+- refAssembly (text value) - Returns the name of the assembly the object is defined in
+- refName (text value) - Returns the name of the held object
+- respawnTokens (number value) - Respawn tokens
+- timeLeft (duration value) - Time left for wave
+- valType (ValueType enum value) - The type of the value
+
+Properties for JObject value in 'Newtonsoft.Json' assembly
+
+Base properties
+---------------
+- count (number value) 
+- first (reference to JToken object) 
+- hasValues (bool value) 
+- item (reference to JToken object) [settable] 
+- last (reference to JToken object) 
+- next (reference to JToken object) [settable] 
+- previous (reference to JToken object) [settable] 
+
+Custom SER properties
+---------------------
+- asBool (bool value) - The boolean value of the token
+- asNumber (number value) - The numeric value of the token
+- asText (text value) - The JSON representation of the token
+- children (collection of reference to JToken object) - The children of the JSON token
+- isInvalid (bool value) - Whether the reference is invalid
+- isValid (bool value) - Whether the reference is valid
+- parent (reference to JToken object) - The parent of the JSON token
+- path (text value) - The path of the JSON token
+- refAssembly (text value) - Returns the name of the assembly the object is defined in
+- refName (text value) - Returns the name of the held object
+- root (reference to JToken object) - The root of the JSON token
+- type (JTokenType enum value) - The type of the JSON token
+- valType (ValueType enum value) - The type of the value
+- value (generic value) - The value of the JSON object
+
+Properties for JToken value in 'Newtonsoft.Json' assembly
+
+Base properties
+---------------
+- first (reference to JToken object) 
+- hasValues (bool value) 
+- item (reference to JToken object) [settable] 
+- last (reference to JToken object) 
+- next (reference to JToken object) [settable] 
+- previous (reference to JToken object) [settable] 
+
+Custom SER properties
+---------------------
+- asBool (bool value) - The boolean value of the token
+- asNumber (number value) - The numeric value of the token
+- asText (text value) - The JSON representation of the token
+- children (collection of reference to JToken object) - The children of the JSON token
+- isInvalid (bool value) - Whether the reference is invalid
+- isValid (bool value) - Whether the reference is valid
+- parent (reference to JToken object) - The parent of the JSON token
+- path (text value) - The path of the JSON token
+- refAssembly (text value) - Returns the name of the assembly the object is defined in
+- refName (text value) - Returns the name of the held object
+- root (reference to JToken object) - The root of the JSON token
+- type (JTokenType enum value) - The type of the JSON token
+- valType (ValueType enum value) - The type of the value
+
+Properties for IPInfo value in 'SER' assembly
+
+Custom SER properties
+---------------------
+- confidence (number value) - The confidence score of the detection (0-100).
+- country (text value) - The country of the IP address.
+- firstSeen (text value) - When the IP was first seen in detections.
+- isHosting (bool value) - Whether the IP is a hosting/datacenter service.
+- isInvalid (bool value) - Whether the reference is invalid
+- isValid (bool value) - Whether the reference is valid
+- isVPN (bool value) - Whether the IP is a VPN.
+- lastSeen (text value) - When the IP was last seen in detections.
+- provider (text value) - The ISP or ASN provider name.
+- refAssembly (text value) - Returns the name of the assembly the object is defined in
+- refName (text value) - Returns the name of the held object
+- riskScore (number value) - The risk score of the IP address (0-100).
+- type (text value) - The type of connection.
+- valType (ValueType enum value) - The type of the value
+
+Properties for Player value
+
+Custom SER properties
+---------------------
+- accessTier (number value) - Returns the player's Access Tier Level if they are SCP-079, otherwise returns -1
+- artificialHealth (number value) 
+- auxiliaryPower (number value) - Returns player Aux power if he is SCP-079, otherwise returns -1
+- cRole (reference to CRole object) - Returns the player's CRole if player has a Custom Role, otherwise returns an invalid reference.
+- customInfo (text value) - Custom info set by the server
+- displayName (text value) 
+- effectReferences (collection of reference to StatusEffectBase object) - Collection of references of active effects
+- effects (collection of text value) - Collection of names of active effects
+- emotion (EmotionPresetType enum value) - Current emotion (e.g. Neutral, Chad)
+- experience (number value) - Returns player EXP if he is SCP-079, otherwise returns -1
+- gravity (number value) 
+- groupName (text value) - The name of the group (like admin or vip)
+- hasRemoteAdminAccess (bool value) 
+- health (number value) 
+- heldItem (ItemType enum value) 
+- heldItemRef (reference to Item object) - A reference to the item the player is holding
+- humeShield (number value) 
+- humeShieldRegenRate (number value) 
+- inventory (collection of Item) - A collection of references to Item objects
+- isAlive (bool value) 
+- isBypassEnabled (bool value) 
+- isDisarmed (bool value) 
+- isDummy (bool value) 
+- isGlobalModerator (bool value) 
+- isGodModeEnabled (bool value) 
+- isGrounded (bool value) 
+- isIntercomMuted (bool value) 
+- isJumping (bool value) 
+- isMuted (bool value) 
+- isNoclipEnabled (bool value) 
+- isNorthwoodStaff (bool value) 
+- isNpc (bool value) - True if it's a player without any client connected to it
+- isSpeaking (bool value) 
+- isSpectatable (bool value) 
+- isTransmitting (bool value) - Returns true if player is speaking through a radio, otherwise false.
+- itemCount (number value) 
+- lifeId (number value) 
+- maxArtificialHealth (number value) 
+- maxAuxiliaryPower (number value) - Returns the player's Maximum Auxiliary Power if they are SCP-079, otherwise returns -1
+- maxHealth (number value) 
+- maxHumeShield (number value) 
+- movementState (text value) - Returns the player's movement state or 'None' if the player is not a first-person role.
+- name (text value) 
+- playerId (number value) - The ID that the server assigned for this round
+- posX (number value) 
+- posY (number value) 
+- posZ (number value) 
+- relativeX (number value) - Returns the player's x relative to the current room or 0 if in no room
+- relativeY (number value) - Returns the player's y relative to the current room or 0 if in no room
+- relativeZ (number value) - Returns the player's z relative to the current room or 0 if in no room
+- role (RoleTypeId enum value) 
+- roleChangeReason (RoleChangeReason enum value) 
+- roleColor (color value) - Returns a color value of the player's role color.
+- roleRef (reference to PlayerRoleBase object) 
+- roleSpawnFlags (RoleSpawnFlags enum value) 
+- roomRef (reference to Room object) - A reference to the room the player is in
+- sizeX (number value) 
+- sizeY (number value) 
+- sizeZ (number value) 
+- stamina (number value) - Returns the player's remaining stamina.
+- team (Team enum value) 
+- unit (text value) - Returns the player's unit (e.g FOXTROT-03) if player is NTF or Facility Guard, otherwise returns an empty text value.
+- unitId (number value) 
+- userId (text value) - The ID of the account (like SteamID64)
+- valType (ValueType enum value) - The type of the value
