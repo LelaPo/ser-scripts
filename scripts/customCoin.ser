@@ -3,7 +3,6 @@
 
 @plr = @evPlayer
 
-# Защита от спама бросками
 if {GetPlayerData @plr "coin locked" false} is true
     Hint @plr 4s "<color=red>Вы уже подбросили монету! Подождите окончания эффекта.</color>"
     IsAllowed false
@@ -12,58 +11,41 @@ end
 
 SetPlayerData @plr "coin locked" true
 
-# Запоминаем именно ту монету, которую подбросили
 *coin = @plr -> heldItemRef
 
-# Ждём анимацию полёта монетки (1.8 секунды - момент хлопка ладони)
 wait 1.8s
 
-# Проверяем, жив ли игрок в момент ловли
 if {AmountOf @plr} is 0
+    SetPlayerData @evPlayer "coin locked" false
     stop
 end
 
-# Удаляем монету ровно в момент ловли
 if {*coin -> isInvalid} is false
     AdvDestroyItem *coin
 end
 
-# Снимаем блокировку бросков
 SetPlayerData @plr "coin locked" false
 
-# Роллим исход от 1 до 100
 $roll = Random 1 100 int
 
-
-# --- 6% (1 - 6): ТЕЛЕПОРТАЦИЯ ---
 if $roll <= 6
     $destRoll = Random 1 3 int
 
-    # Исход 1: Улица
     if $destRoll is 1
         Hint @plr 6s "<size=26><color=#00FFFF>ВНЕЗАПНЫЙ СКВОЗНЯК</color></size><br><size=18>Монета перенесла вас на поверхность!</size>"
         TPRoom @plr Outside
         stop
     end
 
-    # Исход 2: Боеголовка
     if $destRoll is 2
         Hint @plr 6s "<size=26><color=#FF0000>РАДИАЦИОННЫЙ ФОН</color></size><br><size=18>Монета забросила вас в шахту боеголовки!</size>"
         TPRoom @plr HczWarhead
         stop
     end
 
-    # Исход 3: Телепорт к живому SCP (кроме Scp079)
-    $scpFound = false
-    over @scpPlayers with @candidate
-        if {@candidate -> role} isnt "Scp079"
-            @targetScp = @candidate
-            $scpFound = true
-            break
-        end
-    end
-
-    if $scpFound is true
+    @validScps = Except @scpPlayers @scp079Players
+    if {AmountOf @validScps} > 0
+        @targetScp = Take @validScps 1
         Hint @plr 6s "<size=26><color=#8B0000>ПЛОХАЯ КОМПАНИЯ</color></size><br><size=18>Монета перенесла вас прямо к {@targetScp -> name}!</size>"
         TPPlayer @plr @targetScp
     else
@@ -73,40 +55,30 @@ if $roll <= 6
     stop
 end
 
-
-# --- 4% (7 - 10): ДЖЕКПОТ (6 ЧЁРНЫХ КОНФЕТ) ---
 if $roll <= 10
     Hint @plr 7s "<size=26><color=#1a1a1a>ТЬМА ПРИНЯЛА ЖЕРТВУ</color></size><br><size=18><color=#8B0000>Монета исчезла в темноте...<br>Взамен вы получаете 6 чёрных конфет!</color></size>"
     GiveCandy @plr Black 6
     stop
 end
 
-
-# --- 8% (11 - 18): ЖЕСТОКАЯ РАСПЛАТА (ОТРУБАНИЕ РУК) ---
 if $roll <= 18
     Hint @plr 8s "<size=26><color=#FF2200>МОНЕТА БЕРЁТ ДАНЬ</color></size><br><size=18>Монета потребовала жертву...<br><color=#FF6600>Ваши руки отрублены!</color></size>"
     GiveEffect @plr SeveredHands 0s 1
     stop
 end
 
-
-# --- 10% (19 - 28): СМЕРТОНОСНАЯ РОЗОВАЯ КОНФЕТА ---
 if $roll <= 28
     Hint @plr 6s "<size=26><color=#FF69B4>СЛАДКИЙ БУМ!</color></size><br><size=18>Монета одарила вас взрывной розовой конфетой!</size>"
     GiveCandy @plr Pink 1
     stop
 end
 
-
-# --- 10% (29 - 38): СЛАДКАЯ УДАЧА (РАДУЖНАЯ КОНФЕТА) ---
 if $roll <= 38
     Hint @plr 5s "<size=26><color=#00FF99>РАДУЖНАЯ УДАЧА!</color></size><br><size=18>Монета подарила вам радужную конфету!</size>"
     GiveCandy @plr Rainbow 1
     stop
 end
 
-
-# --- 10% (39 - 48): АНОМАЛИЯ ДВЕРЕЙ В КОМНАТЕ ---
 if $roll <= 48
     *room = @plr -> roomRef
     if {*room -> isInvalid} is true
@@ -114,7 +86,6 @@ if $roll <= 48
         stop
     end
 
-    # Защита от абуза в MicroHID и на Поверхности
     $roomName = *room -> name
     if $roomName is "HczMicroHID" or $roomName is "Outside"
         Hint @plr 5s "<size=26><color=#FF8800>ЗАЩИТНЫЙ ПРОТОКОЛ</color></size><br><size=18>В этой зоне аномалия дверей заблокирована!</size>"
@@ -132,10 +103,8 @@ if $roll <= 48
         stop
     end
 
-    # 1 - открыть все, 2 - заблокировать целую дверь на 1 мин, 3 - сорвать целую дверь с петель
     $doorAction = Random 1 3 int
 
-    # Действие 1: Открыть все двери в комнате
     if $doorAction is 1
         UnlockDoor *room
         OpenDoor *room
@@ -143,7 +112,6 @@ if $roll <= 48
         stop
     end
 
-    # Действие 2: Заблокировать случайную ЦЕЛУЮ дверь на 1 минуту
     if $doorAction is 2
         $intactCount = 0
         over &doors with *d
@@ -177,7 +145,6 @@ if $roll <= 48
         stop
     end
 
-    # Действие 3: Сорвать случайную ломаемую целую дверь с петель
     if $doorAction is 3
         $breakableCount = 0
         over &doors with *d
@@ -202,7 +169,6 @@ if $roll <= 48
             BreakDoor *targetDoor
             Hint @plr 6s "<size=26><color=#FF2200>ДВЕРЬ С ПЕТЕЛЬ!</color></size><br><size=18>Мощный импульс сорвал дверь в комнате!</size>"
         else
-            # Если целых ломаемых дверей нет, но есть неразрушаемые ворота — перегружаем замки ворот на 1 минуту
             $intactCount = 0
             over &doors with *d
                 if {*d -> isBroken} is false
@@ -238,20 +204,16 @@ if $roll <= 48
     stop
 end
 
-
-# --- 10% (49 - 58): ОПАСНЫЙ СЮРПРИЗ (ГРАНАТЫ ИЛИ МЯЧИ) ---
 if $roll <= 58
     Hint @plr 6s "<size=26><color=#FF4500>ОПАСНЫЙ СЮРПРИЗ!</color></size><br><size=18>Под вашими ногами что-то зашипело и покатилось...</size>"
-    $amount = Random 1 5 int
+    $amount = Random 1 4 int
     $hazardType = Random 1 2 int
 
-    # 1: Активированные боевые гранаты
     if $hazardType is 1
         repeat $amount
             *grenade = CreateGrenade GrenadeHE @plr
             SpawnPickupPlayer *grenade @plr
         end
-    # 2: Мячи SCP-018
     else
         repeat $amount
             *ball = CreatePickup SCP018
@@ -261,14 +223,8 @@ if $roll <= 58
     stop
 end
 
-
-# --- 42% (59 - 100): НИЧЕГО ---
 Hint @plr 4s "<size=26><color=#999999>ПУСТО...</color></size><br><size=18>Монета растворилась в воздухе.<br>Ничего не произошло.</size>"
 
-
-# =======================================================
-# КОМАНДА ТЕСТИРОВАНИЯ ЭФФЕКТОВ: .testcoin <вариант> [подрежим]
-# =======================================================
 !-- CustomCommand testcoin
 -- availableFor Player RemoteAdmin
 -- requireSender
@@ -311,17 +267,16 @@ if $choice is "rainbow" or $choice is "5"
     stop
 end
 
-# ТЕСТ ДВЕРЕЙ (.testcoin doors <1|2|3|4>)
 if $choice is "doors" or $choice is "6"
     *room = @plr -> roomRef
     if {*room -> isInvalid} is true
-        Reply "Ошибка: комната не найдена (возможно, вы на поверхности вне помещений)."
+        Reply "Ошибка: комната не найдена."
         stop
     end
 
     $roomName = *room -> name
     if $roomName is "HczMicroHID" or $roomName is "Outside"
-        Reply "Ошибка: функции с дверьми заблокированы в этой зоне ({$roomName}) для защиты от абуза!"
+        Reply "Ошибка: двери заблокированы в {$roomName}!"
         stop
     end
 
@@ -332,11 +287,10 @@ if $choice is "doors" or $choice is "6"
     end
 
     if $doorCount is 0
-        Reply "В этой комнате нет дверей для теста."
+        Reply "В этой комнате нет дверей."
         stop
     end
 
-    # Определяем подрежим (по умолчанию 4 - рандом)
     $sub = "4"
     if {VarExists $subchoice} is true
         if $subchoice isnt ""
@@ -348,16 +302,14 @@ if $choice is "doors" or $choice is "6"
         $sub = Random 1 3 int
     end
 
-    # Подрежим 1: Открыть все двери
     if $sub is "1" or $sub is "open"
         UnlockDoor *room
         OpenDoor *room
-        Hint @plr 6s "<size=26><color=#00FFCC>СКВОЗНЯК В ПОМЕЩЕНИИ</color></size><br><size=18>Монета распахнула все двери в комнате!</size>"
-        Reply "Тест [1/4]: Все двери в комнате ({$doorCount} шт.) открыты."
+        Hint @plr 6s "<size=26><color=#00FFCC>СКВОЗНЯК В ПОМЕЩЕНИИ</color></size><br><size=18>Все двери в комнате открыты!</size>"
+        Reply "Тест [1/4]: Все двери открыты."
         stop
     end
 
-    # Подрежим 2: Запереть случайную ЦЕЛУЮ дверь на 1 мин
     if $sub is "2" or $sub is "lock"
         $intactCount = 0
         over &doors with *d
@@ -367,7 +319,7 @@ if $choice is "doors" or $choice is "6"
         end
 
         if $intactCount is 0
-            Reply "Ошибка: в этой комнате все двери уже выбиты с петель!"
+            Reply "Ошибка: все двери уже выбиты!"
             stop
         end
 
@@ -385,7 +337,7 @@ if $choice is "doors" or $choice is "6"
 
         LockDoor *targetDoor AdminCommand
         Hint @plr 6s "<size=26><color=#FF8800>МАГНИТНАЯ БЛОКИРОВКА</color></size><br><size=18>Одна из дверей заблокирована на 1 минуту!</size>"
-        Reply "Тест [2/4]: Дверь заблокирована на 1 минуту (осталось целых: {$intactCount})."
+        Reply "Тест [2/4]: Дверь заблокирована на 1 минуту."
         wait 60s
         if {*targetDoor -> isInvalid} is false
             UnlockDoor *targetDoor
@@ -393,7 +345,6 @@ if $choice is "doors" or $choice is "6"
         stop
     end
 
-    # Подрежим 3: Выбить случайную ЦЕЛУЮ ломаемую дверь
     if $sub is "3" or $sub is "break"
         $breakableCount = 0
         over &doors with *d
@@ -403,7 +354,7 @@ if $choice is "doors" or $choice is "6"
         end
 
         if $breakableCount is 0
-            Reply "Ошибка: в этой комнате нет целых ломаемых дверей (они либо уже выбиты, либо это бронированные ворота)."
+            Reply "Ошибка: нет ломаемых дверей."
             stop
         end
 
@@ -420,18 +371,18 @@ if $choice is "doors" or $choice is "6"
         end
 
         BreakDoor *targetDoor
-        Hint @plr 6s "<size=26><color=#FF2200>ДВЕРЬ С ПЕТЕЛЬ!</color></size><br><size=18>Мощный импульс сорвал дверь в комнате!</size>"
-        Reply "Тест [3/4]: Дверь успешно сорвана с петель (оставалось ломаемых: {$breakableCount})."
+        Hint @plr 6s "<size=26><color=#FF2200>ДВЕРЬ С ПЕТЕЛЬ!</color></size><br><size=18>Дверь сорвана!</size>"
+        Reply "Тест [3/4]: Дверь сорвана."
         stop
     end
 
-    Reply "Неизвестный подрежим дверей! Доступно: .testcoin doors 1 (открыть все) | 2 (запереть на 1м) | 3 (выбить) | 4 (рандом)"
+    Reply "Использование: .testcoin doors [1-4]"
     stop
 end
 
 if $choice is "hazard" or $choice is "7"
     Hint @plr 6s "<size=26><color=#FF4500>ОПАСНЫЙ СЮРПРИЗ!</color></size><br><size=18>Под вашими ногами что-то зашипело и покатилось...</size>"
-    $amount = Random 1 5 int
+    $amount = Random 1 4 int
     $hazardType = Random 1 2 int
 
     if $hazardType is 1
@@ -439,7 +390,7 @@ if $choice is "hazard" or $choice is "7"
             *grenade = CreateGrenade GrenadeHE @plr
             SpawnPickupPlayer *grenade @plr
         end
-        Reply "Тест: заспавнено {$amount} активированных боевых гранат."
+        Reply "Тест: заспавнено {$amount} боевых гранат."
     else
         repeat $amount
             *ball = CreatePickup SCP018
