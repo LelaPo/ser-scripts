@@ -1,0 +1,47 @@
+!-- OnEvent InteractingScp330
+-- require @evPlayer
+
+if {Chance 3%}
+    GiveCandy @evPlayer Evil 1
+    Hint @evPlayer 5s "<size=24><color=#8B0000>АНОМАЛЬНАЯ СЛАДОСТЬ</color></size><br><size=18>В чаше вам попалась редкая <color=red>Злая конфета</color>!</size>"
+end
+
+!-- OnEvent UsingItem
+-- require @evPlayer *evUsableItem
+
+if {*evUsableItem -> type} is "SCP330"
+    SetPlayerData @evPlayer "eating_evil" false
+
+    &candies = *evUsableItem -> base -> Candies
+    $targetIndex = *evUsableItem -> base -> SelectedCandyId
+    $currentIndex = 0
+
+    over &candies with $candy
+        if $currentIndex is $targetIndex
+            if $candy is "Evil"
+                SetPlayerData @evPlayer "eating_evil" true
+            end
+            break
+        end
+        $currentIndex = $currentIndex + 1
+    end
+end
+
+!-- OnEvent CancellingUsingItem
+-- require @evPlayer *evUsableItem
+
+if {*evUsableItem -> type} is "SCP330"
+    SetPlayerData @evPlayer "eating_evil" false
+end
+
+!-- OnEvent UsedItem
+-- require @evPlayer *evUsableItem
+
+if {*evUsableItem -> type} is "SCP330"
+    if {GetPlayerData @evPlayer "eating_evil" false} is true
+        SetPlayerData @evPlayer "eating_evil" false
+
+        GiveItem @evPlayer GunA7
+        Hint @evPlayer 6s "<size=26><color=red>ТЁМНЫЙ ПОДАРОК</color></size><br><size=18>Вместо сладкого вкуса в ваших руках материализовался <color=yellow>A7</color>!</size>"
+    end
+end
