@@ -8,9 +8,6 @@ if {Chance 8%}
 
     @target = Take @validScps 1
     SetRole @target Scp3114
-
-    wait 1.5s
-    Cassie jingle "ATTENTIONALLPERSONNEL . SCP 3 1 1 4 CONTAINMENT BREACH DETECTED" "Внимание всему персоналу.<split>Обнаружено нарушение условий содержания: SCP-3114"
 end
 
 !-- CustomCommand scp3114
@@ -33,8 +30,6 @@ if $isRandom is true
         @target = Take @validScps 1
         SetRole @target Scp3114
         Reply "Случайный SCP ({@target -> name}) превращён в SCP-3114!"
-        wait 1.5s
-        Cassie jingle "ATTENTIONALLPERSONNEL . SCP 3 1 1 4 CONTAINMENT BREACH DETECTED" "Внимание всему персоналу.<split>Обнаружено нарушение условий содержания: SCP-3114"
     else
         Reply "Не удалось найти подходящего SCP (нет SCP или только 079)."
     end
@@ -43,5 +38,3 @@ end
 
 SetRole @admin Scp3114
 Reply "Вы превращены в SCP-3114!"
-wait 1.5s
-Cassie jingle "ATTENTIONALLPERSONNEL . SCP 3 1 1 4 CONTAINMENT BREACH DETECTED" "Внимание всему персоналу.<split>Обнаружено нарушение условий содержания: SCP-3114"
